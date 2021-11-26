@@ -13,7 +13,7 @@ while getopts ":hE" opt; do
             HOME_PATH="$HOME/"
             ;;
         E)
-            EXCLUDED_DIRS="-E .cache/"
+            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
