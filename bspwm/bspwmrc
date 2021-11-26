@@ -17,7 +17,7 @@ then
     start-pulseaudio-x11 &
     xautolock -time 25 -locker blurlock &
     redshift -l 57.01:9.58 &
-    gitwatch ~/vimwiki &
+    gitwatch ~/repos/vimwiki &
 fi
 killall picom;
 nitrogen --restore; picom -b &

@@ -181,7 +181,9 @@ ci() {
 }
 
 ciu() {
+    eval `ssh-agent` && ssh-add
     $MRCMDS commit
+    kill $SSH_AGENT_PID
 }
 
 fetch() {
