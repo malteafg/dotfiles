@@ -1,0 +1,46 @@
+#! /bin/sh
+
+# KEYBOARD LAYOUT
+setxkbmap -layout gfkl -variant wokmok_lshift -model pc105 -option altwin:swap_lalt_lwin &
+killall xcape; xcape -e '#66=Escape;#23=Tab' -t 180 &
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# AUTOSTART
+if [[ "$1" = 0 ]] 
+then
+    /home/malte/.config/local/monitorlayout.sh &
+    /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+    nm-applet &
+    xfce4-power-manager &
+    clipit &
+    pa-applet &
+    start-pulseaudio-x11 &
+    xautolock -time 25 -locker blurlock &
+    redshift -l 57.01:9.58 &
+    gitwatch ~/vimwiki &
+fi
+killall picom;
+nitrogen --restore; picom -b &
+killall bspswallow;
+pgrep bspswallow || bspswallow &
+configuremonitors "$1"
+
+# CONFIG
+bspc config border_width         1
+bspc config window_gap           15
+bspc config split_ratio          0.5
+bspc config focused_border_color \#BF616A
+bspc config normal_border_color  \#1c1f24
+bspc config single_monocle       true
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# WINDOW RULES
+bspc config external_rules_command "$HOME/dotfiles/bspwm/external-rules"
+
+bspc rule -a Steam desktop=w
+bspc rule -a discord desktop=d
+bspc rule -a Code desktop=t
+bspc rule -a Guitarix desktop=r
+bspc rule -a Zathura state=tiled
+bspc rule -a float state=floating rectangle=1600x900+0+0 center=true

@@ -1,3 +1,30 @@
-- clean: []
-- link: {}
-- shell: []
+- defaults:
+    link:
+      create: true
+      #relink: true
+      #force: true
+
+- clean: ['~', '~/.config']
+
+- link: 
+    ~/.bashrc: bashrc
+    ~/.inputrc: inputrc
+    ~/.mu_repo: mu_repo
+    ~/.vimrc: vimrc
+    ~/.profile: profile.sh
+    ~/.config/alacritty/alacritty.yml: alacritty.yml
+    ~/.config/Code/User/settings.json: code.json
+    ~/.config/dunst/dunstrc: dunstrc
+    ~/.config/fd/ignore: fdignore
+    ~/.config/nitrogen/nitrogen.cfg: nitrogen.cfg
+    ~/.config/polybar/config: polybar
+    ~/.config/nvim/init.vim: init.vim
+    ~/.config/zathura/zathurarc: zathurarc
+    ~/.config/mimeapps.list: mimeapps.list
+    ~/.config/bspwm/bspwmrc: bspwm/bspwmrc
+    ~/.config/sxhkd/sxhkdrc: sxhkd/sxhkdrc
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - ["vim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
+    - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]

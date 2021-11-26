@@ -1,0 +1,203 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+; vim:ft=dosini
+
+[colors]
+;background = ${xrdb:color0:#222}
+background = #dd1c1f24
+background-alt = #dd3e4451
+;foreground = ${xrdb:color7:#222}
+foreground = #bbc2cf
+foreground-alt = #5b6268
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+red = #bf616a
+green = #a3be8c
+
+[bar/primary]
+monitor = ${env:MONITOR:}
+width = 100%
+height = 27
+;offset-x = 1%
+;offset-y = 1%
+;radius = 6.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 0
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 2
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+;font-2 = "Wuncon Siji:pixelsize=10;1"
+
+modules-left = bspwm
+modules-center = time
+modules-right = xkeyboard temperature battery memory cpu date
+
+;tray-detached = true
+tray-position = right
+tray-padding = 0
+;tray-offset-x = -6.0
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/secondary]
+inherit = bar/primary
+
+[bar/tertiary]
+inherit = bar/primary
+ 
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+
+enable-scroll = false
+reverse-scroll = false
+
+ws-icon-0 = a;a
+ws-icon-1 = s;s
+ws-icon-2 = r;r
+ws-icon-3 = t;t
+ws-icon-4 = u;u
+ws-icon-5 = y;y
+ws-icon-6 = f;f
+ws-icon-7 = w;ste
+ws-icon-8 = d;dis
+ws-icon-9 = j;spo
+ws-icon-10 = v;game
+
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-padding = 2
+
+label-urgent = %icon%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty =
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+label-dimmed-foreground = ${colors.foreground-alt}
+label-dimmed-underline = ${colors.primary}
+label-dimmed-background = ${colors.background-alt}
+label-dimmed-focused-background = ${colors.background-alt}
+
+[module/time]
+type = internal/date
+interval = 1
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline =
+label = %time%
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %d/%m
+date-alt = %d/%m-%Y
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline =
+label = %date%
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+;blacklist-0 = num lock
+
+label-layout = %name%
+label-layout-underline = ${colors.red}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.red}
+label-indicator-underline = ${colors.red}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = CPU%percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %mb_used%
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ACAD
+full-at = 100
+
+format-charging = <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <label-discharging>
+format-discharging-foreground = ${colors.red}
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix-foreground = ${colors.green}
+format-full-underline = ${self.format-charging-underline}
+

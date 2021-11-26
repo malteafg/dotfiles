@@ -1,0 +1,40 @@
+#==============================================================================
+# QWERTY KEYS
+# LAUNCH PROGRAMS
+super + r
+    dmenu_recency
+	#rofi -show run
+
+# MANAGE BSPWM
+# make sxhkd reload its configuration files:
+super + shift + r
+	pkill -USR1 -x sxhkd
+
+# quit/restart bspwm
+super + ctrl + r
+	bspc wm -r
+
+# close and kill
+super + {_,shift + }w
+	bspc node -{c,k}
+
+# MOVEMENT
+# focus the node in the given direction
+super + {_,shift + }{m,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# focus or send to the given desktop
+super + {_,ctrl + }{a,s,d,t,i,o,u,x,c,v,z,semicolon,p}
+	bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,o,x}'
+super + shift + {a,s,d,t,i,o,u,x,c,v,z,semicolon,p}
+    DIR={a,s,r,t,u,y,f,w,d,j,v,o,x}; \
+    bspc node -d "$DIR"; \
+    bspc desktop -f "$DIR"
+
+# preselect the direction
+super + ctrl + {m,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# toggle fullscreen
+super + e
+    bspc node -t \~fullscreen
