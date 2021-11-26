@@ -174,26 +174,22 @@ mvr() {
 }
 
 commit() {
-    config commit -a
     mu commit -a
 }
 
 pull() {
     eval `ssh-agent` && ssh-add
-    config pull
     mu pull
     kill $SSH_AGENT_PID
 }
 
 push() {
     eval `ssh-agent` && ssh-add
-    config push
     mu push
     kill $SSH_AGENT_PID
 }
 
 st () {
-    config status
     mu st
 }
 

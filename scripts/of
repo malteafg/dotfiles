@@ -11,7 +11,7 @@ while getopts ":hE" opt; do
             HOME_PATH="$HOME/"
             ;;
         E)
-            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/ -E .local/lib/ -E .themes/ -E .cache/ -E .cargo/ -E .wine/drive_c/ -E .config/google-chrome/ -E .config/discord/ -E .vscode-oss/ -E .vscode/ -E .config/Code/"
+            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -20,7 +20,7 @@ while getopts ":hE" opt; do
     esac
 done
 
-fd $HOME_DIR -t f -H $EXCLUDED_DIRS | fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
+fd $HOME_DIR -t f $EXCLUDED_DIRS | fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
     fileext=$(echo $line | cut -d. -f2)
     echo $fileext
     case $fileext in
