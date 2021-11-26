@@ -173,24 +173,35 @@ mvr() {
     mv -i "$latest" $([[ "${1##*/}" == *.* ]] && echo "$1" || echo "$1.${latest##*.}")
 }
 
-commit() {
-    mu commit -a
+MRCMD="mr -d /home/malte -i -n 2 -j6"
+MRCMDS="mr -d /home/malte -n 2"
+
+ci() {
+    $MRCMDS record
+}
+
+ciu() {
+    $MRCMDS commit
+}
+
+fetch() {
+    $MRCMD fetch
 }
 
 pull() {
     eval `ssh-agent` && ssh-add
-    mu pull
+    $MRCMD update
     kill $SSH_AGENT_PID
 }
 
 push() {
     eval `ssh-agent` && ssh-add
-    mu push
+    $MRCMD push
     kill $SSH_AGENT_PID
 }
 
 st () {
-    mu st
+    $MRCMD status
 }
 
 copy() {
