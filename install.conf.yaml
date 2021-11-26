@@ -9,8 +9,9 @@
 - link: 
     ~/.bashrc: bashrc
     ~/.inputrc: inputrc
-    ~/.mu_repo: mu_repo
+    ~/.mrconfig: mrconfig
     ~/.vimrc: vimrc
+    ~/.gitconfig: gitconfig
     ~/.profile: profile.sh
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/Code/User/settings.json: code.json

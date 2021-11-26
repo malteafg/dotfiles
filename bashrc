@@ -185,7 +185,9 @@ ciu() {
 }
 
 fetch() {
+    eval `ssh-agent` && ssh-add
     $MRCMD fetch
+    kill $SSH_AGENT_PID
 }
 
 pull() {

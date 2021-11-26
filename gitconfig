@@ -1,0 +1,13 @@
+[alias]
+    a = add
+    aa = add --all
+    ci = commit
+    st = status
+    unstage = reset HEAD
+    undo-commit = reset --soft HEAD^
+[color]
+    ui = auto
+[core]
+    editor = nvim
+[init]
+	defaultBranch = main
