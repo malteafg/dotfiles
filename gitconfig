@@ -11,3 +11,5 @@
     editor = nvim
 [init]
 	defaultBranch = main
+[user]
+	email = 1611-au652256@users.noreply.gitlab.au.dk

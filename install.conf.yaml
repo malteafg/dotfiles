@@ -8,11 +8,12 @@
 
 - link: 
     ~/.bashrc: bashrc
+    ~/.bash_profile: bash_profile
     ~/.inputrc: inputrc
     ~/.mrconfig: mrconfig
     ~/.vimrc: vimrc
     ~/.gitconfig: gitconfig
-    ~/.profile: profile.sh
+    ~/.profile: profile
     ~/.config/alacritty/alacritty.yml: alacritty.yml
     ~/.config/Code/User/settings.json: code.json
     ~/.config/dunst/dunstrc: dunstrc

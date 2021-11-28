@@ -2,6 +2,7 @@
 
 HOME_DIR=""
 HOME_PATH=""
+SEARCH_DIRS=""
 EXCLUDED_DIRS=""
 
 while getopts ":hE" opt; do
@@ -9,9 +10,10 @@ while getopts ":hE" opt; do
         h) 
             HOME_DIR="--base-directory $HOME"
             HOME_PATH="$HOME/"
+            SEARCH_DIRS="dotfiles/ repos/ go/src/"
             ;;
         E)
-            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/"
+            EXCLUDED_DIRS=""
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -20,7 +22,8 @@ while getopts ":hE" opt; do
     esac
 done
 
-fd $HOME_DIR -t f $EXCLUDED_DIRS | fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
+fd . $SEARCH_DIRS $HOME_DIR -H -t f $EXCLUDED_DIRS | 
+    fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
     fileext=$(echo $line | cut -d. -f2)
     echo $fileext
     case $fileext in

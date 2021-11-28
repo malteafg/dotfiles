@@ -106,7 +106,8 @@ export BROWSER="/usr/bin/google-chrome-stable"
 #alias la='ls -A'
 #alias l='ls -CF'
 
-alias vim='nvim'
+alias g='git'
+alias v='nvim'
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
 alias ll='exa -alF --color=always --group-directories-first'

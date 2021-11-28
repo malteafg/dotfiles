@@ -13,7 +13,7 @@ main() {
 			fi
 			;;
 		Spotify)
-			echo "desktop=j"
+			echo "desktop=d"
 			;;
 		"")
                         sleep 0.5

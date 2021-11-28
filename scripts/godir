@@ -13,7 +13,7 @@ while getopts ":hE" opt; do
             HOME_PATH="$HOME/"
             ;;
         E)
-            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/"
+            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/ -E Downloads/ -E MuseScore3/"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -22,5 +22,6 @@ while getopts ":hE" opt; do
     esac
 done
 
-GOTO_DIR=$HOME_PATH$(fd $HOME_DIR -t d -I $EXCLUDED_DIRS | fzf --preview="tree -L 1 $HOME_PATH{}")
+GOTO_DIR=$HOME_PATH$(fd $HOME_DIR -t d -I $EXCLUDED_DIRS |
+    fzf --preview="tree -L 1 $HOME_PATH{}")
 (($?)) || cd "$GOTO_DIR"

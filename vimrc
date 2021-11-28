@@ -5,14 +5,15 @@ set expandtab
 set smartindent
 set incsearch
 set nocompatible
+set noshowmode
 set colorcolumn=81
-set guicursor=i:ver25-iCursor
 filetype plugin on
 syntax on
 set so=12
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'itchyny/lightline.vim'
 Plug 'yggdroot/indentline'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-fugitive'
@@ -20,6 +21,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vimwiki/vimwiki'
+Plug 'romgrk/doom-one.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tmsvg/pear-tree'
 
@@ -36,16 +38,24 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 nnoremap Y y$
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:lightline = {'colorscheme': 'one'}
 
 "COLORS
-let g:gruvbox_invert_selection=0
-let g:gruvbox_contrast_dark='hard'
-set bg=dark
+"let g:gruvbox_invert_selection=0
+"let g:gruvbox_contrast_dark='hard'
+"set bg=dark
 set termguicolors
-colorscheme gruvbox
-hi Normal ctermbg=NONE guibg=NONE
-hi LineNr ctermbg=NONE guibg=NONE
-hi SignColumn ctermbg=NONE guibg=NONE
+"colorscheme gruvbox
+colorscheme doom-one
+hi Normal guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi Folded guibg=NONE ctermbg=NONE
+hi NonText guibg=NONE ctermbg=NONE
+hi SpecialKey guibg=NONE ctermbg=NONE
+hi VertSplit guibg=NONE ctermbg=NONE
+hi SignColumn guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE
 
 "PARENTHESIS COMPLETION
 let g:pear_tree_smart_openers = 1

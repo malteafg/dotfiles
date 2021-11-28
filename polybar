@@ -106,9 +106,11 @@ ws-icon-4 = u;u
 ws-icon-5 = y;y
 ws-icon-6 = f;f
 ws-icon-7 = w;ste
-ws-icon-8 = d;dis
-ws-icon-9 = j;spo
+ws-icon-8 = d;spo
+ws-icon-9 = j;dis
 ws-icon-10 = v;game
+ws-icon-11 = o;o
+ws-icon-12 = x;x
 
 label-focused = %icon%
 label-focused-background = ${colors.background-alt}
@@ -135,7 +137,7 @@ label-dimmed-focused-background = ${colors.background-alt}
 type = internal/date
 interval = 1
 
-time = %H:%M:%S
+time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
