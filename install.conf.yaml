@@ -8,7 +8,6 @@
 
 - link: 
     ~/.bashrc: bashrc
-    ~/.bash_profile: bash_profile
     ~/.inputrc: inputrc
     ~/.mrconfig: mrconfig
     ~/.vimrc: vimrc
