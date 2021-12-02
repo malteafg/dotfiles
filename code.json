@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorTheme": "doom-one",
     "keyboard.dispatch": "keyCode",
     "explorer.autoReveal": false,
     "editor.lineNumbers": "relative",
