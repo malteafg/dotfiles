@@ -7,23 +7,23 @@
 - clean: ['~', '~/.config']
 
 - link: 
-    ~/.bashrc: bashrc
-    ~/.inputrc: inputrc
-    ~/.mrconfig: mrconfig
-    ~/.vimrc: vimrc
-    ~/.gitconfig: gitconfig
-    ~/.profile: profile
-    ~/.config/alacritty/alacritty.yml: alacritty.yml
-    ~/.config/Code/User/settings.json: code.json
-    ~/.config/dunst/dunstrc: dunstrc
-    ~/.config/fd/ignore: fdignore
-    ~/.config/nitrogen/nitrogen.cfg: nitrogen.cfg
-    ~/.config/polybar/config: polybar
-    ~/.config/nvim/init.vim: init.vim
-    ~/.config/zathura/zathurarc: zathurarc
-    ~/.config/mimeapps.list: mimeapps.list
-    ~/.config/bspwm/bspwmrc: bspwm/bspwmrc
-    ~/.config/sxhkd/sxhkdrc: sxhkd/sxhkdrc
+    ~/.bashrc: config/bashrc
+    ~/.inputrc: config/inputrc
+    ~/.mrconfig: config/mrconfig
+    ~/.vimrc: config/vimrc
+    ~/.gitconfig: config/gitconfig
+    ~/.profile: config/profile
+    ~/.config/alacritty/alacritty.yml: config/alacritty.yml
+    ~/.config/Code/User/settings.json: config/code.json
+    ~/.config/dunst/dunstrc: config/dunstrc
+    ~/.config/fd/ignore: config/fdignore
+    ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg
+    ~/.config/polybar/config: config/polybar
+    ~/.config/nvim/init.vim: config/init.vim
+    ~/.config/zathura/zathurarc: config/zathurarc
+    ~/.config/mimeapps.list: config/mimeapps.list
+    ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
+    ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

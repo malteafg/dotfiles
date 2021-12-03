@@ -8,7 +8,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 # AUTOSTART
 if [[ "$1" = 0 ]] 
 then
-    /home/malte/.config/local/monitorlayout.sh &
+    /home/malte/dotfiles/local/monitorlayout.sh &
     /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
     nm-applet &
     xfce4-power-manager &
