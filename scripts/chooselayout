@@ -23,8 +23,8 @@ case "$chosen" in
 esac
 
 [[ "$(setxkbmap -query | grep variant | awk '{print $NF}')" == "wokmok_lshift" ]] &&
-    cat ~/.config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc ||
-    cat ~/.config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
+    cat ~/dotfiles/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc ||
+    cat ~/dotfiles/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
 
 killall sxhkd;
 pgrep -x sxhkd > /dev/null || sxhkd &

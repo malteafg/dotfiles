@@ -36,7 +36,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 # WINDOW RULES
-bspc config external_rules_command "$HOME/dotfiles/bspwm/external-rules"
+bspc config external_rules_command "$HOME/dotfiles/config/bspwm/external-rules"
 
 bspc rule -a Steam desktop=w
 bspc rule -a discord desktop=j
