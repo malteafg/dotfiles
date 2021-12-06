@@ -11,3 +11,5 @@
     editor = nvim
 [init]
 	defaultBranch = main
+[user]
+	email = malteut@gmail.com

@@ -144,8 +144,6 @@ alias audisconnect='/opt/cisco/anyconnect/bin/vpn -s disconnect remote.au.dk/AU-
 alias ciscostate='/opt/cisco/anyconnect/bin/vpn state'
 ciscovpn() { /opt/cisco/anyconnect/bin/vpn "$@"; }
 
-alias config='/usr/bin/git --git-dir=/home/malte/.dotfiles/ --work-tree=/home/malte'
-
 alaopa() {
 	sed -i "s~background_opacity.*~background_opacity: $@~g" .config/alacritty/alacritty.yml
 }
