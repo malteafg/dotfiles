@@ -18,8 +18,8 @@ swallow() {
 	swallowingid=$(bspc query -N -n last)
 
 	if [ "$addedtodesktop" = "$lasttermdesktop" ]; then
-		grep "^$(get_class "$swallowerid")$" ~/dotfiles/bspwm/swallow || return
-		grep "^$(get_class "$swallowingid")$" ~/dotfiles/bspwm/terminals || return
+		grep "^$(get_class "$swallowerid")$" ~/dotfiles/config/bspwm/swallow || return
+		grep "^$(get_class "$swallowingid")$" ~/dotfiles/config/bspwm/terminals || return
 		echo "$swallowerid $swallowingid" >> /tmp/swallowids
 		bspc node "$swallowingid" --flag hidden=on
 	fi

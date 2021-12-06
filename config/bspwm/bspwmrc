@@ -39,6 +39,7 @@ bspc config gapless_monocle      true
 bspc config external_rules_command "$HOME/dotfiles/config/bspwm/external-rules"
 
 bspc rule -a Steam desktop=w
+bspc rule -a Wingspan desktop=v
 bspc rule -a discord desktop=j
 bspc rule -a Code desktop=t
 bspc rule -a Guitarix desktop=r

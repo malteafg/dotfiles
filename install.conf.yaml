@@ -23,7 +23,6 @@
     ~/.config/zathura/zathurarc: config/zathurarc
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
-    ~/.config/sxhkd/sxhkdrc: config/sxhkd/sxhkdrc
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
