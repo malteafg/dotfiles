@@ -13,3 +13,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[user]
+	email = malteut@gmail.com
