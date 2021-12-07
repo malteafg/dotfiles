@@ -22,7 +22,7 @@ while getopts ":hE" opt; do
     esac
 done
 
-fd . $SEARCH_DIRS $HOME_DIR -H -t f $EXCLUDED_DIRS | 
+fd . $SEARCH_DIRS $HOME_DIR -H --no-ignore-vcs -t f $EXCLUDED_DIRS | 
     fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
     fileext=$(echo $line | cut -d. -f2)
     echo $fileext
@@ -52,7 +52,7 @@ fd . $SEARCH_DIRS $HOME_DIR -H -t f $EXCLUDED_DIRS |
                     echo $HOME_PATH$line | xargs -ro -d "\n" nvim
                     ;;
                 *)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" xdg-open 2>&-
+                    echo $HOME_PATH$line | xargs -ro -d "\n" xdg-open 2>&-;
                     ;;
             esac
             ;;

@@ -31,8 +31,11 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 iabbrev </ </<C-X><C-O>
 
 let g:vimwiki_global_ext = 0
-let g:vimwiki_list = [{'path': '~/repos/vimwiki/text/', 'path_html': '~/repos/vimwiki/vimwiki_html/', 
-        \ 'template_path': '~/repos/vimwiki/templates/', 'template_default': 'default'}]
+let g:vimwiki_list = [{
+        \ 'path': '~/repos/vimwiki/text/',
+        \ 'path_html': '~/repos/vimwiki/vimwiki_html/', 
+        \ 'template_path': '~/repos/vimwiki/templates/',
+        \ 'template_default': 'default'}]
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
@@ -63,8 +66,10 @@ let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
 
 "OPEN LINES
-nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>o 
+            \:<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O 
+            \:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 "KEEP CENTER WHEN SEARCHING
 nnoremap n nzzzv

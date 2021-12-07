@@ -23,10 +23,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
@@ -52,67 +48,24 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] \$ '
+    PS1='${debian_chroot:+($debian_chroot)}\
+\[\033[01;32m\]\[\033[00m\]\[\033[01;34m\]\w\[\033[00m\] \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\w \$ '
 fi
 unset color_prompt force_color_prompt
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 export EDITOR='nvim'
 export VISUAL='nvim'
 export BROWSER="/usr/bin/google-chrome-stable"
 
-# aliases
-#alias ll='ls -alF'
-#alias la='ls -A'
-#alias l='ls -CF'
-
+# ALIASES ######################################################################
 alias g='git'
 alias v='nvim'
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
 alias ll='exa -alF --color=always --group-directories-first'
 alias l.='exa -a | egrep "^\."'
-#alias lt='exa -aT --color=always --group-directories-first'
 lt() {
     level=""
     if [ ! -z "$1" ]; then
@@ -122,15 +75,12 @@ lt() {
 }
 
 alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 
 alias ..='cd ..'
 alias ~='cd ~'
 alias rb='source ~/.bashrc'
-
-#alias sxiv='swallow sxiv'
-#alias vlc='swallow vlc'
-#alias arandr='swallow arandr'
-#alias zathura='swallow zathura'
 
 alias sshs='eval `ssh-agent` && ssh-add'
 alias sshq='kill $SSH_AGENT_PID'
@@ -138,38 +88,37 @@ alias sshq='kill $SSH_AGENT_PID'
 #alias cp='cp -i'
 alias mv='mv -i'
 #alias rm='rm -I'
+copy() { xclip -sel c < "$1" }
+paste() { xclip -o > "$1" }
 
-alias auconnect='/opt/cisco/anyconnect/bin/vpn -s connect remote.au.dk/AU-ACCESS'
-alias audisconnect='/opt/cisco/anyconnect/bin/vpn -s disconnect remote.au.dk/AU-ACCESS'
-alias ciscostate='/opt/cisco/anyconnect/bin/vpn state'
-ciscovpn() { /opt/cisco/anyconnect/bin/vpn "$@"; }
+CISCO='/opt/cisco/anyconnect/bin/vpn'
+alias auconnect='$CISCO -s connect remote.au.dk/AU-ACCESS'
+alias audisconnect='$CISCO -s disconnect remote.au.dk/AU-ACCESS'
+alias ciscostate='$CISCO state'
+ciscovpn() { $CISCO "$@"; }
 
 alaopa() {
-	sed -i "s~background_opacity.*~background_opacity: $@~g" .config/alacritty/alacritty.yml
+	sed -i "s~background_opacity.*~background_opacity: $@~g" \
+        .config/alacritty/alacritty.yml
 }
-
-alias mon2cam="~/.deno/bin/deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
-alias mon2cam="deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts"
-
-bind '"\C-f":"of -h -E\n"'
-alias godir='source godir'
-bind '"\C-t":"source godir -h -E\n"'
 
 pac() {
     PACS=$(pacman -Ssq | fzf -m --preview="pacman -Si {}")
     (($?)) || sudo pacman -Syy $PACS
 }
 
-cdn() {
-    mkdir -p -- "$1" && cd -P -- "$1"
-}
+bind '"\C-f":"of -h -E\n"'
+alias godir='source godir'
+bind '"\C-t":"source godir -h -E\n"'
+cdn() { mkdir -p -- "$1" && cd -P -- "$1" }
 
 mvr() {
     unset -v latest
     for file in ~/{Downloads,Pictures}/*; do
       [[ $file -nt $latest ]] && latest=$file
     done
-    mv -i "$latest" $([[ "${1##*/}" == *.* ]] && echo "$1" || echo "$1.${latest##*.}")
+    mv -i "$latest" $([[ "${1##*/}" == *.* ]] \
+        && echo "$1" || echo "$1.${latest##*.}")
 }
  
 ex ()
@@ -197,12 +146,12 @@ ex ()
   fi
 }
 
+# GIT STUFF ####################################################################
 MRCMD="mr -d /home/malte -i -n 2 -j6"
 MRCMDS="mr -d /home/malte -n 2"
 
-ci() {
-    $MRCMDS record
-}
+ci() { $MRCMDS record }
+st () { $MRCMD status }
 
 ciu() {
     eval `ssh-agent` && ssh-add
@@ -226,16 +175,4 @@ push() {
     eval `ssh-agent` && ssh-add
     $MRCMD push
     kill $SSH_AGENT_PID
-}
-
-st () {
-    $MRCMD status
-}
-
-copy() {
-    xclip -sel c < "$1"
-}
-
-paste() {
-    xclip -o > "$1"
 }
