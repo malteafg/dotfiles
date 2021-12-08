@@ -88,8 +88,8 @@ alias sshq='kill $SSH_AGENT_PID'
 #alias cp='cp -i'
 alias mv='mv -i'
 #alias rm='rm -I'
-copy() { xclip -sel c < "$1" }
-paste() { xclip -o > "$1" }
+copy() { xclip -sel c < "$1"; }
+paste() { xclip -o > "$1"; }
 
 CISCO='/opt/cisco/anyconnect/bin/vpn'
 alias auconnect='$CISCO -s connect remote.au.dk/AU-ACCESS'
@@ -110,7 +110,7 @@ pac() {
 bind '"\C-f":"of -h -E\n"'
 alias godir='source godir'
 bind '"\C-t":"source godir -h -E\n"'
-cdn() { mkdir -p -- "$1" && cd -P -- "$1" }
+cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 mvr() {
     unset -v latest
@@ -121,8 +121,7 @@ mvr() {
         && echo "$1" || echo "$1.${latest##*.}")
 }
  
-ex ()
-{
+ex () {
   if [ -f "$1" ] ; then
     case $1 in
       *.tar.bz2)   tar xjf $1   ;;
@@ -150,8 +149,8 @@ ex ()
 MRCMD="mr -d /home/malte -i -n 2 -j6"
 MRCMDS="mr -d /home/malte -n 2"
 
-ci() { $MRCMDS record }
-st () { $MRCMD status }
+ci() { $MRCMDS record; }
+st () { $MRCMD status; }
 
 ciu() {
     eval `ssh-agent` && ssh-add
@@ -176,3 +175,4 @@ push() {
     $MRCMD push
     kill $SSH_AGENT_PID
 }
+
