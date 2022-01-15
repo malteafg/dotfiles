@@ -38,3 +38,8 @@ super + ctrl + {h,n,e,i}
 # toggle fullscreen
 super + l
     bspc node -t \~fullscreen
+
+# tools
+super + {_, shift +} apostrophe
+    alacritty --class float,float -e {ranger,htop}
+
