@@ -23,6 +23,7 @@
     ~/.config/zathura/zathurarc: config/zathurarc
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
+    ~/.config/qutebrowser/config.py: config/qute.py
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

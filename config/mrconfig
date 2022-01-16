@@ -16,3 +16,6 @@ checkout = git clone 'git@github.com:malteafg/vimwiki.git' 'vimwiki'
 
 [dotfiles]
 checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
+
+[.password-store]
+checkout = git clone 'git@github.com:Malteafg/passwords.git' '.password-store'

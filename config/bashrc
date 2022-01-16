@@ -62,6 +62,7 @@ export BROWSER="/usr/bin/google-chrome-stable"
 # ALIASES ######################################################################
 alias g='git'
 alias v='nvim'
+alias sv='sudo -E nvim'
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
 alias ll='exa -alF --color=always --group-directories-first'
