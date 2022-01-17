@@ -8,7 +8,7 @@ super + m
 # MANAGE BSPWM
 # make sxhkd reload its configuration files:
 super + shift + m
-	pkill -USR1 -x sxhkd
+    pkill -USR1 -x sxhkd
 
 # quit/restart bspwm
 super + ctrl + m
@@ -38,8 +38,3 @@ super + ctrl + {h,n,e,i}
 # toggle fullscreen
 super + l
     bspc node -t \~fullscreen
-
-# tools
-super + {_, shift +} apostrophe
-    alacritty --class float,float -e {ranger,htop}
-

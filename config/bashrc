@@ -153,12 +153,6 @@ MRCMDS="mr -d /home/malte -n 2"
 ci() { $MRCMDS record; }
 st () { $MRCMD status; }
 
-ciu() {
-    eval `ssh-agent` && ssh-add
-    $MRCMDS commit
-    kill $SSH_AGENT_PID
-}
-
 fetch() {
     eval `ssh-agent` && ssh-add
     $MRCMD fetch

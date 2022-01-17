@@ -11,11 +11,20 @@ super + {_, shift +} g
 super + space
     alacritty -e of -h -E
 
+super + {_, shift +} asciitilde
+    {dmenumount, dmenuunmount}
+
 super + {shift, ctrl} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
 
 super + bracketleft
     maim -s -u | xclip -selection clipboard -t image/png
+
+super + bracketright
+    passmenu
+
+super + {_, shift +} apostrophe
+    alacritty --class float,float -e {ranger,htop}
 
 # MANAGE BSPWM
 super + q
