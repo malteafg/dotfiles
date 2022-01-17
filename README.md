@@ -1,6 +1,6 @@
 Dotfiles
 =================
-A repository with configuration files and scripts that i use. Managed using 
+A repository with configuration files and scripts that I use. Managed using 
 [Dotbot][dotbot]. Based on [dotfiles_template][template].
 
 License
