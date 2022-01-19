@@ -2,9 +2,6 @@
 [repos/gfkl]
 checkout = git clone 'git@github.com:malteafg/gfkl.git' 'gfkl'
 
-[repos/musicnotes]
-checkout = git clone 'git@github.com:malteafg/musicnotes.git' 'musicnotes'
-
 [repos/proj]
 checkout = git clone 'git@github.com:malteafg/proj.git' 'proj'
 
@@ -19,3 +16,6 @@ checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
 
 [.password-store]
 checkout = git clone 'git@github.com:Malteafg/passwords.git' '.password-store'
+
+[repos/files]
+checkout = git clone 'git@github.com:malteafg/files.git' 'files'
