@@ -131,7 +131,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 ## Type: Dict
 c.url.searchengines = {
         'DEFAULT': 'https://duckduckgo.com/?q={}',
-        'y': 'https://www.youtube.com/results?search_query={}'
+        'y': 'https://www.youtube.com/results?search_query={}',
         'g': 'https://www.google.com/search?hl=en&q={}',
         }
 # c.url.searchengines = {
