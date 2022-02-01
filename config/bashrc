@@ -171,3 +171,4 @@ push() {
     kill $SSH_AGENT_PID
 }
 
+. "$HOME/.cargo/env"
