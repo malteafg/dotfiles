@@ -10,7 +10,7 @@ while getopts ":hE" opt; do
         h) 
             HOME_DIR="--base-directory $HOME"
             HOME_PATH="$HOME/"
-            SEARCH_DIRS="dotfiles/ repos/ go/src/"
+            SEARCH_DIRS="dotfiles/ repos/"
             ;;
         E)
             EXCLUDED_DIRS=""

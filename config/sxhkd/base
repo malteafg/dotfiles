@@ -14,11 +14,8 @@ super + space
 super + {_, shift +} asciitilde
     {dmenumount, dmenuunmount}
 
-super + {shift, ctrl} + bracketleft
+super + {_, shift} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
-
-super + bracketleft
-    maim -s -u | xclip -selection clipboard -t image/png
 
 super + bracketright
     passmenu

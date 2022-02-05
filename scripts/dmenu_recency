@@ -19,7 +19,7 @@ if [ -z "$TERMINAL_CMD" ]; then
   elif [ "$(which terminator)" ]; then
   TERMINAL_CMD="terminator -e"
   elif [ "$(which gnome-terminal)" ]; then
-  TERMINAL_CMD="gnome-terminal --"
+  TERMINAL_CMD="gnome-terminal -e"
   elif [ "$(which lxterminal)" ]; then
   TERMINAL_CMD="lxterminal -e"
   elif [ "$(which sakura)" ]; then
@@ -31,7 +31,7 @@ if [ -z "$TERMINAL_CMD" ]; then
   fi
 fi
 
-dmenu_cmd="dmenu $DMENU_OPTIONS -l 10 -y 200 -x 400 -w 1120"
+dmenu_cmd="dmenu $DMENU_OPTIONS"
 max_recent=199 # Number of recent commands to track
 
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-recent"
@@ -49,7 +49,7 @@ GREP_OPTIONS='--color=never'
 
 IFS=:
 if stest -dqr -n "$rest_cache" $PATH 2>/dev/null; then
-    stest -flx $PATH | sort -u | grep -vxFf "$recent_cache" > "$rest_cache"
+    stest -flx $PATH | sort -u | grep -vf "$recent_cache" > "$rest_cache"
 fi
 
 IFS=" "
@@ -97,4 +97,4 @@ fi
 [[ "$type" = "background" ]] && exec $cmd
 [[ "$type" = "terminal" ]] && exec $TERMINAL_CMD "$cmd"
 [[ "$type" = "terminal_hold" ]] &&
-    exec $TERMINAL_CMD sh -c "$cmd ; echo Press Enter to kill me... ; read line"
+    exec $TERMINAL_CMD sh -c "$cmd && echo Press Enter to kill me... && read line"

@@ -98,10 +98,10 @@ alias audisconnect='$CISCO -s disconnect remote.au.dk/AU-ACCESS'
 alias ciscostate='$CISCO state'
 ciscovpn() { $CISCO "$@"; }
 
-alaopa() {
-	sed -i "s~background_opacity.*~background_opacity: $@~g" \
-        .config/alacritty/alacritty.yml
-}
+#alaopa() {
+	#sed -i "s~background_opacity.*~background_opacity: $@~g" \
+        #.config/alacritty/alacritty.yml
+#}
 
 pac() {
     PACS=$(pacman -Ssq | fzf -m --preview="pacman -Si {}")

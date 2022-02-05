@@ -1,8 +1,8 @@
 - defaults:
     link:
       create: true
-      #relink: true
-      #force: true
+      relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
@@ -12,7 +12,8 @@
     ~/.mrconfig: config/mrconfig
     ~/.vimrc: config/vimrc
     ~/.gitconfig: config/gitconfig
-    ~/.profile: config/profile
+    ~/.bash_profile: config/bash_profile
+    ~/.xinitrc: config/initrc
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/Code/User/settings.json: config/code.json
     ~/.config/dunst/dunstrc: config/dunstrc
@@ -27,5 +28,4 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - ["vim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
     - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
