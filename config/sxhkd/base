@@ -11,9 +11,6 @@ super + {_, shift +} g
 super + space
     alacritty -e of -h -E
 
-super + {_, shift +} asciitilde
-    {dmenumount, dmenuunmount}
-
 super + {_, shift} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
 
