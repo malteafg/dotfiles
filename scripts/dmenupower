@@ -1,0 +1,18 @@
+#! /bin/bash
+
+choice=$(echo "lock
+logout
+poweroff
+reboot" |
+    dmenu -i -c -fn 'pixelsize=20' -l 4)
+
+case $choice in
+    lock)
+        xautolock -locknow;;
+    logout)
+        bspc quit;;
+    poweroff)
+        poweroff;;
+    reboot)
+        reboot;;
+esac

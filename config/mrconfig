@@ -17,5 +17,5 @@ checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
 [.password-store]
 checkout = git clone 'git@github.com:Malteafg/passwords.git' '.password-store'
 
-[repos/files]
+[files]
 checkout = git clone 'git@github.com:malteafg/files.git' 'files'

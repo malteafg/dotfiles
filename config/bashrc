@@ -109,6 +109,7 @@ pac() {
 }
 
 bind '"\C-f":"of -h -E\n"'
+#bind '"\C-f":"dmenuof -hE > /dev/null 2>&1 &"'
 alias godir='source godir'
 bind '"\C-t":"source godir -h -E\n"'
 cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }

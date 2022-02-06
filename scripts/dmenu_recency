@@ -4,11 +4,6 @@
 # Pretty much re-written by Mina Nagy (mnzaki)
 # Edited by Chrysostomus to create/source .dmenurc
 
-if ! [ -f "$HOME/.dmenurc" ]; then
-	cp /usr/share/dmenu/dmenurc $HOME/.dmenurc
-fi
-. $HOME/.dmenurc
-
 if [ -z "$TERMINAL_CMD" ]; then
   if [ "$(which terminal)" ]; then
   TERMINAL_CMD="terminal -e"
@@ -31,7 +26,7 @@ if [ -z "$TERMINAL_CMD" ]; then
   fi
 fi
 
-dmenu_cmd="dmenu $DMENU_OPTIONS"
+dmenu_cmd="dmenu -i -c -fn 'pixelsize=15' -l 15"
 max_recent=199 # Number of recent commands to track
 
 cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/dmenu-recent"

@@ -10,10 +10,10 @@ while getopts ":hE" opt; do
         h) 
             HOME_DIR="--base-directory $HOME"
             HOME_PATH="$HOME/"
-            SEARCH_DIRS="dotfiles/ repos/"
+            SEARCH_DIRS="dotfiles/ repos/ files/"
             ;;
         E)
-            EXCLUDED_DIRS=""
+            EXCLUDED_DIRS="-E files/minecraft/"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -25,13 +25,13 @@ done
 fd . $SEARCH_DIRS $HOME_DIR -H --no-ignore-vcs -t f $EXCLUDED_DIRS | 
     fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
     fileext=$(echo $line | cut -d. -f2)
-    echo $fileext
+    echo $line
     case $fileext in
         link)
             echo $(cat $HOME_PATH$line) | xargs -ro -d "\n" $BROWSER
             ;;
         pdf)
-            echo $HOME_PATH$line | xargs -ro -d "\n" zathura
+            echo $HOME_PATH$line | nohup xargs -ro -d "\n" zathura; exit
             ;;
         wiki)
             echo $HOME_PATH$line | xargs -ro -d "\n" nvim

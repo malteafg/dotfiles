@@ -9,7 +9,8 @@ super + {_, shift +} g
     google-chrome-stable {_,-incognito}
 
 super + space
-    alacritty -e of -h -E
+    dmenuof -hE
+    #alacritty -e of -h -E
 
 super + {_, shift} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
@@ -22,7 +23,8 @@ super + {_, shift +} apostrophe
 
 # MANAGE BSPWM
 super + q
-    rofi -show power-menu -modi power-menu:rofi-power-menu
+    dmenupower
+    #rofi -show power-menu -modi power-menu:rofi-power-menu
 
 super + BackSpace
     switchlayout

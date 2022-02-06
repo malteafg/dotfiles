@@ -1,18 +1,12 @@
 #! /bin/sh
 
-# AUTOSTART
-if [[ "$1" = 0 ]] 
-then
-    redshift -l 57.01:9.58 &
-fi
-
 killall sxhkd
 pgrep -x sxhkd > /dev/null || sxhkd &
 killall picom;
-nitrogen --restore; picom -b &
-killall bspswallow;
-pgrep bspswallow || bspswallow &
-configuremonitors "$1"
+picom -b &
+#killall bspswallow;
+#pgrep bspswallow || bspswallow &
+configureworkspaces "$1"
 
 # CONFIG
 bspc config border_width         1
