@@ -8,9 +8,8 @@ super + Return
 super + {_, shift +} g
     google-chrome-stable {_,-incognito}
 
-super + space
-    dmenuof -hE
-    #alacritty -e of -h -E
+super + {_, shift +} space
+    ofwrapper {_,-d}
 
 super + {_, shift} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png

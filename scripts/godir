@@ -1,27 +1,6 @@
 #!/bin/bash
 
-HOME_DIR=""
-HOME_PATH=""
-EXCLUDED_DIRS=""
+of "$@"
 
-OPTIND=1
-
-while getopts ":hE" opt; do
-    case $opt in
-        h) 
-            HOME_DIR="--base-directory $HOME"
-            HOME_PATH="$HOME/"
-            ;;
-        E)
-            EXCLUDED_DIRS="-E go/bin/ -E go/pkg/ -E MuseScore3/"
-            ;;
-        \?)
-            echo "Invalid option: -$OPTARG" >&2
-            exit
-            ;;
-    esac
-done
-
-GOTO_DIR=$HOME_PATH$(fd $HOME_DIR -t d -I $EXCLUDED_DIRS |
-    fzf --preview="tree -L 1 $HOME_PATH{}")
-(($?)) || cd "$GOTO_DIR"
+dir=`cat ~/.cache/ofcmd`
+cd "$dir"

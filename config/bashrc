@@ -88,6 +88,7 @@ alias sshq='kill $SSH_AGENT_PID'
 
 #alias cp='cp -i'
 alias mv='mv -i'
+mvsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
 #alias rm='rm -I'
 copy() { xclip -sel c < "$1"; }
 paste() { xclip -o > "$1"; }
@@ -108,10 +109,10 @@ pac() {
     (($?)) || sudo pacman -Syy $PACS
 }
 
-bind '"\C-f":"of -h -E\n"'
+bind '"\C-f":"of -he\n"'
 #bind '"\C-f":"dmenuof -hE > /dev/null 2>&1 &"'
 alias godir='source godir'
-bind '"\C-t":"source godir -h -E\n"'
+bind '"\C-t":"source godir -hed\n"'
 cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 mvr() {

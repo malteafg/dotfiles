@@ -4,16 +4,24 @@ HOME_DIR=""
 HOME_PATH=""
 SEARCH_DIRS=""
 EXCLUDED_DIRS=""
+NEWWINDOW="0"
+DIR="0"
 
-while getopts ":hE" opt; do
+while getopts ":hend" opt; do
     case $opt in
         h) 
             HOME_DIR="--base-directory $HOME"
             HOME_PATH="$HOME/"
             SEARCH_DIRS="dotfiles/ repos/ files/"
             ;;
-        E)
-            EXCLUDED_DIRS="-E files/minecraft/"
+        e)
+            EXCLUDED_DIRS="-E files/minecraft/ -E files/dotbot/ -E dotfiles/dotbot/"
+            ;;
+        n)
+            NEWWINDOW="1"
+            ;;
+        d)
+            DIR="1"
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -22,39 +30,57 @@ while getopts ":hE" opt; do
     esac
 done
 
-fd . $SEARCH_DIRS $HOME_DIR -H --no-ignore-vcs -t f $EXCLUDED_DIRS | 
-    fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
-    fileext=$(echo $line | cut -d. -f2)
-    echo $line
+send () {
+    echo "$1" >> ~/.cache/ofcmd
+}
+
+sendfile () {
+    fileext=$(echo $1 | cut -d. -f2)
+    path="$HOME_PATH$1"
     case $fileext in
         link)
-            echo $(cat $HOME_PATH$line) | xargs -ro -d "\n" $BROWSER
-            ;;
+            echo $(cat $path) | xargs -ro -d "\n" $BROWSER;;
         pdf)
-            echo $HOME_PATH$line | nohup xargs -ro -d "\n" zathura; exit
-            ;;
-        wiki)
-            echo $HOME_PATH$line | xargs -ro -d "\n" nvim
-            ;;
+            send "zathura --fork $path";;
         *)
-            filetype=$(file --mime-type $HOME_PATH$line | cut -d\  -f2)
+            filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
-                text*)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" nvim
-                    ;;
+                text*|*json*)
+                    send "alacritty -e nvim $path";;
                 image*)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" sxiv
-                    ;;
+                    echo $path | xargs -ro -d "\n" sxiv;;
                 audio*|video*)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" vlc
-                    ;;
-                *json*)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" nvim
-                    ;;
+                    echo $path | xargs -ro -d "\n" vlc;;
                 *)
-                    echo $HOME_PATH$line | xargs -ro -d "\n" xdg-open 2>&-;
+                    echo $path | xargs -ro -d "\n" xdg-open 2>&-;
                     ;;
             esac
             ;;
     esac
-done
+}
+
+findfile () {
+    fd . $SEARCH_DIRS $HOME_DIR -t f $EXCLUDED_DIRS | 
+        fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
+        sendfile "$line"
+    done
+
+    if [ "$NEWWINDOW" -eq "0" ]; then
+        cmd=`cat ~/.cache/ofcmd`
+        ccmd=${cmd#"alacritty -e "}
+        $ccmd
+    fi
+}
+
+finddir () {
+    path=$(fd $HOME_DIR -t d -I $EXCLUDED_DIRS |
+        fzf --preview="tree -L 1 $HOME_PATH{}")
+    [[ ! -z "${path}" ]] && echo "$HOME_PATH$path" >> ~/.cache/ofcmd
+}
+
+> ~/.cache/ofcmd
+if [ "$DIR" -eq "0" ]; then
+    findfile
+else
+    finddir
+fi

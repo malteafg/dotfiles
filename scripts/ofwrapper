@@ -1,0 +1,27 @@
+#!/bin/bash
+
+file () {
+    alacritty --class float,float -e of -hen
+    cmd=`cat ~/.cache/ofcmd`
+    $cmd &
+}
+
+dir () {
+    alacritty --class float,float -e of -hend
+    path=`cat ~/.cache/ofcmd`
+    [ -n "$path" ] && alacritty --working-directory "$path"
+}
+
+DIR="0"
+while getopts ":d" opt; do
+    case $opt in
+        d)
+            DIR="1";;
+    esac
+done
+
+if [ "$DIR" -eq "0" ]; then
+    file
+else
+    dir
+fi

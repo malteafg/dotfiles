@@ -1,12 +1,10 @@
 #!/bin/bash
 
-. $HOME/.dmenurc
-
 layouts="wokmok
 qwerty
 us
 danish"
-chosen="$(echo "$layouts" | dmenu $DMENU_OPTIONS -i -l 10 -y 200 -x 400 -w 1120 -p "Choose Layout:")" || exit 1
+chosen="$(echo "$layouts" | dmenu -i -c -fn 'pixelsize=20' -l 4 -p "Layout:")" || exit 1
 
 killall -q xcape
 killall sxhkd
