@@ -1,13 +1,13 @@
 #!/bin/bash
 
 file () {
-    alacritty --class float,float -e of -hen
+    alacritty --class float,float -e of "$@"
     cmd=`cat ~/.cache/ofcmd`
     $cmd &
 }
 
 dir () {
-    alacritty --class float,float -e of -hend
+    alacritty --class float,float -e of "$@" -d
     path=`cat ~/.cache/ofcmd`
     [ -n "$path" ] && alacritty --working-directory "$path"
 }
@@ -21,7 +21,7 @@ while getopts ":d" opt; do
 done
 
 if [ "$DIR" -eq "0" ]; then
-    file
+    file "$@"
 else
-    dir
+    dir "$@"
 fi

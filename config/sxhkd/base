@@ -5,11 +5,14 @@
 super + Return
 	alacritty
 
+super + shift + Return
+    ofwrapper -hend
+
 super + {_, shift +} g
     google-chrome-stable {_,-incognito}
 
 super + {_, shift +} space
-    ofwrapper {_,-d}
+    ofwrapper {-hen,-n}
 
 super + {_, shift} + bracketleft
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
