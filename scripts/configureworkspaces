@@ -3,7 +3,7 @@
 MON1="a s r t v"
 MON2="u y f w d j"
 MON3="x o"
-readarray -t MONITORS < $HOME/dotfiles/local/monitorconf
+readarray -t MONITORS < $MON_CONF
 xrandr --output ${MONITORS[0]} --primary
 
 currdesk="a"

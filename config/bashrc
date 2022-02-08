@@ -88,7 +88,7 @@ alias sshq='kill $SSH_AGENT_PID'
 
 #alias cp='cp -i'
 alias mv='mv -i'
-mvsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
+rmsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
 #alias rm='rm -I'
 copy() { xclip -sel c < "$1"; }
 paste() { xclip -o > "$1"; }

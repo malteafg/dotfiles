@@ -1,16 +1,23 @@
 #! /bin/sh
 
-/home/malte/dotfiles/local/monitorlayout.sh
+# Monitor setup
+export WALLPAPER_DIR="$HOME/files/wallpapers"
+export MON_CONF="$HOME/.local/share/monitorconf"
+export MON_SCRIPT="$HOME/.local/share/monitorscript"
+$MON_SCRIPT
 
+# Config
 xset r rate 200 25
+amixer sset 'Master' 80%
+
+# Autostart
 xautolock -time 25 -locker 'i3lock -c 1c1f24' &
 redshift -l 57.01:9.58 &
+gitwatch ~/repos/vimwiki &
 
-# KEYBOARD LAYOUT
+# Keyboard Layout
 setxkbmap -layout gfkl -variant wokmok_lshift \
     -model pc105 -option altwin:swap_lalt_lwin &
 xcape -e '#66=Escape;#23=Tab' -t 180 &
-
-gitwatch ~/repos/vimwiki &
 
 exec bspwm

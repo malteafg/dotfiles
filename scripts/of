@@ -60,8 +60,9 @@ sendfile () {
 }
 
 findfile () {
+    preview="bat --color=always --style=numbers --line-range=:500 $HOME_PATH{}"
     fd . $SEARCH_DIRS $HOME_DIR -t f $EXCLUDED_DIRS | 
-        fzf -m --preview="head -30 $HOME_PATH{}" | while read line ; do
+        fzf -m --preview="$preview" | while read line ; do
         sendfile "$line"
     done
 

@@ -1,0 +1,8 @@
+#! /bin/bash
+
+files="$(ls $HOME/dotfiles/monitorlayouts/)"
+chosen="$(echo "$files" | dmenu -i -c -fn 'pixelsize=20' -l 10 -p "Layout:")" || exit 1
+
+rm $MON_SCRIPT
+ln -s $HOME/dotfiles/monitorlayouts/$chosen $MON_SCRIPT
+$MON_SCRIPT

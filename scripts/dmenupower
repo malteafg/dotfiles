@@ -12,7 +12,7 @@ case $choice in
     logout)
         bspc quit;;
     poweroff)
-        poweroff;;
+        sudo poweroff;;
     reboot)
-        reboot;;
+        sudo reboot;;
 esac

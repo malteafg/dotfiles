@@ -1,0 +1,11 @@
+#!/bin/sh
+xrandr \
+    --output DP-0 --primary --mode 2560x1440 --rate 164.83 \
+    --pos 0x0 --rotate normal \
+    --output DVI-D-0 --off --output HDMI-0 --off \
+    --output DP-1 --off --output DP-2 --off --output DP-3 --off \
+    --output DP-4 --off --output DP-5 --off
+
+xwallpaper --output DP-0 --center $WALLPAPER_DIR/moon-1440p.jpg
+
+echo "DP-0" > $MON_CONF
