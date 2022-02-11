@@ -60,6 +60,10 @@ hi SignColumn guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi CursorLineNr guibg=NONE ctermbg=NONE
 
+"COMMENTING
+nmap <C-_> <leader>c<Space>
+vmap <C-_> <leader>c<Space>
+
 "PARENTHESIS COMPLETION
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1

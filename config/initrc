@@ -8,7 +8,6 @@ $MON_SCRIPT
 
 # Config
 xset r rate 200 25
-amixer sset 'Master' 80%
 
 # Autostart
 xautolock -time 25 -locker 'i3lock -c 1c1f24' &
