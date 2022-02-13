@@ -37,6 +37,12 @@ super + shift BackSpace
 super + ctrl + BackSpace
     chooselayout
 
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
 # MOVEMENT
 # cancel the preselection for the focused node
 super + Escape

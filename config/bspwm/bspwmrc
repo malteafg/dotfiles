@@ -1,13 +1,15 @@
 #! /bin/sh
 
-killall sxhkd
+killall sxhkd;
 pgrep -x sxhkd > /dev/null || sxhkd &
 killall picom;
 picom -b &
 #killall bspswallow;
 #pgrep bspswallow || bspswallow &
 configureworkspaces "$1"
-amixer sset 'Master' 80%
+
+killall nm-applet;
+nm-applet &
 
 # CONFIG
 bspc config border_width         1
