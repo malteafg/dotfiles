@@ -1,15 +1,21 @@
 #! /bin/sh
 
-killall sxhkd;
-pgrep -x sxhkd > /dev/null || sxhkd &
-killall picom;
-picom -b &
-#killall bspswallow;
-#pgrep bspswallow || bspswallow &
-configureworkspaces "$1"
+if [[ "$1" = 0 ]]
+then
+    pgrep -x sxhkd > /dev/null || sxhkd &
+    xcape -e '#66=Escape;#23=Tab' -t 180 &
 
-killall nm-applet;
-nm-applet &
+    picom -b &
+    nm-applet &
+    #killall bspswallow;
+    #pgrep bspswallow || bspswallow &
+    #amixer -q sset 'Master' 80%
+else
+    killall picom
+    picom -b &
+fi
+
+configureworkspaces "$1"
 
 # CONFIG
 bspc config border_width         1

@@ -20,9 +20,6 @@ super + {_, shift} + bracketleft
 super + bracketright
     passmenu
 
-super + {_, shift +} apostrophe
-    alacritty --class float,float -e {ranger,htop}
-
 # MANAGE BSPWM
 super + q
     dmenupower
@@ -31,7 +28,7 @@ super + q
 super + BackSpace
     switchlayout
 
-super + shift BackSpace
+super + shift + BackSpace
     selectmon
 
 super + ctrl + BackSpace
@@ -43,7 +40,23 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     xbacklight -dec 10
 
+XF86AudioMute
+    amixer -q sset Master toggle
+
+XF86AudioRaiseVolume
+    amixer -q sset Master 5%+
+
+XF86AudioLowerVolume
+    amixer -q sset Master 5%-
+
 # MOVEMENT
+super + slash
+    bspc node -s biggest.window.local || \
+    bspc node -s last.local
+
+super + Tab
+    bspc node -f prev.local
+
 # cancel the preselection for the focused node
 super + Escape
     bspc node -p cancel

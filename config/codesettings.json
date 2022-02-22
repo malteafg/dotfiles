@@ -4,7 +4,6 @@
     "explorer.autoReveal": false,
     "editor.lineNumbers": "relative",
     "vim.useSystemClipboard": true,
-    "go.toolsManagement.autoUpdate": true,
     "editor.minimap.enabled": false,
     "editor.rulers": [80]
 }

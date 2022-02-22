@@ -5,6 +5,12 @@ super + r
     dmenu_recency
 	#rofi -show run
 
+super + {_, shift +} p
+    alacritty --class float,float {-e python3,_}
+
+super + {_, shift +} semicolon
+    alacritty --class float,float -e {htop,ranger}
+
 # MANAGE BSPWM
 # make sxhkd reload its configuration files:
 super + shift + r
@@ -24,9 +30,9 @@ super + {_,shift + }{m,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + {_,ctrl + }{a,s,d,f,i,o,u,x,c,v,z,semicolon,p}
+super + {_,ctrl + }{a,s,d,f,i,o,u,x,c,v,z,apostrophe,minus}
 	bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,o,x}'
-super + shift + {a,s,d,f,i,o,u,x,c,v,z,semicolon,p}
+super + shift + {a,s,d,f,i,o,u,x,c,v,z,apostrophe,minus}
     DIR={a,s,r,t,u,y,f,w,d,j,v,o,x}; \
     bspc node -d "$DIR"; \
     bspc desktop -f "$DIR"
@@ -36,5 +42,5 @@ super + ctrl + {m,j,k,l}
     bspc node -p {west,south,north,east}
 
 # toggle fullscreen
-super + e
-    bspc node -t \~fullscreen
+super + {_,shift + }e
+    bspc node -t {\~floating,\~fullscreen}

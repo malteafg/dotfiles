@@ -1,8 +1,8 @@
 - defaults:
     link:
       create: true
-      #relink: true
-      #force: true
+      relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
@@ -15,7 +15,8 @@
     ~/.bash_profile: config/bash_profile
     ~/.xinitrc: config/initrc
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
-    ~/.config/Code/User/settings.json: config/code.json
+    ~/.config/Code/User/settings.json: config/codesettings.json
+    ~/.config/Code/User/keybindings.json: config/codekeybindings.json
     ~/.config/dunst/dunstrc: config/dunstrc
     ~/.config/fd/ignore: config/fdignore
     ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg

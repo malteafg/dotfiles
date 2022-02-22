@@ -17,6 +17,5 @@ gitwatch ~/repos/vimwiki &
 # Keyboard Layout
 setxkbmap -layout gfkl -variant wokmok_lshift \
     -model pc105 -option altwin:swap_lalt_lwin &
-xcape -e '#66=Escape;#23=Tab' -t 180 &
 
 exec bspwm

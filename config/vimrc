@@ -24,6 +24,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'romgrk/doom-one.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tmsvg/pear-tree'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh'
+    \ }
+Plug 'junegunn/fzf'
 
 call plug#end()
 
@@ -36,6 +41,10 @@ let g:vimwiki_list = [{
         \ 'path_html': '~/repos/vimwiki/vimwiki_html/', 
         \ 'template_path': '~/repos/vimwiki/templates/',
         \ 'template_default': 'default'}]
+
+let g:LanguageClient_serverCommands = {
+        \ 'rust': ['rust-analyzer'],
+        \ }
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
