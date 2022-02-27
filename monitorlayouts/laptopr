@@ -1,0 +1,9 @@
+#!/bin/sh
+xrandr --output eDP --mode 1920x1080 --pos 0x0 --rotate normal \
+    --output HDMI-A-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal
+
+xwallpaper --output eDP --zoom $WALLPAPER_DIR/fractal-1440p.jpg
+xwallpaper --output HDMI-A-0 --zoom $WALLPAPER_DIR/moon-1440p.jpg
+
+echo "HDMI-A-0" > $MON_CONF
+echo "eDP" >> $MON_CONF
