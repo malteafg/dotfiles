@@ -11,13 +11,13 @@
 #   qute://help/settings.html
 
 # Change the argument to True to still load settings configured via autoconfig.yml
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 config.set("fileselect.handler", "external")
 config.set("fileselect.single_file.command", ['alacritty', '--class', 'float,float', '-e', 'ranger', '--choosefile', '{}'])
 config.set("fileselect.multiple_files.command", ['alacritty', '--class', 'float,float', '-e', 'ranger', '--choosefiles', '{}'])
 
-config.set('hints.chars', 'asrtneiocluy')
+config.set('hints.chars', 'asrtneiocluydh')
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -134,9 +134,6 @@ c.url.searchengines = {
         'y': 'https://www.youtube.com/results?search_query={}',
         'g': 'https://www.google.com/search?hl=en&q={}',
         }
-# c.url.searchengines = {
-                       # 'DEFAULT': 'https://www.google.com/search?hl=en&q={}',
-                       # }
 
 # Load images automatically in web pages.
 # Type: Bool
@@ -161,11 +158,13 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
+config.set('content.javascript.can_access_clipboard', True)
+config.set('content.site_specific_quirks.enabled', True)
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
-c.scrolling.smooth = True
+c.scrolling.smooth = False
 
 def remap_in_all_modes(remappings):
     for mode in c.bindings.default:
@@ -195,9 +194,18 @@ remappings = {
 
 remap_in_all_modes(remappings)
 
-# bind --mode=faster n scrollpage 0.5
-# bind --mode=faster e scrollpage -0.5
-# bind --mode=faster <U-n> mode normal
-# bind --mode=faster <U-e> mode normal
-# bind <D-n> mode faster
-# bind <D-e> mode faster
+# config.bind('f', 'leave-mode passthrough', mode='passthrough')
+config.bind('n', 'scroll-px 0 100')
+config.bind('e', 'scroll-px 0 -100')
+config.bind('h', 'scroll-px -100 0')
+config.bind('i', 'scroll-px 100 0')
+config.bind('l', 'fake-key f')
+config.bind('N', 'tab-prev')
+config.bind('E', 'tab-next')
+config.bind('c', 'mode-enter passthrough')
+# config.bind('n', 'scrollpage 0.5', mode='faster')
+# config.bind('e', 'scrollpage -0.5', mode='faster')
+# config.bind('U-n', 'mode normal', mode='faster')
+# config.bind('U-e', 'mode normal', mode='faster')
+# config.bind('D-n', 'mode faster')
+# config.bind('D-e', 'mode faster')

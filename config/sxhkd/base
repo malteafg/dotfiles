@@ -8,7 +8,10 @@ super + Return
 super + shift + Return
     ofwrapper -hend
 
-super + {_, shift +} g
+super + g
+    qutebrowser
+
+super + {shift +, ctrl +} g
     google-chrome-stable {_,-incognito}
 
 super + {_, shift +} space
