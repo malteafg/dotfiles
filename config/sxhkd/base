@@ -9,7 +9,7 @@ super + shift + Return
     ofwrapper -hend
 
 super + g
-    qutebrowser
+    brave
 
 super + {shift +, ctrl +} g
     google-chrome-stable {_,-incognito}
