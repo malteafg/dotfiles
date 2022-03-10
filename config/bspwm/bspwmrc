@@ -9,10 +9,8 @@ then
     nm-applet &
     #killall bspswallow;
     #pgrep bspswallow || bspswallow &
-    #amixer -q sset 'Master' 80%
 else
-    killall picom
-    picom -b &
+    killall picom; picom -b &
 fi
 
 configureworkspaces "$1"
@@ -44,3 +42,5 @@ mygames=$(ls $steamlib/steamapps/appmanifest_*.acf | sed 's/[^0-9]*//g')    # th
 for game in $mygames; do
     bspc rule -a steam_app_$game desktop=v
 done
+
+sleep 5; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
