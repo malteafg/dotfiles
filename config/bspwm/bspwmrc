@@ -43,4 +43,7 @@ for game in $mygames; do
     bspc rule -a steam_app_$game desktop=v
 done
 
-sleep 5; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
+if [[ "$1" = 1 ]]
+then
+    sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
+fi

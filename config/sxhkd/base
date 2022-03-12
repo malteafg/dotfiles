@@ -3,7 +3,7 @@
 
 # LAUNCH PROGRAMS
 super + Return
-	alacritty
+	$TERMI
 
 super + shift + Return
     ofwrapper -hend

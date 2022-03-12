@@ -9,6 +9,7 @@ export MON_SCRIPT="$HOME/.local/share/monitorscript"
 $MON_SCRIPT
 
 # Defaults
+export TERMI="alacritty"
 export EDITOR='vi -e'
 export VISUAL='nvim'
 export BROWSER="/usr/bin/brave"

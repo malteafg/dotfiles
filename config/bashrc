@@ -95,18 +95,12 @@ alias audisconnect='$CISCO -s disconnect remote.au.dk/AU-ACCESS'
 alias ciscostate='$CISCO state'
 ciscovpn() { $CISCO "$@"; }
 
-#alaopa() {
-	#sed -i "s~background_opacity.*~background_opacity: $@~g" \
-        #.config/alacritty/alacritty.yml
-#}
-
 pac() {
     PACS=$(pacman -Ssq | fzf -m --preview="pacman -Si {}")
     (($?)) || sudo pacman -Syy $PACS
 }
 
 bind '"\C-f":"of -he\n"'
-#bind '"\C-f":"dmenuof -hE > /dev/null 2>&1 &"'
 alias godir='source godir'
 bind '"\C-t":"source godir -hed\n"'
 cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
