@@ -1,6 +1,7 @@
 #! /bin/sh
 
 . ~/dotfiles/local/config.sh
+xrdb -merge ~/.Xresources
 
 # Monitor setup
 export WALLPAPER_DIR="$HOME/files/wallpapers"
