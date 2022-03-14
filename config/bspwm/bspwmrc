@@ -45,5 +45,6 @@ done
 
 if [[ "$1" = 1 ]]
 then
-    sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
+    #sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
+    sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL%
 fi
