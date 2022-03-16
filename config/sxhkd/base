@@ -17,16 +17,12 @@ super + {shift +, ctrl +} g
 super + {_, shift +} space
     ofwrapper {-hen,-n}
 
-super + {_, shift} + bracketleft
-    maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | xclip -selection clipboard -t image/png
-
-super + bracketright
-    passmenu
+super + {_, shift +} quote
+    alacritty --class float,float {-e python3,_}
 
 # MANAGE BSPWM
 super + q
     dmenupower
-    #rofi -show power-menu -modi power-menu:rofi-power-menu
 
 super + BackSpace
     switchlayout
@@ -53,12 +49,10 @@ XF86AudioLowerVolume
     amixer -D pipewire sset Master 5%-
 
 # MOVEMENT
-super + slash
-    bspc node -s biggest.window.local || \
-    bspc node -s last.local
-
-super + Tab
-    bspc node -f prev.local
+# swap places with biggest window
+#super + slash
+    #bspc node -s biggest.window.local || \
+    #bspc node -s last.local
 
 # cancel the preselection for the focused node
 super + Escape
@@ -80,11 +74,6 @@ XF86AudioPrev
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 XF86AudioNext
     dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-# preselect the ratio
-#super + ctrl + {1-9}
-	#bspc node -o 0.{1-9}
-
-
 
 # alternate between the tiled and monocle layout
 #super + p
