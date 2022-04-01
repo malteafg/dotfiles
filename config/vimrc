@@ -7,7 +7,7 @@ set incsearch
 set nocompatible
 set noshowmode
 set colorcolumn=81
-filetype plugin on
+filetype plugin indent on
 syntax on
 set so=12
 
@@ -28,6 +28,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh'
     \ }
+Plug 'lervag/vimtex'
 Plug 'junegunn/fzf'
 
 call plug#end()
@@ -46,8 +47,11 @@ let g:LanguageClient_serverCommands = {
         \ 'rust': ['rust-analyzer'],
         \ }
 
+let g:vimtex_view_method = 'zathura'
+
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+let maplocalleader = ","
 nnoremap Y y$
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:lightline = {'colorscheme': 'one'}
