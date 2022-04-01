@@ -1,15 +1,8 @@
-
 [repos/gfkl]
 checkout = git clone 'git@github.com:malteafg/gfkl.git' 'gfkl'
 
 [repos/proj]
 checkout = git clone 'git@github.com:malteafg/proj.git' 'proj'
-
-[repos/uni]
-checkout = git clone 'git@github.com:malteafg/uni.git' 'uni'
-
-[repos/vimwiki]
-checkout = git clone 'git@github.com:malteafg/vimwiki.git' 'vimwiki'
 
 [dotfiles]
 checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
