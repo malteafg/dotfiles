@@ -7,7 +7,7 @@ set incsearch
 set nocompatible
 set noshowmode
 set colorcolumn=81
-filetype plugin on
+filetype plugin indent on
 syntax on
 set so=12
 
@@ -20,7 +20,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'vimwiki/vimwiki'
+"Plug 'vimwiki/vimwiki'
 Plug 'romgrk/doom-one.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tmsvg/pear-tree'
@@ -28,6 +28,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh'
     \ }
+Plug 'lervag/vimtex'
 Plug 'junegunn/fzf'
 
 call plug#end()
@@ -35,19 +36,23 @@ call plug#end()
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 iabbrev </ </<C-X><C-O>
 
-let g:vimwiki_global_ext = 0
-let g:vimwiki_list = [{
-        \ 'path': '~/repos/vimwiki/text/',
-        \ 'path_html': '~/repos/vimwiki/vimwiki_html/', 
-        \ 'template_path': '~/repos/vimwiki/templates/',
-        \ 'template_default': 'default'}]
+"let g:vimwiki_global_ext = 0
+"let g:vimwiki_list = [{
+        "\ 'path': '~/repos/vimwiki/text/',
+        "\ 'path_html': '~/repos/vimwiki/vimwiki_html/', 
+        "\ 'template_path': '~/repos/vimwiki/templates/',
+        "\ 'template_default': 'default'}]
 
 let g:LanguageClient_serverCommands = {
         \ 'rust': ['rust-analyzer'],
         \ }
 
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_syntax_conceal_disable = 1
+
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+let maplocalleader = ","
 nnoremap Y y$
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:lightline = {'colorscheme': 'one'}
