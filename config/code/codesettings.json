@@ -8,6 +8,5 @@
     "editor.rulers": [
         80
     ],
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-    "window.zoomLevel": 1
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace"
 }
