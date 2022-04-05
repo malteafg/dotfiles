@@ -4,6 +4,7 @@ set statusbar-v-padding 0
 set page-padding 1
 set scroll-step 50
 set selection-clipboard clipboard
+set sandbox none
 
 map u scroll half-up
 map d scroll half-down
@@ -41,5 +42,8 @@ map f toggle_fullscreen
 map [fullscreen] f toggle_fullscreen
 map p toggle_presentation
 map [presentation] p toggle_presentation
+
+map m follow
+map [fullscreen] m follow
 
 
