@@ -7,6 +7,8 @@ set incsearch
 set nocompatible
 set noshowmode
 set colorcolumn=81
+set spelllang=en_us
+set spell
 filetype plugin indent on
 syntax on
 set so=12
