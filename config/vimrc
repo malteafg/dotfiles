@@ -117,6 +117,8 @@ inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
+autocmd FileType tex inoremap ;fr \begin{frame}<Enter>\frametitle{}<Enter><Enter>(<>)<Enter><Enter>\end{frame}<Enter><Enter>(<>)<Esc>6kf}i
+
 "DISABLE ARROW KEYS
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
