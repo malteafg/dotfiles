@@ -9,7 +9,7 @@ then
     cat ~/dotfiles/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
 else
     setxkbmap -layout gfkl -model pc105
-    xcape -e '#66=Escape;#23=Tab' -t 180
+    xcape -e '#66=Escape;#23=Tab;#36=Return' -t 180
     cat ~/dotfiles/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc
 fi
 

@@ -3,7 +3,7 @@
 if [[ "$1" = 0 ]]
 then
     pgrep -x sxhkd > /dev/null || sxhkd &
-    xcape -e '#66=Escape;#23=Tab' -t 180 &
+    xcape -e '#66=Escape;#23=Tab;#36=Return' -t 180 &
 
     picom -b &
     nm-applet &

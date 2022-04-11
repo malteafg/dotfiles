@@ -100,9 +100,9 @@ pac() {
     (($?)) || sudo pacman -Syy $PACS
 }
 
-bind '"\C-w":"of -he\n"'
+bind '"\C-t":"of -he\n"'
 alias godir='source godir'
-bind '"\C-t":"source godir -hed\n"'
+bind '"\C-w":"source godir -hed\n"'
 cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 mvr() {
