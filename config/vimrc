@@ -12,6 +12,8 @@ set spell
 filetype plugin indent on
 syntax on
 set so=12
+set concealcursor=nc
+set conceallevel=0
 
 call plug#begin('~/.vim/plugged')
 
@@ -22,7 +24,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-"Plug 'vimwiki/vimwiki'
+Plug 'vimwiki/vimwiki'
 Plug 'romgrk/doom-one.vim'
 Plug 'morhetz/gruvbox'
 Plug 'tmsvg/pear-tree'
@@ -38,12 +40,14 @@ call plug#end()
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 iabbrev </ </<C-X><C-O>
 
-"let g:vimwiki_global_ext = 0
-"let g:vimwiki_list = [{
-        "\ 'path': '~/repos/vimwiki/text/',
-        "\ 'path_html': '~/repos/vimwiki/vimwiki_html/', 
-        "\ 'template_path': '~/repos/vimwiki/templates/',
-        "\ 'template_default': 'default'}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_list = [{
+        \ 'path': '~/files/vimwiki/text/',
+        \ 'path_html': '~/files/vimwiki/vimwiki_html/', 
+        \ 'template_path': '~/files/vimwiki/templates/',
+        \ 'template_default': 'default'}]
+let g:vimwiki_conceallevel = 1
+let g:vimwiki_conceal_onechar_markers = 0
 
 let g:LanguageClient_serverCommands = {
         \ 'rust': ['rust-analyzer'],
@@ -65,6 +69,7 @@ let g:lightline = {'colorscheme': 'one'}
 "set bg=dark
 set termguicolors
 "colorscheme gruvbox
+highlight Conceal ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
 colorscheme doom-one
 hi Normal guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
