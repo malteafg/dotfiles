@@ -7,9 +7,6 @@ super + m
 super + {_, shift +} o
     alacritty --class float,float -e {htop,ranger}
 
-super + equal
-    passmenu
-
 super + {_, shift +} slash
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | \
     xclip -selection clipboard -t image/png

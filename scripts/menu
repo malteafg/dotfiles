@@ -1,13 +1,14 @@
 #!/bin/bash
 
-options="switch Layout
-choose Layout
+options="switch layout
+choose layout
 pass
+network
 monitor"
 chosen="$(echo "$options" | dmenu -i -c -fn 'pixelsize=20' -l 10 -p "Option:")" || exit 1
 
 case "$chosen" in
-    "switch Layout")
+    "switch layout")
         if [[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]]
         then
             layout -u
@@ -15,7 +16,7 @@ case "$chosen" in
             layout -w
         fi;;
 
-    "choose Layout")
+    "choose layout")
         layouts="wokmok
 us
 danish"
@@ -31,4 +32,7 @@ danish"
 
     "monitor")
         selectmon;;
+
+    "network")
+        networkmanager_dmenu;;
 esac

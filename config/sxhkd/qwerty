@@ -7,9 +7,6 @@ super + r
 super + {_, shift +} semicolon
     alacritty --class float,float -e {htop,ranger}
 
-super + p
-    passmenu
-
 super + {_, shift +} backslash
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | \
     xclip -selection clipboard -t image/png
