@@ -23,8 +23,4 @@ xautolock -time 25 -locker 'i3lock -c 1c1f24' &
 redshift -l 57.01:9.58 &
 gitwatch ~/repos/vimwiki &
 
-# Keyboard Layout
-setxkbmap -layout gfkl -model pc105
-#-option altwin:swap_lalt_lwin &
-
 exec bspwm

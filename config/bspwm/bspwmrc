@@ -2,8 +2,7 @@
 
 if [[ "$1" = 0 ]]
 then
-    pgrep -x sxhkd > /dev/null || sxhkd &
-    xcape -e '#66=Escape;#23=Tab;#36=Return' -t 180 &
+    layout -w
 
     picom -b &
     nm-applet &

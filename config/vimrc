@@ -12,8 +12,6 @@ set spell
 filetype plugin indent on
 syntax on
 set so=12
-set concealcursor=nc
-set conceallevel=0
 
 call plug#begin('~/.vim/plugged')
 
@@ -34,6 +32,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 Plug 'lervag/vimtex'
 Plug 'junegunn/fzf'
+Plug 'eddyekofo94/gruvbox-flat.nvim'
 
 call plug#end()
 
@@ -44,10 +43,13 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_list = [{
         \ 'path': '~/files/vimwiki/text/',
         \ 'path_html': '~/files/vimwiki/vimwiki_html/', 
+        "\ 'syntax': 'markdown',
+        "\ 'ext': '.md',
         \ 'template_path': '~/files/vimwiki/templates/',
         \ 'template_default': 'default'}]
-let g:vimwiki_conceallevel = 1
-let g:vimwiki_conceal_onechar_markers = 0
+let g:indentLine_concealcursor=""
+let g:indentLine_conceallevel=2
+autocmd FileType wiki nnoremap <Esc> :VimwikiGoBackLink<CR>
 
 let g:LanguageClient_serverCommands = {
         \ 'rust': ['rust-analyzer'],
@@ -69,9 +71,10 @@ let g:lightline = {'colorscheme': 'one'}
 "set bg=dark
 set termguicolors
 "colorscheme gruvbox
-highlight Conceal ctermbg=NONE ctermfg=NONE guibg=NONE guifg=NONE
-colorscheme doom-one
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme gruvbox-flat
+let g:gruvbox_flat_style = "dark"
+"colorscheme doom-one
+hi Normal guibg=NONE ctermbg=NONE guifg=#f5e6d1
 hi LineNr guibg=NONE ctermbg=NONE
 hi Folded guibg=NONE ctermbg=NONE
 hi NonText guibg=NONE ctermbg=NONE
@@ -124,7 +127,32 @@ inoremap . .<C-g>u
 inoremap ! !<C-g>u
 inoremap ? ?<C-g>u
 
+"LATEX
 autocmd FileType tex inoremap ;fr \begin{frame}<Enter>\frametitle{}<Enter><Enter>(<>)<Enter><Enter>\end{frame}<Enter><Enter>(<>)<Esc>6kf}i
+
+autocmd FileType tex inoremap ;mt \begin{matrix}  \end{matrix}<Esc>Bhi
+autocmd FileType tex inoremap ;mp \begin{pmatrix}  \end{pmatrix}<Esc>Bhi
+autocmd FileType tex inoremap ;mb \begin{bmatrix}  \end{bmatrix}<Esc>Bhi
+autocmd FileType tex inoremap ;mB \begin{Bmatrix}  \end{Bmatrix}<Esc>Bhi
+autocmd FileType tex inoremap ;mv \begin{vmatrix}  \end{vmatrix}<Esc>Bhi
+autocmd FileType tex inoremap ;mV \begin{Vmatrix}  \end{Vmatrix}<Esc>Bhi
+
+autocmd FileType tex inoremap ;ai \begin{align*}<Enter><Enter>\end{align*}<Enter>(<>)<Esc>2ki<Tab>
+autocmd FileType tex inoremap ;an \begin{align}<Enter><Enter>\end{align}<Enter>(<>)<Esc>2ki<Tab>
+
+autocmd FileType tex inoremap ;se \section{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;sn \section*{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;1se \subsection{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;1sn \subsection*{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;2se \subsubsection{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;2sn \subsubsection*{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;3se \subsubsubsection{}<Enter>(<>)<Esc>k$i
+autocmd FileType tex inoremap ;3sn \subsubsubsection*{}<Enter>(<>)<Esc>k$i
+
+autocmd FileType tex inoremap ;fra \frac{}{(<>)}(<>)<Esc>10hi
+
+autocmd FileType tex inoremap <leader><Space> <Esc>/(<>)<CR>:noh<CR>cf)
+autocmd FileType tex nnoremap <leader><Space> <Esc>/(<>)<CR>:noh<CR>cf)
 
 "DISABLE ARROW KEYS
 inoremap <Up> <Nop>

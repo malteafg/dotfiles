@@ -5,6 +5,9 @@
 super + Return
 	$TERMI
 
+F12
+    menu
+
 super + shift + Return
     ofwrapper -hend
 
@@ -23,15 +26,6 @@ super + {_, shift +} quote
 # MANAGE BSPWM
 super + q
     dmenupower
-
-super + BackSpace
-    switchlayout
-
-super + shift + BackSpace
-    selectmon
-
-super + ctrl + BackSpace
-    chooselayout
 
 XF86MonBrightnessUp
     xbacklight -inc 10

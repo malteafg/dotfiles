@@ -24,8 +24,8 @@ super + ctrl + r
 	bspc wm -r
 
 # close and kill
-super + {_,shift + } w
-	bspc node -{c,k}
+super + w
+	bspc node c
 
 # MOVEMENT
 # focus the node in the given direction

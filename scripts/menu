@@ -1,0 +1,34 @@
+#!/bin/bash
+
+options="switch Layout
+choose Layout
+pass
+monitor"
+chosen="$(echo "$options" | dmenu -i -c -fn 'pixelsize=20' -l 10 -p "Option:")" || exit 1
+
+case "$chosen" in
+    "switch Layout")
+        if [[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]]
+        then
+            layout -u
+        else
+            layout -w
+        fi;;
+
+    "choose Layout")
+        layouts="wokmok
+us
+danish"
+        chosen="$(echo "$layouts" | dmenu -i -c -fn 'pixelsize=20' -l 4 -p "Layout:")" || exit 1
+        case "$chosen" in
+            "wokmok") layout -w;;
+            "us") layout -u;;
+            "danish") layout -d;;
+        esac;;
+
+    "pass")
+        passmenu;;
+
+    "monitor")
+        selectmon;;
+esac
