@@ -163,4 +163,23 @@ push() {
     kill $SSH_AGENT_PID
 }
 
+# TEMPLATES ####################################################################
+mktex() {
+    if [[ $# = 0 ]]; then
+        echo "Enter name of project"
+    else
+        mkdir $1
+        cp "$HOME/dotfiles/templates/latex.tex" "$1/main.tex"
+    fi
+}
+
+mkslides() {
+    if [[ $# = 0 ]]; then
+        echo "Enter name of project"
+    else
+        mkdir $1
+        cp "$HOME/dotfiles/templates/slides.tex" "$1/main.tex"
+    fi
+}
+
 . "$HOME/.cargo/env"
