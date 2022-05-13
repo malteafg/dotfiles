@@ -55,6 +55,9 @@ else
 fi
 unset color_prompt force_color_prompt
 
+. /usr/share/fzf/completion.bash
+. /usr/share/fzf/key-bindings.bash
+
 # ALIASES ######################################################################
 alias g='git'
 alias v='nvim'
@@ -82,10 +85,8 @@ alias rb='source ~/.bashrc'
 alias sshs='eval `ssh-agent` && ssh-add'
 alias sshq='kill $SSH_AGENT_PID'
 
-#alias cp='cp -i'
 alias mv='mv -i'
 rmsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
-#alias rm='rm -I'
 copy() { xclip -sel c < "$1"; }
 paste() { xclip -o > "$1"; }
 

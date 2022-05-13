@@ -7,17 +7,19 @@
 - clean: ['~', '~/.config']
 
 - link: 
-    ~/.bashrc: config/bashrc
-    ~/.inputrc: config/inputrc
+    #~/.bashrc: config/bashrc
+    #~/.bash_profile: config/bash_profile
+    #~/.config/dunst/dunstrc: config/dunstrc
+    #~/.inputrc: config/inputrc
+    ~/.zshrc: config/zshrc
+    ~/.zprofile: config/zprofile
     ~/.mrconfig: config/mrconfig
     ~/.vimrc: config/vimrc
     ~/.gitconfig: config/gitconfig
-    ~/.bash_profile: config/bash_profile
     ~/.xinitrc: config/initrc
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/Code/User/settings.json: config/code/codesettings.json
     ~/.config/Code/User/keybindings.json: config/code/codekeybindings.json
-    ~/.config/dunst/dunstrc: config/dunstrc
     ~/.config/fd/ignore: config/fdignore
     ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg
     ~/.config/polybar/config: config/polybar
