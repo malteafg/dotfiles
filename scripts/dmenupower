@@ -1,16 +1,19 @@
 #! /bin/bash
 
 choice=$(echo "lock
+exit
 logout
 poweroff
 reboot" |
-    dmenu -i -c -fn 'pixelsize=20' -l 4)
+    dmenu -i -c -fn 'pixelsize=20' -l 5)
 
 case $choice in
     lock)
         xautolock -locknow;;
-    logout)
+    exit)
         bspc quit;;
+    logout)
+        bspc quit && exit;;
     poweroff)
         sudo poweroff;;
     reboot)

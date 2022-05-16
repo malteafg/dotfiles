@@ -5,7 +5,7 @@ super + r
     dmenu_recency
 
 super + {_, shift +} semicolon
-    alacritty --class float,float -e {htop,ranger}
+    alacritty --class float,float -e {btop --utf-force,ranger}
 
 super + {_, shift +} backslash
     maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | \
