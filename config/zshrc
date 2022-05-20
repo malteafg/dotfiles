@@ -8,6 +8,9 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/malte/.zshrc'
 
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -16,7 +19,7 @@ setopt NULL_GLOB
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 autoload -U promptinit && promptinit
-PS1="%B%F{27}%1~ %f%b%# "
+PS1="%B%F{27}%~ %f%b%# "
 
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh

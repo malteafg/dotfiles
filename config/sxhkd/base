@@ -21,7 +21,7 @@ super + {_, shift +} space
     ofwrapper {-hen,-n}
 
 super + {_, shift +} apostrophe
-    alacritty --class float,float {-e python3,_}
+    alacritty --class float,float {-e julia,_}
 
 # MANAGE BSPWM
 super + q

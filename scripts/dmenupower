@@ -13,7 +13,7 @@ case $choice in
     exit)
         bspc quit;;
     logout)
-        bspc quit && exit;;
+        bspc quit; exit;;
     poweroff)
         sudo poweroff;;
     reboot)
