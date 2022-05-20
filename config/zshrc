@@ -9,8 +9,8 @@ bindkey -e
 zstyle :compinstall filename '/home/malte/.zshrc'
 
 setopt HIST_IGNORE_ALL_DUPS
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
+#setopt APPEND_HISTORY
+#setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
 autoload -Uz compinit
