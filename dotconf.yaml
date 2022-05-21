@@ -14,16 +14,16 @@
     ~/.zshrc: config/zshrc
     ~/.zprofile: config/zprofile
     ~/.mrconfig: config/mrconfig
-    ~/.vimrc: config/vimrc
     ~/.gitconfig: config/gitconfig
     ~/.xinitrc: config/initrc
+    ~/.vimrc: config/nvim/vimrc
+    ~/.config/nvim/init.vim: config/nvim/init.vim
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/Code/User/settings.json: config/code/codesettings.json
     ~/.config/Code/User/keybindings.json: config/code/codekeybindings.json
     ~/.config/fd/ignore: config/fdignore
     ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg
     ~/.config/polybar/config: config/polybar
-    ~/.config/nvim/init.vim: config/init.vim
     ~/.config/zathura/zathurarc: config/zathurarc
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc

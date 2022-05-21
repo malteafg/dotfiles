@@ -30,8 +30,6 @@ while getopts ":hend" opt; do
     esac
 done
 
-echo $NEWWINDOW
-
 send () {
     echo "$1" >> ~/.cache/ofcmd
 }
