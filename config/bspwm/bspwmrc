@@ -23,6 +23,7 @@ bspc config normal_border_color  \#1c1f24
 bspc config single_monocle       true
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+bspc config directional_focus_tightness low
 
 # WINDOW RULES
 bspc config external_rules_command "$HOME/dotfiles/config/bspwm/external-rules"

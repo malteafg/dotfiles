@@ -1,0 +1,31 @@
+#!/bin/bash
+
+dlvideo=false
+OPTIND=1
+
+while getopts ":v" opt; do
+    case $opt in
+        v) dlvideo=true;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+echo $1
+echo $2
+echo $3
+
+if [[ $# -ne 2 && $# -ne 3 ]] ; then
+    exit 0
+fi
+
+if [ "$dlvideo" = true ]; then
+    yt-dlp -o $HOME/files/saved/videos/$1.webm "$2"
+fi
+
+yt-dlp -x --audio-format wav -o $HOME/files/saved/music/$1.wav "$2" &&
+ffmpeg -i $HOME/files/saved/music/$1.wav -acodec mp3 $HOME/files/saved/spotify/$1.mp3

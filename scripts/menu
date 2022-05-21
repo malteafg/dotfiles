@@ -4,7 +4,8 @@ options="switch layout
 choose layout
 pass
 network
-monitor"
+monitor
+fixmonitors"
 
 layouts="wokmok
 us intl
@@ -32,9 +33,13 @@ case "$chosen" in
     "pass")
         passmenu;;
 
+    "network")
+        networkmanager_dmenu;;
+
     "monitor")
         selectmon;;
 
-    "network")
-        networkmanager_dmenu;;
+    "fixmonitors")
+        fixmonitors;;
+
 esac

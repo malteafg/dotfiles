@@ -30,6 +30,8 @@ while getopts ":hend" opt; do
     esac
 done
 
+echo $NEWWINDOW
+
 send () {
     echo "$1" >> ~/.cache/ofcmd
 }
@@ -39,7 +41,7 @@ sendfile () {
     path="$HOME_PATH$1"
     case $fileext in
         link)
-            echo $(cat $path) | xargs -ro -d "\n" $BROWSER;;
+            send "$BROWSER $(cat $path)";;
         pdf)
             send "zathura --fork $path";;
         *)
@@ -48,9 +50,11 @@ sendfile () {
                 text*|*json*)
                     send "alacritty -e nvim $path";;
                 image*)
-                    echo $path | xargs -ro -d "\n" sxiv;;
-                audio*|video*)
-                    echo $path | xargs -ro -d "\n" vlc;;
+                    send "sxiv $path";;
+                audio*)
+                    send "vlc $path";;
+                video*)
+                    send "mpv $path";;
                 *)
                     echo $path | xargs -ro -d "\n" xdg-open 2>&-;
                     ;;
