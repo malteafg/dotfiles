@@ -35,6 +35,7 @@ bspc rule -a Code desktop=t
 bspc rule -a Guitarix desktop=r
 bspc rule -a Zathura state=tiled
 bspc rule -a float state=floating rectangle=1600x900+0+0 center=true
+bspc rule -a smallfloat state=floating rectangle=520x250+0+0 center=true
 bspc rule -a mpv state=floating rectangle=1600x900+0+0 center=true
 
 steamlib=/home/malte/.local/share/Steam

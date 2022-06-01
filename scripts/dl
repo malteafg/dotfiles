@@ -15,10 +15,6 @@ done
 
 shift $((OPTIND-1))
 
-echo $1
-echo $2
-echo $3
-
 if [[ $# -ne 2 && $# -ne 3 ]] ; then
     exit 0
 fi

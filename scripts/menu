@@ -31,7 +31,7 @@ case "$chosen" in
         esac;;
 
     "pass")
-        passmenu;;
+        alacritty --class smallfloat,smallfloat -e passmenu;;
 
     "network")
         networkmanager_dmenu;;

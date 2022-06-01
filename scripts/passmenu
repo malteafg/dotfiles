@@ -27,6 +27,8 @@ password_files=( "${password_files[@]%.gpg}" )
 password=$(printf '%s\n' "${password_files[@]}" |
     "$dmenu" -l 20 -fn 'pixelsize=15' -c -i "$@")
 
+echo $password
+
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
