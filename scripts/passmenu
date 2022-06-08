@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PASSWORD_STORE_CLIP_TIME=10
+
 shopt -s nullglob globstar
 
 typeit=0
@@ -27,8 +29,6 @@ password_files=( "${password_files[@]%.gpg}" )
 password=$(printf '%s\n' "${password_files[@]}" |
     "$dmenu" -l 20 -fn 'pixelsize=15' -c -i "$@")
 
-echo $password
-
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
@@ -36,3 +36,4 @@ if [[ $typeit -eq 0 ]]; then
 else
 	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
 fi
+

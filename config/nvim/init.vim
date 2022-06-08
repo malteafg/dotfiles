@@ -31,6 +31,7 @@ Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
 "Plug 'mfussenegger/nvim-dap'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'preservim/nerdtree'
 
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'

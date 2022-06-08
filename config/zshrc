@@ -21,7 +21,39 @@ setopt NULL_GLOB
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 autoload -U promptinit && promptinit
-PS1="%B%F{27}%~ %f%b%# "
+setopt prompt_subst
+
+# Enabling and setting git info var to be used in prompt config.
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+# This line obtains information from the vcs.
+zstyle ':vcs_info:git*' formats " (%b)"
+precmd() {
+    vcs_info
+}
+
+directory_name() {
+    PROMPT_PATH=""
+    if [[ -d $(git rev-parse --show-toplevel 2>/dev/null) ]]; then
+        # We're in a git repo.
+        BASE=$(basename $(git rev-parse --show-toplevel))
+        if [[ $PWD = $(git rev-parse --show-toplevel) ]]; then
+            # We're in the root.
+            PROMPT_PATH="%F{127}${BASE}%f"
+        else
+            # We're not in the root. Display the git repo root.
+            GIT_ROOT="%F{127}${BASE}%f"
+            PATH_TO_CURRENT="%F{27}${PWD#$(git rev-parse --show-toplevel)}%f"
+            PROMPT_PATH="${GIT_ROOT}${PATH_TO_CURRENT}"
+        fi
+    else
+        PROMPT_PATH="%F{27}%~%f"
+    fi
+
+    echo "%B${PROMPT_PATH}%b"
+}
+
+PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh
