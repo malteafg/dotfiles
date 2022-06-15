@@ -60,6 +60,7 @@ PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 
 # ALIASES ######################################################################
 alias g='git'
+alias z='zathura'
 alias v='nvim'
 alias sv='sudo -E nvim'
 alias ls='exa --color=always --group-directories-first'
