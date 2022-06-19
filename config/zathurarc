@@ -2,39 +2,19 @@ set default-bg "#1c1f24"
 set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
-set scroll-step 50
+set scroll-step 80
 set selection-clipboard clipboard
 set sandbox none
 
-map u scroll half-up
-map d scroll half-down
-map U scroll full-up
-map D scroll full-down
+map u navigate previous
+map d navigate next
+map U scroll half-up
+map D scroll half-down
 
-map h scroll left
-map n scroll down
-map e scroll up
-map i scroll right
-
-map [fullscreen] u scroll half-up
-map [fullscreen] d scroll half-down
-map [fullscreen] U scroll full-up
-map [fullscreen] D scroll full-down
-
-map [fullscreen] h scroll left
-map [fullscreen] n scroll down
-map [fullscreen] e scroll up
-map [fullscreen] i scroll right
-
-map N navigate next
-map [fullscreen] N navigate next
-map E navigate previous
-map [fullscreen] E navigate previous
-
-map w search forward
-map [fullscreen] w search forward
-map W search backward
-map [fullscreen] W search backward
+map [fullscreen] u navigate previous
+map [fullscreen] d navigate next
+map [fullscreen] U scroll half-up
+map [fullscreen] D scroll half-down
 
 map t toggle_page_mode
 map [fullscreen] t toggle_page_mode
@@ -45,5 +25,46 @@ map [presentation] p toggle_presentation
 
 map m follow
 map [fullscreen] m follow
+
+
+/*map u scroll half-up*/
+/*map d scroll half-down*/
+/*map U scroll full-up*/
+/*map D scroll full-down*/
+
+/*map h scroll left*/
+/*map n scroll down*/
+/*map e scroll up*/
+/*map i scroll right*/
+
+/*map [fullscreen] u scroll half-up*/
+/*map [fullscreen] d scroll half-down*/
+/*map [fullscreen] U scroll full-up*/
+/*map [fullscreen] D scroll full-down*/
+
+/*map [fullscreen] h scroll left*/
+/*map [fullscreen] n scroll down*/
+/*map [fullscreen] e scroll up*/
+/*map [fullscreen] i scroll right*/
+
+/*map N navigate next*/
+/*map [fullscreen] N navigate next*/
+/*map E navigate previous*/
+/*map [fullscreen] E navigate previous*/
+
+/*map w search forward*/
+/*map [fullscreen] w search forward*/
+/*map W search backward*/
+/*map [fullscreen] W search backward*/
+
+/*map t toggle_page_mode*/
+/*map [fullscreen] t toggle_page_mode*/
+/*map f toggle_fullscreen*/
+/*map [fullscreen] f toggle_fullscreen*/
+/*map p toggle_presentation*/
+/*map [presentation] p toggle_presentation*/
+
+/*map m follow*/
+/*map [fullscreen] m follow*/
 
 
