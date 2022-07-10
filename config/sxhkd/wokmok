@@ -12,6 +12,9 @@ super + {_, shift +} slash
     xclip -selection clipboard -t image/png
 
 super + equal
+    alacritty -e lvim
+
+super + shift + equal
     alacritty -e nvim -c "Files $HOME/files/vimwiki/text"
 
 # MANAGE BSPWM

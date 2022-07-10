@@ -60,8 +60,8 @@ unset color_prompt force_color_prompt
 
 # ALIASES ######################################################################
 alias g='git'
-alias v='nvim'
-alias sv='sudo -E nvim'
+alias v='lvim'
+alias sv='sudo -E lvim'
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
 alias l='exa -alF --color=always --group-directories-first'

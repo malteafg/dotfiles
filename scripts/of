@@ -46,7 +46,7 @@ sendfile () {
             filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
                 text*|*json*)
-                    send "alacritty -e nvim $path";;
+                    send "alacritty -e lvim $path";;
                 image*)
                     send "sxiv $path";;
                 audio*)
