@@ -12,7 +12,7 @@ while getopts ":hend" opt; do
         h) 
             HOME_DIR="--base-directory $HOME"
             HOME_PATH="$HOME/"
-            SEARCH_DIRS="dotfiles/ repos/ files/"
+            SEARCH_DIRS="dotfiles/ repos/ files/ largefiles/"
             ;;
         e)
             EXCLUDED_DIRS="-E files/minecraft/ -E files/dotbot/ -E dotfiles/dotbot/"
@@ -87,3 +87,4 @@ if [ "$DIR" -eq "0" ]; then
 else
     finddir
 fi
+

@@ -74,7 +74,7 @@ function lt() {
     fi
     exa -aT $level --color=always --group-directories-first $2
 }
-function dirsize() { du -h --max-depth=1 $@ }
+function lds() { du -h --max-depth=1 $@ }
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
