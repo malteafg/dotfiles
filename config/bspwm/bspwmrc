@@ -29,6 +29,7 @@ bspc config directional_focus_tightness low
 bspc config external_rules_command "$HOME/dotfiles/config/bspwm/external-rules"
 
 bspc rule -a wgputut desktop=v state=floating
+bspc rule -a hw-architect desktop=v state=floating
 bspc rule -a Steam desktop=w
 bspc rule -a Minecraf desktop=v
 bspc rule -a discord desktop=j
