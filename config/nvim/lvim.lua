@@ -61,7 +61,7 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -84,6 +84,20 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 
+-- -- make sure server will always be installed even if the server is in skipped_servers list
+-- lvim.lsp.installer.setup.ensure_installed = {
+--     "sumeko_lua",
+--     "jsonls",
+-- }
+-- -- change UI setting of `LspInstallInfo`
+-- -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
+-- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = false
+-- lvim.lsp.installer.setup.ui.border = "rounded"
+-- lvim.lsp.installer.setup.ui.keymaps = {
+--     uninstall_server = "d",
+--     toggle_server_expand = "o",
+-- }
+
 -- ---@usage disable automatic installation of servers
 -- lvim.lsp.automatic_servers_installation = false
 
@@ -94,7 +108,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- require("lvim.lsp.manager").setup("pyright", opts)
 
 -- ---remove a server from the skipped list, e.g. eslint, or emmet_ls. !!Requires `:LvimCacheReset` to take effect!!
--- ---`:LvimInfo` lists which server(s) are skiipped for the current filetype
+-- ---`:LvimInfo` lists which server(s) are skipped for the current filetype
 -- vim.tbl_map(function(server)
 --   return server ~= "emmet_ls"
 -- end, lvim.lsp.automatic_configuration.skipped_servers)
@@ -144,14 +158,13 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- }
 
 -- Additional Plugins
-lvim.plugins = {
-  -- {"folke/tokyonight.nvim"},
-  -- {
-  --   "folke/trouble.nvim",
-  --   cmd = "TroubleToggle",
-  -- },
-  { "yggdroot/indentline" }
-}
+-- lvim.plugins = {
+--     {"folke/tokyonight.nvim"},
+--     {
+--       "folke/trouble.nvim",
+--       cmd = "TroubleToggle",
+--     },
+-- }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- vim.api.nvim_create_autocmd("BufEnter", {
@@ -166,17 +179,3 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
-
-vim.cmd([[ g:indentLine_char_list = ['|', '¦', '┆', '┊']])
--- vim.cmd([[ set termguicolors]])
--- vim.cmd([[ hi Normal guibg=NONE ctermbg=NONE guifg=#f5e6d1]])
--- vim.cmd([[ hi NormalNC guibg=NONE ctermbg=NONE guifg=#f5e6d1]])
--- vim.cmd([[ hi NormalFloat guibg=NONE ctermbg=NONE guifg=#f5e6d1]])
--- vim.cmd([[ hi LineNr guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi Folded guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi NonText guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi SpecialKey guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi VertSplit guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi SignColumn guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi EndOfBuffer guibg=NONE ctermbg=NONE]])
--- vim.cmd([[ hi CursorLineNr guibg=NONE ctermbg=NONE]])

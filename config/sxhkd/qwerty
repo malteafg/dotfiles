@@ -12,7 +12,7 @@ super + {_, shift +} backslash
     xclip -selection clipboard -t image/png
 
 super + p
-    alacritty -e lvim
+    alacritty -e nvim
 
 super + shift + p
     alacritty -e nvim -c "Files $HOME/files/vimwiki/text"

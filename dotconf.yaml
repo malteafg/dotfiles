@@ -18,8 +18,8 @@
     ~/.xinitrc: config/initrc
     ~/.vimrc: config/nvim/vimrc
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
-    ~/.config/nvim/init.vim: config/nvim/init.vim
-    ~/.config/lvim/config.lua: config/nvim/lvim.lua
+    #~/.config/nvim/init.vim: config/nvim/init.vim
+    #~/.config/lvim/config.lua: config/nvim/lvim.lua
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/Code/User/settings.json: config/code/codesettings.json
     ~/.config/Code/User/keybindings.json: config/code/codekeybindings.json
