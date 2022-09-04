@@ -1,0 +1,6 @@
+require('settings')
+require('keymaps')
+require('plugins')
+require('vimtex-config')
+-- require('nvim-tree')
+-- require('neo-tree')

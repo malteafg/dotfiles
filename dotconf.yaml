@@ -16,9 +16,10 @@
     ~/.mrconfig: config/mrconfig
     ~/.gitconfig: config/gitconfig
     ~/.xinitrc: config/initrc
-    ~/.vimrc: config/nvim/vimrc
+    #~/.vimrc: config/nvim/vimrc
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
-    #~/.config/nvim/init.vim: config/nvim/init.vim
+    ~/.config/nvim/init.lua: config/nvim/init.lua
+    ~/.config/nvim/lua: config/nvim/lua
     #~/.config/lvim/config.lua: config/nvim/lvim.lua
     ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/Code/User/settings.json: config/code/codesettings.json
@@ -35,4 +36,3 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - ["nvim +PlugUpdate +PlugClean! +qa", Installing and updating plugins]
