@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir $1
+cp $HOME/dotfiles/templates/latex.tex $1/main.tex
+nvim $1/main.tex
