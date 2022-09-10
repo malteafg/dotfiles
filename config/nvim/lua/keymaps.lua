@@ -1,7 +1,7 @@
 local status_ok, nest = pcall(require, "nest")
 if not status_ok then return end
 
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -29,6 +29,7 @@ nest.applyKeymaps {
       { 'i', '<c-w><c-l>' },
       { 'n', '<c-w><c-j>' },
       { 'e', '<c-w><c-k>' },
+      { 't', '<cmd>Neotree focus<cr>'},
       { '', '<c-w>' },
     }},
 

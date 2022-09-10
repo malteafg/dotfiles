@@ -1,6 +1,5 @@
 require('settings')
 require('keymaps')
 require('plugins')
+require('lsp-config')
 require('vimtex-config')
--- require('nvim-tree')
--- require('neo-tree')

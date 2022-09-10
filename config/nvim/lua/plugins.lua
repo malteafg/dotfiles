@@ -82,7 +82,7 @@ return packer.startup(function(use)
   }
   use {
     "p00f/nvim-ts-rainbow",
-    after = "nvim-treesitter" 
+    after = "nvim-treesitter"
   }
 
   -- Comment
@@ -97,7 +97,7 @@ return packer.startup(function(use)
   }
 
   -- Bufferline
-  use { 
+  use {
     "akinsho/bufferline.nvim",
     after = "nvim-web-devicons",
     config = function() require "bufferline-config" end,
@@ -105,7 +105,7 @@ return packer.startup(function(use)
   use {
     "feline-nvim/feline.nvim",
     after = "nvim-web-devicons",
-    config = function() require('feline-config') end,
+    config = function() require "feline-config" end,
   }
 
   -- Indentation
@@ -125,9 +125,45 @@ return packer.startup(function(use)
     config = function() require('dressing-config') end,
   }
 
+  -- LSP stuff
+  use {
+    "onsails/lspkind.nvim",
+    module = "lspkind",
+    config = function() require "configs.lspkind" end,
+  }
+
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-buffer'},
+      {'hrsh7th/cmp-path'},
+      {'saadparwaiz1/cmp_luasnip'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'hrsh7th/cmp-nvim-lua'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+      {'rafamadriz/friendly-snippets'},
+    }
+  }
+
+  use {
+    'simrat39/rust-tools.nvim',
+    config = function()
+        require('rust-tools').setup()
+    end,
+  }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
+
