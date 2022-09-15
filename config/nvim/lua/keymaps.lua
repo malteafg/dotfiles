@@ -42,6 +42,9 @@ nest.applyKeymaps {
     { 'p', '"+p' },
     { 'y', '"+y', mode = 'v' },
     { 'p', '"_dP', mode = 'v' },
+
+    -- Space paste
+    -- { 'p', '\"_dP', mode = 'v' },
   }},
 
   -- Normal mode only bindings
