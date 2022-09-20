@@ -22,7 +22,9 @@ vim.cmd('autocmd FileType tex inoremap ,2sn \\subsubsection*{}<Enter>(<>)<Esc>k$
 vim.cmd('autocmd FileType tex inoremap ,3se \\subsubsubsection{}<Enter>(<>)<Esc>k$i')
 vim.cmd('autocmd FileType tex inoremap ,3sn \\subsubsubsection*{}<Enter>(<>)<Esc>k$i')
 
-vim.cmd('autocmd FileType tex inoremap ,fr \\frac{}{(<>)}(<>)<Esc>10hi')
+vim.cmd('autocmd FileType tex inoremap ,fr \\frac{}{(<>)}<Esc>10hi')
+
+vim.cmd('autocmd FileType tex inoremap ,im \\begin{figure}[h]<Enter>\\includegraphics[]{}<Enter>\\centering<Enter>\\end{figure}<Esc>2kf{a')
 
 vim.cmd('inoremap <C-@> <C-Space>')
 vim.cmd('autocmd FileType tex inoremap <C-Space> <Esc>/(<>)<CR>:noh<CR>cf)')
