@@ -33,6 +33,14 @@ nest.applyKeymaps {
       { '', '<c-w>' },
     }},
 
+    -- Buffer controls
+    { 'b', mode = 'nv', {
+        { 'e', '<cmd>BufferLinePick<cr>' },
+        { 'c', '<cmd>BufferLinePickClose<cr>' },
+        { 'q', '<cmd>BufferLineCloseLeft<cr>' },
+        { 'l', '<cmd>BufferLineCloseRight<cr>' },
+    }},
+
     -- Open lines
     { 'o', '<cmd>call append(line("."), repeat([""], v:count1))<cr>' },
     { 'O', '<cmd>call append(line(".") - 1, repeat([""], v:count1))<cr>' },
@@ -46,6 +54,16 @@ nest.applyKeymaps {
     -- Space paste
     -- { 'p', '\"_dP', mode = 'v' },
   }},
+
+  -- Buffer controls
+    { 'S-', mode = 'nv', {
+        { 'l', '<cmd>BufferLineCycleNext<cr>' },
+        { 'h', '<cmd>BufferLineCyclePrev<cr>' },
+    }},
+    { mode = 'nv', {
+        { '>b', '<cmd>BufferLineMoveNext<cr>' },
+        { '<b', '<cmd>BufferLineMovePrev<cr>' },
+    }},
 
   -- Normal mode only bindings
   { mode = 'n', {
