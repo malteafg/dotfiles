@@ -5,7 +5,7 @@ then
     layout -w
 
     picom -b &
-    nm-applet &
+    # nm-applet &
     #killall bspswallow;
     #pgrep bspswallow || bspswallow &
 else
