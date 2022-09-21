@@ -41,6 +41,15 @@ nest.applyKeymaps {
         { 'l', '<cmd>BufferLineCloseRight<cr>' },
     }},
 
+    -- Session manager
+    { 'S', mode = 'nv', {
+      { 'l', '<cmd>SessionManager! load_last_session<cr>' },
+      { 's', '<cmd>SessionManager! save_current_session<cr>' },
+      { 'd', '<cmd>SessionManager! delete_session<cr>' },
+      { 'f', '<cmd>SessionManager! load_session<cr>' },
+      { '.', '<cmd>SessionManager! load_current_dir_session<cr>' },
+    }},
+
     -- Open lines
     { 'o', '<cmd>call append(line("."), repeat([""], v:count1))<cr>' },
     { 'O', '<cmd>call append(line(".") - 1, repeat([""], v:count1))<cr>' },

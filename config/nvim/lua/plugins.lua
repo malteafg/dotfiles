@@ -44,130 +44,163 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "LionC/nest.nvim" } -- For defining key mappings
+  use { "lewis6991/impatient.nvim" }
 
-  -- Auto pairs
-  use {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end,
-  }
+   -- Auto pairs
+   use {
+     "windwp/nvim-autopairs",
+     config = function() require("nvim-autopairs").setup {} end,
+   }
 
-  -- Tree file manager
-  use { "kyazdani42/nvim-web-devicons" }
-  use { 
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    module = "neo-tree",
-    cmd = "Neotree",
-    requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
-    setup = function() vim.g.neo_tree_remove_legacy_commands = true end,
-    config = function() require "neo-tree-config" end,
-  }
+   -- Tree file manager
+   use { "kyazdani42/nvim-web-devicons" }
+   use {
+     "nvim-neo-tree/neo-tree.nvim",
+     branch = "v2.x",
+     module = "neo-tree",
+     cmd = "Neotree",
+     requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
+     setup = function() vim.g.neo_tree_remove_legacy_commands = true end,
+     config = function() require "neo-tree-config" end,
+   }
 
-  -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    event = { "BufRead", "BufNewFile" },
-    cmd = {
-      "TSInstall",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync",
-      "TSDisableAll",
-      "TSEnableAll",
-    },
-    config = function() require "treesitter-config" end,
-  }
-  use {
-    "p00f/nvim-ts-rainbow",
-    after = "nvim-treesitter"
-  }
+   -- Treesitter
+   use {
+     "nvim-treesitter/nvim-treesitter",
+     run = ":TSUpdate",
+     event = { "BufRead", "BufNewFile" },
+     cmd = {
+       "TSInstall",
+       "TSInstallInfo",
+       "TSInstallSync",
+       "TSUninstall",
+       "TSUpdate",
+       "TSUpdateSync",
+       "TSDisableAll",
+       "TSEnableAll",
+     },
+     config = function() require "treesitter-config" end,
+   }
+   use {
+     "p00f/nvim-ts-rainbow",
+     after = "nvim-treesitter"
+   }
 
-  -- Comment
-  use { "numToStr/Comment.nvim",
-    module = { "Comment", "Comment.api" },
-    keys = { "gc", "gb", "g<", "g>" },
-    config = function() require "comment-config" end,
-  }
-  use {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    after = "nvim-treesitter"
-  }
+   -- Comment
+   use { "numToStr/Comment.nvim",
+     module = { "Comment", "Comment.api" },
+     keys = { "gc", "gb", "g<", "g>" },
+     config = function() require "comment-config" end,
+   }
+   use {
+     "JoosepAlviste/nvim-ts-context-commentstring",
+     after = "nvim-treesitter"
+   }
 
-  -- Bufferline
-  use {
-    "akinsho/bufferline.nvim",
-    after = "nvim-web-devicons",
-    config = function() require "bufferline-config" end,
-  }
-  use {
-    "feline-nvim/feline.nvim",
-    after = "nvim-web-devicons",
-    config = function() require "feline-config" end,
-  }
+   -- Bufferline
+   use {
+     "akinsho/bufferline.nvim",
+     after = "nvim-web-devicons",
+     config = function() require "bufferline-config" end,
+   }
+   use {
+     "feline-nvim/feline.nvim",
+     after = "nvim-web-devicons",
+     config = function() require "feline-config" end,
+   }
 
-  -- Indentation
-  use { "lukas-reineke/indent-blankline.nvim" }
-  use { "Darazaki/indent-o-matic" }
+   -- Indentation
+   use { "lukas-reineke/indent-blankline.nvim" }
+   use {
+     "Darazaki/indent-o-matic",
+     config = function() require('indent-o-matic').setup({
+       standard_widths = { 2, 4 },
+       filetype_lua = {
+         standard_widths = { 2 },
+       },
+     }) end
+   }
 
-  -- Latex
-  use { "lervag/vimtex" }
+   -- Latex
+   use { "lervag/vimtex" }
 
-  -- Colorschemes
-  use 'bluz71/vim-nightfly-guicolors'
---  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
---  use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
-  use {
-    "stevearc/dressing.nvim",
-    event = "VimEnter",
-    config = function() require('dressing-config') end,
-  }
+   -- Colorschemes
+   use 'bluz71/vim-nightfly-guicolors'
+--   use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
+--   use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
+   use {
+     "stevearc/dressing.nvim",
+     event = "VimEnter",
+     config = function() require('dressing-config') end,
+   }
+   
+   -- Session manager
+   use {
+     "Shatur/neovim-session-manager",
+     -- module = "session_manager",
+     -- cmd = "SessionManager",
+     -- event = "BufWritePost",
+     -- config = function() require('session_manager').setup() end,
+     config = function() require('session_manager').setup({
+       -- Possible values: Disabled, CurrentDir, LastSession
+       autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+     }) end,
+   }
 
-  -- LSP stuff
-  use {
-    "onsails/lspkind.nvim",
-    module = "lspkind",
-    config = function() require "configs.lspkind" end,
-  }
+   -- Surround
+   use {
+     "kylechui/nvim-surround",
+     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+     config = function()
+       require("nvim-surround").setup({
+         -- Configuration here, or leave empty to use defaults
+       })
+     end
+   }
 
-  use {
-    'VonHeikemen/lsp-zero.nvim',
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+   -- LSP stuff
+   use {
+     "onsails/lspkind.nvim",
+     module = "lspkind",
+     config = function() require "configs.lspkind" end,
+   }
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+   use {
+     'VonHeikemen/lsp-zero.nvim',
+     requires = {
+       -- LSP Support
+       {'neovim/nvim-lspconfig'},
+       {'williamboman/mason.nvim'},
+       {'williamboman/mason-lspconfig.nvim'},
 
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
+       -- Autocompletion
+       {'hrsh7th/nvim-cmp'},
+       {'hrsh7th/cmp-buffer'},
+       {'hrsh7th/cmp-path'},
+       {'saadparwaiz1/cmp_luasnip'},
+       {'hrsh7th/cmp-nvim-lsp'},
+       {'hrsh7th/cmp-nvim-lua'},
 
-  use {
-    'simrat39/rust-tools.nvim',
-    config = function()
-        require('rust-tools').setup()
-    end,
-  }
+       -- Snippets
+       {'L3MON4D3/LuaSnip'},
+       {'rafamadriz/friendly-snippets'},
+     }
+   }
 
-  -- Git stuff
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('gitsigns').setup()
-    end
-  }
+   use {
+     'simrat39/rust-tools.nvim',
+     config = function()
+         require('rust-tools').setup()
+     end,
+   }
+
+   -- Git stuff
+   use {
+     'lewis6991/gitsigns.nvim',
+     config = function()
+       require('gitsigns').setup()
+     end
+   }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
