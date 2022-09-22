@@ -115,6 +115,9 @@ return packer.startup(function(use)
   -- Latex
   use { "lervag/vimtex" }
 
+  -- Coq
+  use { "whonore/coqtail" }
+
   -- Colorschemes
   use 'bluz71/vim-nightfly-guicolors'
 --  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
