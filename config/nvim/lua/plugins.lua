@@ -17,10 +17,10 @@ end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
+augroup end
 ]]
 
 -- Use a protected call so we don't error out on first use
@@ -44,6 +44,7 @@ return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "LionC/nest.nvim" } -- For defining key mappings
+  use { "lewis6991/impatient.nvim" }
 
   -- Auto pairs
   use {
@@ -53,7 +54,7 @@ return packer.startup(function(use)
 
   -- Tree file manager
   use { "kyazdani42/nvim-web-devicons" }
-  use { 
+  use {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v2.x",
     module = "neo-tree",
@@ -86,7 +87,8 @@ return packer.startup(function(use)
   }
 
   -- Comment
-  use { "numToStr/Comment.nvim",
+  use {
+    "numToStr/Comment.nvim",
     module = { "Comment", "Comment.api" },
     keys = { "gc", "gb", "g<", "g>" },
     config = function() require "comment-config" end,
@@ -110,7 +112,15 @@ return packer.startup(function(use)
 
   -- Indentation
   use { "lukas-reineke/indent-blankline.nvim" }
-  use { "Darazaki/indent-o-matic" }
+  use {
+    "Darazaki/indent-o-matic",
+    config = function() require('indent-o-matic').setup({
+      standard_widths = { 2, 4 },
+      filetype_lua = {
+        standard_widths = { 2 },
+      },
+    }) end
+  }
 
   -- Latex
   use { "lervag/vimtex" }
@@ -120,12 +130,36 @@ return packer.startup(function(use)
 
   -- Colorschemes
   use 'bluz71/vim-nightfly-guicolors'
---  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
---  use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
+  --  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
+  --  use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
   use {
     "stevearc/dressing.nvim",
     event = "VimEnter",
     config = function() require('dressing-config') end,
+  }
+
+  -- Session manager
+  use {
+    "Shatur/neovim-session-manager",
+    -- module = "session_manager",
+    -- cmd = "SessionManager",
+    -- event = "BufWritePost",
+    -- config = function() require('session_manager').setup() end,
+    config = function() require('session_manager').setup({
+      -- Possible values: Disabled, CurrentDir, LastSession
+      autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+    }) end,
+  }
+
+  -- Surround
+  use {
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   }
 
   -- LSP stuff
@@ -134,7 +168,6 @@ return packer.startup(function(use)
     module = "lspkind",
     config = function() require "configs.lspkind" end,
   }
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     requires = {
@@ -160,7 +193,7 @@ return packer.startup(function(use)
   use {
     'simrat39/rust-tools.nvim',
     config = function()
-        require('rust-tools').setup()
+      require('rust-tools').setup()
     end,
   }
 
