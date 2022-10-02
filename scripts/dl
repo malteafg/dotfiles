@@ -20,8 +20,8 @@ if [[ $# -ne 2 && $# -ne 3 ]] ; then
 fi
 
 if [ "$dlvideo" = true ]; then
-    yt-dlp -o $HOME/files/saved/videos/$1.webm "$2"
+    yt-dlp -o $HOME/largefiles/saved/videos/$1.webm "$2"
 fi
 
-yt-dlp -x --audio-format wav -o $HOME/files/saved/music/$1.wav "$2" &&
-ffmpeg -i $HOME/files/saved/music/$1.wav -acodec mp3 $HOME/files/saved/spotify/$1.mp3
+yt-dlp -x --audio-format wav -o $HOME/largefiles/saved/music/$1.wav "$2" &&
+ffmpeg -i $HOME/largefiles/saved/music/$1.wav -acodec mp3 $HOME/largefiles/saved/spotify/$1.mp3

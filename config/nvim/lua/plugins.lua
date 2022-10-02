@@ -86,6 +86,14 @@ return packer.startup(function(use)
     after = "nvim-treesitter"
   }
 
+  -- Fuzzy finder
+  use {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    module = "telescope",
+    config = function() require "telescope-config" end,
+  }
+
   -- Comment
   use {
     "numToStr/Comment.nvim",
@@ -166,7 +174,7 @@ return packer.startup(function(use)
   use {
     "onsails/lspkind.nvim",
     module = "lspkind",
-    config = function() require "configs.lspkind" end,
+    config = function() require "lspkind-config" end,
   }
   use {
     'VonHeikemen/lsp-zero.nvim',
