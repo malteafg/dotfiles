@@ -46,7 +46,8 @@ sendfile () {
             filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
                 text*|*json*)
-                    dirpath=$(printgitdir)
+                    dirpath=$(printgitdir $path)
+                    echo $dirpath
                     send "alacritty -e nvim -c 'cd $dirpath' $path";;
                 image*)
                     send "sxiv $path";;
