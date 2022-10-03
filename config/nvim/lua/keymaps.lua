@@ -20,17 +20,39 @@ nest.applyKeymaps {
   { '<leader>', {
     { 'h', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
+    { 't', '<cmd>Neotree focus<cr>'},
     { '/', function() require("Comment.api").toggle.linewise.current() end },
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
 
     -- Window controls
     { 'w', mode = 'nv', {
+      { 'p', function()
+        local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
+        vim.api.nvim_set_current_win(picked_window_id)
+      end },
+      -- Movement
       { 'h', '<c-w><c-h>' },
       { 'i', '<c-w><c-l>' },
       { 'n', '<c-w><c-j>' },
       { 'e', '<c-w><c-k>' },
-      { 't', '<cmd>Neotree focus<cr>'},
-      { '', '<c-w>' },
+      { 'o', '<c-w>o' },
+      -- Window movement
+      { 'r', '<c-w>r' },
+      { 'R', '<c-w>R' },
+      { 'L', '<c-w>L' },
+      { 'H', '<c-w>H' },
+      { 'K', '<c-w>K' },
+      { 'J', '<c-w>J' },
+      { 'x', '<c-w>x' },
+      -- Resizing
+      { '=', '<c-w>=' },
+      { '-', '<c-w>-' },
+      { '+', '<c-w>+' },
+      { '>', '<c-w>>' },
+      { '<', '<c-w><' },
+      { '_', '<c-w>_' },
+      { '|', '<c-w>|' },
+      -- { '', '<c-w>' },
     }},
 
     -- Buffer controls
@@ -131,15 +153,15 @@ nest.applyKeymaps {
     { 'J', 'mzJ`z' },
 
     -- Move text
-    { 'K', '<cmd>m .+1<cr>==' },
-    { 'J', '<cmd>m .-2<cr>==' },
+    { '<c-k>', '<cmd>m .-2<cr>==' },
+    { '<c-j>', '<cmd>m .+1<cr>==' },
   }},
   
   -- Visual mode only bindings
-  { mode = 'n', {
+  { mode = 'v', {
     -- Move text
-    { 'K', '<cmd>m \'>+1<cr>gv=gv' },
-    { 'J', '<cmd>m \'<-2<cr>gv=gv' },
+    { '<c-k>', ":m '<-2<cr>gv=gv" },
+    { '<c-j>', ":m '>+1<cr>gv=gv" },
   }},
 
   -- Disable arrow keys

@@ -64,6 +64,15 @@ return packer.startup(function(use)
     config = function() require "neo-tree-config" end,
   }
 
+  -- Window picker
+  use {
+    "s1n7ax/nvim-window-picker",
+    tag = 'v1.*',
+    config = function() require "window-picker".setup({
+      selection_chars = 'ASRTNEIOCLUY'
+    }) end,
+  }
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",

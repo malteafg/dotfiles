@@ -46,7 +46,8 @@ sendfile () {
             filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
                 text*|*json*)
-                    send "alacritty -e nvim $path";;
+                    dirpath=$(printgitdir)
+                    send "alacritty -e nvim -c 'cd $dirpath' $path";;
                 image*)
                     send "sxiv $path";;
                 audio*)
@@ -71,7 +72,7 @@ findfile () {
     if [ "$NEWWINDOW" -eq "0" ]; then
         cmd=`cat ~/.cache/ofcmd`
         ccmd=${cmd#"alacritty -e "}
-        $ccmd
+        eval $ccmd
     fi
 }
 
