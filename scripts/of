@@ -48,7 +48,7 @@ sendfile () {
                 text*|*json*)
                     dirpath=$(printgitdir $path)
                     echo $dirpath
-                    send "alacritty -e nvim -c 'cd $dirpath' $path";;
+                    send "alacritty -e nvim -c \"cd $dirpath\" $path";;
                 image*)
                     send "sxiv $path";;
                 audio*)

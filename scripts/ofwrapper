@@ -10,8 +10,10 @@ done
 
 file () {
     alacritty --class float,float -e of "$@"
-    cmd=`cat ~/.cache/ofcmd`
-    $cmd &
+    bash ~/.cache/ofcmd
+    # cmd=`cat ~/.cache/ofcmd`
+    # alacritty -e nvim -c "cd /home/malte/dotfiles" /home/malte/dotfiles/scripts/godir
+    # $cmd &
 }
 
 dir () {
