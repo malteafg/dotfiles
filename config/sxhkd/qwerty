@@ -12,7 +12,7 @@ super + {_, shift +} backslash
     xclip -selection clipboard -t image/png
 
 super + p
-    alacritty -e nvim
+    alacritty -e nvim -c "SessionManager! load_session"
 
 super + shift + p
     alacritty -e nvim -c "Files $HOME/files/vimwiki/text"

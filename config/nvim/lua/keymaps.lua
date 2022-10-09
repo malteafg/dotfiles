@@ -20,7 +20,8 @@ nest.applyKeymaps {
   { '<leader>', {
     { 'h', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
-    { 't', '<cmd>Neotree focus<cr>'},
+    { 't', '<cmd>Neotree focus<cr>' },
+    { 'q', 'gwip' },
     { '/', function() require("Comment.api").toggle.linewise.current() end },
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
 
