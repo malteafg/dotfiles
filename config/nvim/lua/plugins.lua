@@ -52,6 +52,10 @@ return packer.startup(function(use)
     config = function() require("nvim-autopairs").setup {} end,
   }
 
+  use {
+    "vimwiki/vimwiki",
+  }
+
   -- Tree file manager
   use { "kyazdani42/nvim-web-devicons" }
   use {
