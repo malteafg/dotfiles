@@ -1,16 +1,16 @@
 #!/bin/sh
 xrandr \
     --output DP-0 --primary --mode 2560x1440 --rate 164.83 \
-    --pos 1920x0 --rotate normal \
-    --output DVI-D-0 --mode 1920x1080 --pos 0x240 --rotate normal \
-    --output HDMI-0 --mode 1920x1080 --pos 4480x240 --rotate normal \
+    --pos 1920x180 --rotate normal \
+    --output DVI-D-0 --mode 1920x1080 --pos 0x420 --rotate normal \
+    --output HDMI-0 --mode 1920x1080 --pos 4480x0 --rotate left \
     --output DP-1 --off --output DP-2 --off --output DP-3 --off \
     --output DP-4 --off --output DP-5 --off
 
 xwallpaper --output DP-0 --center $WALLPAPER_DIR/moon-1440p.jpg
-xwallpaper --output HDMI-0 --zoom $WALLPAPER_DIR/fractal-1440p.jpg
 xwallpaper --output DVI-D-0 --zoom $WALLPAPER_DIR/fractal-1440p.jpg
+xwallpaper --output HDMI-0 --zoom $WALLPAPER_DIR/fractal-2560p.jpg
 
 echo "DP-0" > $MON_CONF
-echo "HDMI-0" >> $MON_CONF
 echo "DVI-D-0" >> $MON_CONF
+echo "HDMI-0" >> $MON_CONF
