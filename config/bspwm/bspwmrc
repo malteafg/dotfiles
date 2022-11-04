@@ -2,14 +2,7 @@
 
 if [[ "$1" = 0 ]]
 then
-    layout -w
-
-    picom -b &
-    # nm-applet &
-    #killall bspswallow;
-    #pgrep bspswallow || bspswallow &
-else
-    killall picom; picom -b &
+    initwin
 fi
 
 configureworkspaces "$1"

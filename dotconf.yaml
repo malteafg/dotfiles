@@ -13,6 +13,7 @@
     #~/.inputrc: config/inputrc
     ~/.zshrc: config/zshrc
     ~/.zprofile: config/zprofile
+    ~/.profile: config/profile
     ~/.mrconfig: config/mrconfig
     ~/.gitconfig: config/gitconfig
     ~/.xinitrc: config/initrc

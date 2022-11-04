@@ -1,9 +1,6 @@
 [repos/gfkl]
 checkout = git clone 'git@github.com:malteafg/gfkl.git' 'gfkl'
 
-[repos/proj]
-checkout = git clone 'git@github.com:malteafg/proj.git' 'proj'
-
 [dotfiles]
 checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
 
