@@ -89,6 +89,8 @@ alias rb='source ~/.zshrc'
 alias sshs='eval `ssh-agent` && ssh-add'
 alias sshq='kill $SSH_AGENT_PID'
 
+alias startb='startx /usr/bin/bspwm'
+
 # COMMANDS #####################################################################
 function rmsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
 function copy() { xclip -sel c < "$1"; }
