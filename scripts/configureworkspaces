@@ -1,19 +1,16 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 MON1="a s r t v"
 MON2="u y f w d j"
 MON3="x o"
 readarray -t MONITORS < $MON_CONF
-xrandr --output ${MONITORS[0]} --primary
+# xrandr --output ${MONITORS[0]} --primary
 
 currdesk="a"
 [[ $1 -ne 0 ]] && currdesk=`bspc query -D -d focused`
 
 ALLMONS="$MON1 $MON2 $MON3"
 [[ "$1" = 0 ]] && bspc monitor ${MONITORS[0]} -d $ALLMONS
-
-killall -q polybar
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 case ${#MONITORS[@]} in
     1) 
@@ -24,8 +21,7 @@ case ${#MONITORS[@]} in
             bspc desktop -f $d
             bspc desktop -m ${MONITORS[0]}
         done
-        bspc desktop -f $currdesk
-        MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown;;
+        bspc desktop -f $currdesk;;
     2)
         MONLIST=($MON1)
         for d in "${MONLIST[@]}"
@@ -40,10 +36,7 @@ case ${#MONITORS[@]} in
             bspc desktop -f "$d"
             bspc desktop -m "${MONITORS[1]}"
         done
-        bspc desktop -f $currdesk
-        MONITOR="${MONITORS[1]}" polybar -r secondary 2>&1 | tee -a /tmp/polybarsecondary.log & disown
-        sleep 1.0
-        MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown;;
+        bspc desktop -f $currdesk;;
     3)
         MONLIST=($MON1)
         for d in "${MONLIST[@]}"
@@ -63,10 +56,6 @@ case ${#MONITORS[@]} in
             bspc desktop -f $d
             bspc desktop -m ${MONITORS[2]}
         done
-        bspc desktop -f $currdesk
-        MONITOR="${MONITORS[1]}" polybar -r secondary 2>&1 | tee -a /tmp/polybarsecondary.log & disown
-        sleep 1.0
-        MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown
-        MONITOR="${MONITORS[2]}" polybar -r tertiary 2>&1 | tee -a /tmp/polybartertiary.log & disown;;
+        bspc desktop -f $currdesk;;
 esac
 

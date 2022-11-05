@@ -1,0 +1,21 @@
+#!/bin/sh
+
+readarray -t MONITORS < $MON_CONF
+
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 0.5; done
+
+case ${#MONITORS[@]} in
+  1) 
+    MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown;;
+  2)
+    MONITOR="${MONITORS[1]}" polybar -r secondary 2>&1 | tee -a /tmp/polybarsecondary.log & disown
+    sleep 0.5
+    MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown;;
+
+  3)
+    MONITOR="${MONITORS[1]}" polybar -r secondary 2>&1 | tee -a /tmp/polybarsecondary.log & disown
+    sleep 0.5
+    MONITOR="${MONITORS[0]}" polybar -r primary 2>&1 | tee -a /tmp/polybarprimary.log & disown
+    MONITOR="${MONITORS[2]}" polybar -r tertiary 2>&1 | tee -a /tmp/polybartertiary.log & disown;;
+esac

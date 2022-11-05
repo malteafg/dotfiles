@@ -27,7 +27,7 @@
     ~/.config/Code/User/keybindings.json: config/code/codekeybindings.json
     ~/.config/fd/ignore: config/fdignore
     ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg
-    ~/.config/polybar/config: config/polybar
+    ~/.config/polybar/config.ini: config/polybar.ini
     ~/.config/zathura/zathurarc: config/zathurarc
     ~/.config/mimeapps.list: config/mimeapps.list
     ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc

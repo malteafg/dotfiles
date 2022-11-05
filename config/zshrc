@@ -59,7 +59,6 @@ PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 . /usr/share/fzf/key-bindings.zsh
 
 # ALIASES ######################################################################
-alias g='git'
 alias z='zathura'
 alias v='nvim'
 alias sv='sudo -E -s nvim'
@@ -90,6 +89,52 @@ alias sshs='eval `ssh-agent` && ssh-add'
 alias sshq='kill $SSH_AGENT_PID'
 
 alias startb='startx /usr/bin/bspwm'
+
+# GIT ##########################################################################
+alias g='git'
+alias gs='git status'
+
+alias gc='git commit -v'
+alias gca='git commit -v --all'
+alias gcm='git commit -v -m'
+alias gcam='git commit -v --all -m'
+
+alias gp='git push'
+
+alias gl='git pull'
+alias glr'git pull --rebase'
+
+alias ga='git add'
+alias gaa='git add --all'
+
+alias gb='git branch'
+alias gbl='git branch --list'
+alias gbd='git branch --delete'
+alias gbr='git branch --remote'
+
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcH!='git checkout HEAD --'
+
+alias gd='git diff'
+alias gdw='git diff --word-diff'
+
+alias gf='git fetch'
+alias gfo='git fetch origin'
+
+alias gm='git merge'
+
+alias gr='git reset'
+alias grh!='git reset --hard'
+
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+
+alias grm='git rm'
+
+alias gm='git remote'
+alias gma='git remote add'
 
 # COMMANDS #####################################################################
 function rmsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
@@ -147,13 +192,9 @@ alias godir='source godir'
 bindkey -s '^w' 'source godir -hed\n'
 
 # GIT STUFF ####################################################################
-MRCMD="mr -d $HOME -i -n 2 -j6"
-MRCMDS="mr -d $HOME -n 2"
-
-function ci() { $MRCMDS record }
-function st() { $MRCMD status }
 function ci() { mr -d $HOME -n 2 record }
 function st() { mr -d $HOME -i -n 2 -j6 status }
+function add() { mr -d $HOME -n 2 -j6 run command git add --all }
 
 function fetch() {
     eval `ssh-agent` && ssh-add

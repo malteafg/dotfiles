@@ -6,6 +6,7 @@ then
 fi
 
 configureworkspaces "$1"
+startpolybar
 
 # CONFIG
 bspc config border_width         1

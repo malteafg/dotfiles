@@ -3,13 +3,17 @@
 options="switch layout
 choose layout
 pass
-network
 monitor
-fixmonitors"
+resets"
 
 layouts="wokmok
 us intl
 danish"
+
+resets="monitors
+workspaces
+polybar
+sxhkd"
 
 chosen="$(echo "$options" | dmenu -i -ae -c -fn 'pixelsize=20' -l 10)" || exit 1
 
@@ -17,30 +21,33 @@ case "$chosen" in
     "switch layout")
         if [[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]]
         then
-            layout -u
+            setlayout -u
         else
-            layout -w
-        fi;;
+            setlayout -w
+        fi
+        startsxhkd;;
 
     "choose layout")
         chosen="$(echo "$layouts" | dmenu -i -ae -c -fn 'pixelsize=20' -l 4)" || exit 1
         case "$chosen" in
-            "wokmok") layout -w;;
-            "us intl") layout -u;;
-            "danish") layout -d;;
-        esac;;
+            "wokmok") setlayout -w;;
+            "us intl") setlayout -u;;
+            "danish") setlayout -d;;
+        esac
+        startsxhkd;;
 
     "pass")
-        #alacritty --class smallfloat,smallfloat -e passmenu;;
         passmenu &;;
-
-    "network")
-        networkmanager_dmenu;;
 
     "monitor")
         selectmon;;
 
-    "fixmonitors")
-        fixmonitors;;
-
+    "resets")
+        chosen="$(echo "$resets" | dmenu -i -ae -c -fn 'pixelsize=20' -l 4)" || exit 1
+        case "$chosen" in
+            "monitors") fixmonitors;;
+            "workspaces") configureworkspaces;;
+            "polybar") startpolybar;;
+            "sxhkd") startsxhkd;;
+        esac;;
 esac

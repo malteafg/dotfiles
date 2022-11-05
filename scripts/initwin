@@ -11,5 +11,6 @@ xset r rate 200 25
 xautolock -time 25 -locker 'i3lock -c 1c1f24' &
 redshift -l 57.01:9.58 &
 # gitwatch ~/repos/vimwiki &
-layout -w
+setlayout -w
+startsxhkd
 picom -b &

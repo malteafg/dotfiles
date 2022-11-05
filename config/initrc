@@ -1,26 +1,3 @@
 #! /bin/sh
 
-. ~/dotfiles/local/config.sh
-#xrdb -merge ~/.Xresources
-
-# Monitor setup
-export WALLPAPER_DIR="$HOME/files/wallpapers"
-export MON_CONF="$HOME/.local/share/monitorconf"
-export MON_SCRIPT="$HOME/.local/share/monitorscript"
-$MON_SCRIPT
-
-# Defaults
-export TERMI="alacritty"
-export EDITOR='vi -e'
-export VISUAL='nvim'
-export BROWSER="/usr/bin/brave"
-
-# Config
-xset r rate 200 25
-
-# Autostart
-xautolock -time 25 -locker 'i3lock -c 1c1f24' &
-redshift -l 57.01:9.58 &
-# gitwatch ~/repos/vimwiki &
-
 exec bspwm
