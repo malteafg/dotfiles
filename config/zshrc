@@ -59,6 +59,7 @@ PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 . /usr/share/fzf/key-bindings.zsh
 
 # ALIASES ######################################################################
+alias sudo='sudo '
 alias z='zathura'
 alias v='nvim'
 alias sv='sudo -E -s nvim'
@@ -94,12 +95,15 @@ alias startb='startx /usr/bin/bspwm'
 alias g='git'
 alias gs='git status'
 
+alias gcl='git clone'
+
 alias gc='git commit -v'
 alias gca='git commit -v --all'
 alias gcm='git commit -v -m'
 alias gcam='git commit -v --all -m'
 
 alias gp='git push'
+alias gpu='git push -u'
 
 alias gl='git pull'
 alias glr'git pull --rebase'
@@ -111,6 +115,11 @@ alias gb='git branch'
 alias gbl='git branch --list'
 alias gbd='git branch --delete'
 alias gbr='git branch --remote'
+
+alias gwl='git worktree list'
+alias gwa='git worktree add'
+alias gwr='git worktree remove'
+alias gwrf!='git worktree remove --force'
 
 alias gco='git checkout'
 alias gcb='git checkout -b'
@@ -133,8 +142,9 @@ alias grbc='git rebase --continue'
 
 alias grm='git rm'
 
-alias gm='git remote'
-alias gma='git remote add'
+alias go='git remote'
+alias goa='git remote add'
+alias gor='git remote rm'
 
 # COMMANDS #####################################################################
 function rmsp() { for f in "$@"; do mv "$f" "${f// /_}"; done }
