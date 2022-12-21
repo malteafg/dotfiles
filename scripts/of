@@ -42,6 +42,8 @@ sendfile () {
             send "$BROWSER $(cat $path)";;
         pdf)
             send "zathura --fork $path";;
+        mscz)
+            send "MuseScore-4.0.0-x86_64.AppImage $path";;
         *)
             filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
