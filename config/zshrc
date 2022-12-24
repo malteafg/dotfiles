@@ -85,6 +85,7 @@ alias ~='cd ~'
 alias mv='mv -i'
 function cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
 alias rb='source ~/.zshrc'
+alias rgpg='gpg-connect-agent reloadagent /bye'
 
 alias sshs='eval `ssh-agent` && ssh-add'
 alias sshq='kill $SSH_AGENT_PID'
@@ -152,7 +153,7 @@ function copy() { xclip -sel c < "$1"; }
 function paste() { xclip -o > "$1"; }
 function pac() {
     PACS=$(pacman -Ssq | fzf -m --preview="pacman -Si {}")
-    (($?)) || sudo pacman -Syy $PACS
+    (($?)) || xargs -a <(echo $PACS) sudo pacman -Syy
 }
 
 function mvr() {

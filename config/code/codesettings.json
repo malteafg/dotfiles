@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "GitHub Dark",
     "keyboard.dispatch": "keyCode",
     "explorer.autoReveal": false,
     "editor.lineNumbers": "relative",
@@ -8,5 +7,6 @@
     "editor.rulers": [
         80
     ],
-    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "terminal.integrated.enableMultiLinePasteWarning": false
 }
