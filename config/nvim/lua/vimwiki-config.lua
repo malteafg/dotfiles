@@ -5,3 +5,5 @@ vim.cmd('let g:indentLine_conceallevel=2')
 
 vim.cmd('augroup wiki au BufNewFile,BufRead *.wiki set filetype=wiki augroup end')
 vim.cmd('autocmd FileType wiki nnoremap <Esc> :VimwikiGoBackLink<CR>')
+
+vim.cmd("let g:vimwiki_map_prefix = '<leader>k'")
