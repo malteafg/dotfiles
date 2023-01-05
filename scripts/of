@@ -54,7 +54,7 @@ sendfile () {
                 image*)
                     send "sxiv $path";;
                 audio*)
-                    send "vlc $path";;
+                    send "mpv --player-operation-mode=pseudo-gui $path";;
                 video*)
                     send "mpv $path";;
                 *)

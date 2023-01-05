@@ -19,6 +19,7 @@
     ~/.xinitrc: config/initrc
     #~/.vimrc: config/nvim/vimrc
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
+    ~/.config/mpv: config/mpv
     ~/.config/nvim/init.lua: config/nvim/init.lua
     ~/.config/nvim/lua: config/nvim/lua
     #~/.config/lvim/config.lua: config/nvim/lvim.lua
