@@ -9,5 +9,5 @@
     ],
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.enableMultiLinePasteWarning": false,
-    "workbench.colorTheme": "Default Light+"
+    "workbench.colorTheme": "Default Light+",
 }

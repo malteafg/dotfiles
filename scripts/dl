@@ -1,11 +1,14 @@
 #!/bin/bash
 
 dlvideo=false
+saved=""
 OPTIND=1
 
-while getopts ":v" opt; do
+while getopts ":vbg" opt; do
     case $opt in
         v) dlvideo=true;;
+        b) saved="bass";;
+        g) saved="guitar";;
         \?)
             echo "Invalid option: -$OPTARG" >&2
             exit
@@ -19,9 +22,14 @@ if [[ $# -ne 2 && $# -ne 3 ]] ; then
     exit 0
 fi
 
-if [ "$dlvideo" = true ]; then
-    yt-dlp -o $HOME/largefiles/saved/videos/$1.webm "$2"
-fi
+if [ -z "$saved" ]; then
+    if [ "$dlvideo" = true ]; then
+        yt-dlp -o $HOME/largefiles/saved/videos/$1.webm "$2"
+    fi
 
-yt-dlp -x --audio-format wav -o $HOME/largefiles/saved/music/$1.wav "$2" &&
-ffmpeg -i $HOME/largefiles/saved/music/$1.wav -acodec mp3 $HOME/largefiles/saved/spotify/$1.mp3
+    yt-dlp -x --audio-format wav -o $HOME/largefiles/saved/music/$1.wav "$2" &&
+    ffmpeg -i $HOME/largefiles/saved/music/$1.wav -acodec mp3 \
+$HOME/largefiles/saved/spotify/$1.mp3
+else
+    yt-dlp -o $HOME/largefiles/saved/playtuts/$saved/$1.webm "$2"
+fi
