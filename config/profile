@@ -13,6 +13,8 @@ export WALLPAPER_DIR="$HOME/files/wallpapers"
 export MON_CONF="$HOME/.local/share/monitorconf"
 export MON_SCRIPT="$HOME/.local/share/monitorscript"
 
+xset r rate 200 25
+
 . "$HOME/.cargo/env"
 
 # opam configuration
