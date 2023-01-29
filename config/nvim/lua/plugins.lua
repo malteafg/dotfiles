@@ -73,8 +73,9 @@ return packer.startup(function(use)
     "s1n7ax/nvim-window-picker",
     tag = 'v1.*',
     config = function() require "window-picker".setup({
-      selection_chars = 'ASRTNEIOCLUY'
-    }) end,
+        selection_chars = 'ASRTNEIOCLUY'
+      })
+    end,
   }
 
   -- Treesitter
@@ -136,11 +137,12 @@ return packer.startup(function(use)
   use {
     "Darazaki/indent-o-matic",
     config = function() require('indent-o-matic').setup({
-      standard_widths = { 2, 4 },
-      filetype_lua = {
-        standard_widths = { 2 },
-      },
-    }) end
+        standard_widths = { 2, 4 },
+        filetype_lua = {
+          standard_widths = { 2 },
+        },
+      })
+    end
   }
 
   -- Latex
@@ -167,9 +169,10 @@ return packer.startup(function(use)
     -- event = "BufWritePost",
     -- config = function() require('session_manager').setup() end,
     config = function() require('session_manager').setup({
-      -- Possible values: Disabled, CurrentDir, LastSession
-      autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
-    }) end,
+        -- Possible values: Disabled, CurrentDir, LastSession
+        autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+      })
+    end,
   }
 
   -- Surround
@@ -193,21 +196,21 @@ return packer.startup(function(use)
     'VonHeikemen/lsp-zero.nvim',
     requires = {
       -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
-      {'williamboman/mason-lspconfig.nvim'},
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
       -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
 
       -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
     }
   }
 
@@ -217,6 +220,8 @@ return packer.startup(function(use)
       require('rust-tools').setup()
     end,
   }
+
+  use { "jose-elias-alvarez/null-ls.nvim", lazy = true }
 
   -- Git stuff
   use {
@@ -232,4 +237,3 @@ return packer.startup(function(use)
     require("packer").sync()
   end
 end)
-
