@@ -9,4 +9,11 @@
     ],
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.enableMultiLinePasteWarning": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "tlaplus.tlc.modelChecker.options": "-dump dot:colorize ${modelName}.dot -deadlock",
+    "[tlaplus]": {
+        "editor.codeActionsOnSave": {
+            "source": true
+        }
+    }
 }
