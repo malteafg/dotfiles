@@ -9,7 +9,7 @@ window:
   decorations: full
   startup_mode: Windowed
   opacity: 0.9
-  #opacity: 1 
+  # opacity: 1 
 
   title: Alacritty
   dynamic_title: true

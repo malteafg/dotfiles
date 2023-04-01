@@ -17,5 +17,9 @@
     },
     "[python]": {
         "editor.formatOnType": true
+    },
+    "git.ignoreMissingGitWarning": true,
+    "files.associations": {
+        "*.trp": "sml"
     }
 }

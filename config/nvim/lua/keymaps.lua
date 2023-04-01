@@ -27,53 +27,91 @@ nest.applyKeymaps {
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
 
     -- Window controls
-    { 'w', mode = 'nv', {
-      { 'p', function()
-        local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
-        vim.api.nvim_set_current_win(picked_window_id)
-      end },
-      -- Movement
-      { 'h', '<c-w><c-h>' },
-      { 'i', '<c-w><c-l>' },
-      { 'n', '<c-w><c-j>' },
-      { 'e', '<c-w><c-k>' },
-      { 'o', '<c-w>o' },
-      -- Window movement
-      { 'r', '<c-w>r' },
-      { 'R', '<c-w>R' },
-      { 'L', '<c-w>L' },
-      { 'H', '<c-w>H' },
-      { 'K', '<c-w>K' },
-      { 'J', '<c-w>J' },
-      { 'x', '<c-w>x' },
-      -- Resizing
-      { '=', '<c-w>=' },
-      { '-', '<c-w>-' },
-      { '+', '<c-w>+' },
-      { '>', '<c-w>>' },
-      { '<', '<c-w><' },
-      { '_', '<c-w>_' },
-      { '|', '<c-w>|' },
-      -- { '', '<c-w>' },
-    } },
+    {
+      'w',
+      mode = 'nv',
+      {
+        { 'p', function()
+          local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
+          vim.api.nvim_set_current_win(picked_window_id)
+        end },
+        -- Movement
+        { 'h', '<c-w><c-h>' },
+        { 'i', '<c-w><c-l>' },
+        { 'n', '<c-w><c-j>' },
+        { 'e', '<c-w><c-k>' },
+        { 'o', '<c-w>o' },
+        -- Window movement
+        { 'r', '<c-w>r' },
+        { 'R', '<c-w>R' },
+        -- { 'I', '<c-w>I' },
+        -- { 'H', '<c-w>H' },
+        -- { 'K', '<c-w>K' },
+        -- { 'J', '<c-w>J' },
+        { 'x', '<c-w>x' },
+        -- Resizing
+        { '=', '<c-w>=' },
+        { '-', '<c-w>-' },
+        { '+', '<c-w>+' },
+        { '>', '<c-w>>' },
+        { '<', '<c-w><' },
+        { '_', '<c-w>_' },
+        { '|', '<c-w>|' },
+        -- { '', '<c-w>' },
+      }
+    },
 
     -- Buffer controls
-    { 'b', mode = 'nv', {
-      { 'e', '<cmd>BufferLinePick<cr>' },
-      { 'c', '<cmd>BufferLinePickClose<cr>' },
-      { 'q', '<cmd>BufferLineCloseLeft<cr>' },
-      { 'l', '<cmd>BufferLineCloseRight<cr>' },
-    } },
+    {
+      'b',
+      mode = 'nv',
+      {
+        { 'e', '<cmd>BufferLinePick<cr>' },
+        { 'c', '<cmd>BufferLinePickClose<cr>' },
+        { 'q', '<cmd>BufferLineCloseLeft<cr>' },
+        { 'l', '<cmd>BufferLineCloseRight<cr>' },
+        { 's', function() require("telescope.builtin").buffers() end },
+        { '>', '<cmd>BufferLineMoveNext<cr>' },
+        { '<', '<cmd>BufferLineMovePrev<cr>' },
+      }
+    },
 
     -- Session manager
-    { 'S', mode = 'nv', {
-      { 'l', '<cmd>SessionManager! load_last_session<cr>' },
-      { 's', '<cmd>SessionManager! save_current_session<cr>' },
-      { 'q', '<cmd>SessionManager save_current_session<cr><cmd>qa<cr>' },
-      { 'd', '<cmd>SessionManager! delete_session<cr>' },
-      { 'f', '<cmd>SessionManager! load_session<cr>' },
-      { '.', '<cmd>SessionManager! load_current_dir_session<cr>' },
-    } },
+    {
+      'S',
+      mode = 'nv',
+      {
+        { 'l', '<cmd>SessionManager! load_last_session<cr>' },
+        { 's', '<cmd>SessionManager! save_current_session<cr>' },
+        { 'q', '<cmd>SessionManager save_current_session<cr><cmd>qa<cr>' },
+        { 'd', '<cmd>SessionManager! delete_session<cr>' },
+        { 'f', '<cmd>SessionManager! load_session<cr>' },
+        { '.', '<cmd>SessionManager! load_current_dir_session<cr>' },
+      }
+    },
+
+    -- Files
+    {
+      'f',
+      mode = 'nv',
+      {
+        { 'f', function() require("telescope.builtin").find_files() end },
+        { 'p', function() require("telescope.builtin").registers() end },
+        { 'c', function() require("telescope.builtin").grep_string() end },
+        { 'w', function() require("telescope.builtin").live_grep() end },
+      }
+    },
+
+    -- Git
+    {
+      'g',
+      mode = 'nv',
+      {
+        { 's', function() require("telescope.builtin").git_status() end },
+        { 'b', function() require("telescope.builtin").git_branches() end },
+        { 'c', function() require("telescope.builtin").git_commits() end },
+      }
+    },
 
     -- Open lines
     { 'o', '<cmd>call append(line("."), repeat([""], v:count1))<cr>' },
@@ -82,11 +120,15 @@ nest.applyKeymaps {
     -- System clipboard
     { 'y', '<s-v>"+y' },
     { 'p', '"+p' },
-    { 'y', '"+y', mode = 'v' },
-    { 'p', '"_dP', mode = 'v' },
+    {
+      mode = 'v',
+      {
+        { 'y', '"+y' },
+        { 'p', '"_dP' },
+      }
+    }
 
     -- Telescope
-    -- maps.n["<leader>fw"] = { function() require("telescope.builtin").live_grep() end, desc = "Search words" }
     -- maps.n["<leader>fW"] = {
     --   function()
     --     require("telescope.builtin").live_grep {
@@ -95,26 +137,17 @@ nest.applyKeymaps {
     --   end,
     --   desc = "Search words in all files",
     -- }
-    -- maps.n["<leader>gt"] = { function() require("telescope.builtin").git_status() end, desc = "Git status" }
-    -- maps.n["<leader>gb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
-    -- maps.n["<leader>gc"] = { function() require("telescope.builtin").git_commits() end, desc = "Git commits" }
-    -- maps.n["<leader>ff"] = { function() require("telescope.builtin").find_files() end, desc = "Search files" }
     -- maps.n["<leader>fF"] = {
     --   function() require("telescope.builtin").find_files { hidden = true, no_ignore = true } end,
     --   desc = "Search all files",
     -- }
-    -- maps.n["<leader>fb"] = { function() require("telescope.builtin").buffers() end, desc = "Search buffers" }
     -- maps.n["<leader>fh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
     -- maps.n["<leader>fm"] = { function() require("telescope.builtin").marks() end, desc = "Search marks" }
     -- maps.n["<leader>fo"] = { function() require("telescope.builtin").oldfiles() end, desc = "Search history" }
-    -- maps.n["<leader>fc"] =
-    --   { function() require("telescope.builtin").grep_string() end, desc = "Search for word under cursor" }
-    -- maps.n["<leader>sb"] = { function() require("telescope.builtin").git_branches() end, desc = "Git branches" }
     -- maps.n["<leader>sh"] = { function() require("telescope.builtin").help_tags() end, desc = "Search help" }
     -- maps.n["<leader>sm"] = { function() require("telescope.builtin").man_pages() end, desc = "Search man" }
     -- maps.n["<leader>sn"] =
     --   { function() require("telescope").extensions.notify.notify() end, desc = "Search notifications" }
-    -- maps.n["<leader>sr"] = { function() require("telescope.builtin").registers() end, desc = "Search registers" }
     -- maps.n["<leader>sk"] = { function() require("telescope.builtin").keymaps() end, desc = "Search keymaps" }
     -- maps.n["<leader>sc"] = { function() require("telescope.builtin").commands() end, desc = "Search commands" }
     -- maps.n["<leader>ls"] = {
@@ -138,40 +171,48 @@ nest.applyKeymaps {
   } },
 
   -- Buffer controls
-  { mode = 'nv', {
-    { 'L', '<cmd>BufferLineCycleNext<cr>' },
-    { 'H', '<cmd>BufferLineCyclePrev<cr>' },
-  } },
-  { mode = 'nv', {
-    { '>b', '<cmd>BufferLineMoveNext<cr>' },
-    { '<b', '<cmd>BufferLineMovePrev<cr>' },
-  } },
+  {
+    mode = 'nv',
+    {
+      { 'L', '<cmd>BufferLineCycleNext<cr>' },
+      { 'H', '<cmd>BufferLineCyclePrev<cr>' },
+    }
+  },
 
   -- Normal mode only bindings
-  { mode = 'n', {
-    { 'Y', 'y$' },
+  {
+    mode = 'n',
+    {
+      { 'Y',     'y$' },
 
-    { 'n', 'nzzzv' },
-    { 'N', 'Nzzzv' },
-    { 'J', 'mzJ`z' },
+      { 'n',     'nzzzv' },
+      { 'N',     'Nzzzv' },
+      { 'J',     'mzJ`z' },
 
-    -- Move text
-    { '<c-k>', '<cmd>m .-2<cr>==' },
-    { '<c-j>', '<cmd>m .+1<cr>==' },
-  } },
+      -- Move text
+      { '<c-k>', '<cmd>m .-2<cr>==' },
+      { '<c-j>', '<cmd>m .+1<cr>==' },
+    }
+  },
 
   -- Visual mode only bindings
-  { mode = 'v', {
-    -- Move text
-    { '<c-k>', ":m '<-2<cr>gv=gv" },
-    { '<c-j>', ":m '>+1<cr>gv=gv" },
-  } },
+  {
+    mode = 'v',
+    {
+      -- Move text
+      { '<c-k>', ":m '<-2<cr>gv=gv" },
+      { '<c-j>', ":m '>+1<cr>gv=gv" },
+    }
+  },
 
   -- Disable arrow keys
-  { mode = 'ni', {
-    { '<up>', '<nop>' },
-    { '<down>', '<nop>' },
-    { '<left>', '<nop>' },
-    { '<right>', '<nop>' },
-  } },
+  {
+    mode = 'ni',
+    {
+      { '<up>',    '<nop>' },
+      { '<down>',  '<nop>' },
+      { '<left>',  '<nop>' },
+      { '<right>', '<nop>' },
+    }
+  },
 }
