@@ -84,6 +84,8 @@ alias ..='cd ..'
 alias ~='cd ~'
 alias mv='mv -i'
 function cdn() { mkdir -p -- "$1" && cd -P -- "$1"; }
+function cdr() { echo "make function that cd's to git root"; }
+function cdb() { echo "make function that cd's back to previous"; }
 alias rb='source ~/.zshrc'
 alias rgpg='gpg-connect-agent reloadagent /bye'
 
@@ -199,8 +201,8 @@ function ciscovpn() { $CISCO "$@"; }
 
 # BINDINGS #####################################################################
 bindkey -s '^t' 'of -he\n'
-alias godir='source godir'
-bindkey -s '^w' 'source godir -hed\n'
+alias tj='source tj'
+bindkey -s '^w' 'source tj -he\n'
 
 # GIT STUFF ####################################################################
 function ci() { mr -d $HOME -n 2 record }

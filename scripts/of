@@ -31,7 +31,7 @@ while getopts ":hend" opt; do
 done
 
 send () {
-    echo "$1" >> ~/.cache/ofcmd
+    echo "$1" >> $HOME/.cache/ofcmd
 }
 
 sendfile () {
@@ -73,7 +73,7 @@ findfile () {
     done
 
     if [ "$NEWWINDOW" -eq "0" ]; then
-        cmd=`cat ~/.cache/ofcmd`
+        cmd=`cat $HOME/.cache/ofcmd`
         ccmd=${cmd#"alacritty -e "}
         eval $ccmd
     fi
@@ -82,10 +82,10 @@ findfile () {
 finddir () {
     path=$(fd $HOME_DIR -t d -I $EXCLUDED_DIRS |
         fzf --preview="tree -L 1 $HOME_PATH{}")
-    [[ ! -z "${path}" ]] && echo "$HOME_PATH$path" >> ~/.cache/ofcmd
+    [[ ! -z "${path}" ]] && echo "$HOME_PATH$path" >> $HOME/.cache/ofcmd
 }
 
-> ~/.cache/ofcmd
+> $HOME/.cache/ofcmd
 if [ "$DIR" -eq "0" ]; then
     findfile
 else

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-of "$@"
+of "$@" -d
 
 dir=`cat ~/.cache/ofcmd`
 cd "$dir"
