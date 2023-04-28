@@ -4,9 +4,6 @@
 
 $MON_SCRIPT
 
-# Config
-xset r rate 200 25
-
 # Autostart
 xautolock -time 25 -locker 'i3lock -c 1c1f24' &
 redshift -l 57.01:9.58 &

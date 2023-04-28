@@ -15,6 +15,7 @@ while getopts ":wud" opt; do
 done
 
 if [[ $# -eq 0 ]] ; then
+    echo "Usage: -w for wokmok, -u for us intl., -d for danish"
     exit 0
 fi
 
