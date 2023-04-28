@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# how does bash variables work?
+file=$(date +%s)
+touch ~/Downloads/$file.png
+maim -s -u | tee ~/Downloads/$file.png > /dev/null
+if [ -s ~/Downloads/$file.png ]; then
+  xclip -selection clipboard -t image/png ~/Downloads/$file.png
+else
+  rm ~/Downloads/$file.png
+fi

@@ -7,9 +7,8 @@ super + r
 super + {_, shift +} semicolon
     alacritty --class float,float -e {btop --utf-force,ranger}
 
-super + {_, shift +} backslash
-    maim {-s, _} -u | tee ~/Downloads/$(date +%s).png | \
-    xclip -selection clipboard -t image/png
+super + backslash
+    tsc
 
 super + p
     alacritty -e nvim -c "SessionManager! load_session"
