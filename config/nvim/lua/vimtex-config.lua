@@ -24,8 +24,8 @@ vim.cmd('autocmd FileType tex inoremap ,3sn \\subsubsubsection*{}<Enter>(<>)<Esc
 
 vim.cmd('autocmd FileType tex inoremap ,fr \\frac{}{(<>)}<Esc>6hi')
 vim.cmd('autocmd FileType tex inoremap <C-s> <Esc>:w<CR>a')
-vim.cmd('autocmd FileType tex inoremap ,at <Esc>A')
-vim.cmd('autocmd FileType tex inoremap ,ta $$<Esc>i')
+vim.cmd('autocmd FileType tex inoremap ,w <Esc>A')
+vim.cmd('autocmd FileType tex inoremap ,r $$<Esc>i')
 vim.cmd('autocmd FileType tex inoremap ,tc \\mathcal{}<Esc>i')
 vim.cmd('autocmd FileType tex inoremap ,tb \\mathbb{}<Esc>i')
 vim.cmd('autocmd FileType tex inoremap ,tx \\text{}<Esc>i')
