@@ -153,7 +153,7 @@ function mkslides() {
 function mvr() {
     unset -v latest
     for file in ~/Downloads/*; do
-        latest=$file
+        # latest=$file
         [[ $file -nt $latest ]] && latest=$file
     done
     mv -i "$latest" $([[ "${1##*/}" == *.* ]] \
