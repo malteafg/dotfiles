@@ -45,6 +45,10 @@ function lt() {
 }
 function lds() { du -h --max-depth=1 $@ }
 
+function clf() {
+    find $1 -type f -exec wc -l {} \; | awk '{total += $1} END{print "Number of lines in directory:", total}'
+}
+
 # Terminal movement ############################################################
 alias ..='cd ..'
 alias ~='cd ~'
