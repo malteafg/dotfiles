@@ -7,8 +7,5 @@ xrandr \
     --output DP-1 --off --output DP-2 --off --output DP-3 --off \
     --output DP-4 --off --output DP-5 --off
 
-xwallpaper --output DP-0 --center $WALLPAPER_DIR/moon-1440p.jpg
-xwallpaper --output HDMI-0 --zoom $WALLPAPER_DIR/fractal-1440p.jpg
-
 echo "DP-0" > $MON_CONF
 echo "HDMI-0" >> $MON_CONF
