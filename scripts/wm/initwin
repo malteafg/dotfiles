@@ -1,8 +1,7 @@
 #! /bin/sh
 
-# . ~/dotfiles/local/config.sh
-
 $MON_SCRIPT
+setbg
 
 # Autostart
 xautolock -time 25 -locker 'i3lock -c 1c1f24' &

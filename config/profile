@@ -8,10 +8,12 @@ export EDITOR='vi -e'
 export VISUAL='nvim'
 export BROWSER="/usr/bin/brave"
 
+source $HOME/.local/share/malteos/localsetup
+
 # Monitor setup
 export WALLPAPER_DIR="$HOME/files/wallpapers"
-export MON_CONF="$HOME/.local/share/monitorconf"
-export MON_SCRIPT="$HOME/.local/share/monitorscript"
+export MON_CONF="$HOME/.local/share/malteos/monitorconf"
+export MON_SCRIPT="$HOME/.local/share/malteos/monitorscript"
 
 . "$HOME/.cargo/env"
 
