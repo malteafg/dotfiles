@@ -1,0 +1,11 @@
+#!/bin/bash
+
+readarray -t monitors < $MON_CONF
+
+for i in "${!monitors[@]}"; do
+    if [[ $i -eq 0 ]]; then
+        xwallpaper --output ${monitors[$i]} --center $WALLPAPER_DIR/moon-1440p.jpg
+    else
+        xwallpaper --output ${monitors[$i]} --zoom $WALLPAPER_DIR/fractal-1440p.jpg
+    fi
+done

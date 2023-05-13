@@ -1,0 +1,16 @@
+#!/bin/bash
+
+currmon=`bspc query -M -m focused --names`
+readarray -t monitors < $MON_CONF
+
+for i in "${!monitors[@]}"; do
+    bspc monitor ${monitors[i]} -f
+    if [[ $i -eq 0 ]]; then
+        size=$(xrandr | grep ${monitors[i]} | awk '{print $4}')
+    else
+        size=$(xrandr | grep ${monitors[i]} | awk '{print $3}')
+    fi
+    bspc monitor -g $size
+done
+
+bspc monitor $currmon -f

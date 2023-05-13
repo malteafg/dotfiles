@@ -14,6 +14,7 @@ resets="monitors
 workspaces
 rate
 background
+dimensions
 polybar
 sxhkd"
 
@@ -45,12 +46,13 @@ case "$chosen" in
         selectmon;;
 
     "resets")
-        chosen="$(echo "$resets" | dmenu -i -ae -c -fn 'pixelsize=20' -l 6)" || exit 1
+        chosen="$(echo "$resets" | dmenu -i -ae -c -fn 'pixelsize=20' -l 7)" || exit 1
         case "$chosen" in
             "monitors") fixmonitors;;
             "workspaces") configureworkspaces;;
             "rate") xset r rate 200 25;;
             "background") setbg;;
+            "dimensions") fixdimensions;;
             "polybar") startpolybar;;
             "sxhkd") startsxhkd;;
         esac;;
