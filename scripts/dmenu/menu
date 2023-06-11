@@ -5,7 +5,7 @@ choose layout
 pass
 monitor
 resets
-bluetooth"
+audio"
 
 layouts="wokmok
 us intl
@@ -57,27 +57,6 @@ case "$chosen" in
             "dimensions") fixdimensions;;
             "sxhkd") startsxhkd;;
         esac;;
-    "bluetooth")
-        devices=$(cat $HOME/files/os/bluetooth/trusted_devices.txt)
-        declare -A macmap
-        while IFS= read -r line; do
-            read mac name <<< "$line"
-            opts+="$name\n"
-            macmap["$name"]="$mac"
-        done <<< "$devices"
-
-        opts+="stop"
-        chosen="$(echo -e "$opts" | dmenu -i -c -fn 'pixelsize=20' -l 4)" || exit 1
-        case "$chosen" in
-            "stop")
-                bluetoothctl power off
-                exit 0;;
-        esac
-        mac="${macmap["$chosen"]}"
-        bluetoothctl power on
-        bluetoothctl connect "$mac"
-        umac="${mac//:/_}"
-        sink="bluez_output.$umac.1"
-        pactl set-default-sink "$sink"
-        ;;
+    "audio")
+        audio;;
 esac
