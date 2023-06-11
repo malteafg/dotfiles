@@ -1,5 +1,0 @@
-#! /bin/sh
-
-$MON_SCRIPT
-configureworkspaces
-startpolybar
