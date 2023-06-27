@@ -35,13 +35,13 @@ function ciscovpn() { $CISCO "$@"; }
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
 alias l='exa -alF --color=always --group-directories-first'
-alias l.='exa -a | egrep "^\."'
+alias l.='exa -a | grep -e "^\."'
 function lt() {
-    level=""
-    if [ ! -z "$1" ]; then
-        level="-L $1"
+    if [[ $1 =~ ^[0-9]+$ ]]; then
+        exa -aT --level="$1" --color=always --group-directories-first $2
+    else
+        exa -aT --color=always --group-directories-first $1
     fi
-    exa -aT $level --color=always --group-directories-first $2
 }
 function lds() { du -h --max-depth=1 $@ }
 
