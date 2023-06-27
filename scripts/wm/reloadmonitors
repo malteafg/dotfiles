@@ -1,0 +1,6 @@
+#! /bin/sh
+
+$MON_SCRIPT
+setbg
+configureworkspaces "$1"
+startpolybar &> /dev/null

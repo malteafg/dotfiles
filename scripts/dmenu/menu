@@ -4,7 +4,8 @@ options="switch layout
 choose layout
 pass
 monitor
-resets"
+resets
+audio"
 
 layouts="wokmok
 us intl
@@ -12,10 +13,10 @@ danish"
 
 resets="monitors
 workspaces
-rate
 background
-dimensions
 polybar
+rate
+dimensions
 sxhkd"
 
 chosen="$(echo "$options" | dmenu -i -ae -c -fn 'pixelsize=20' -l 10)" || exit 1
@@ -48,12 +49,14 @@ case "$chosen" in
     "resets")
         chosen="$(echo "$resets" | dmenu -i -ae -c -fn 'pixelsize=20' -l 7)" || exit 1
         case "$chosen" in
-            "monitors") fixmonitors;;
+            "monitors") reloadmonitors;;
             "workspaces") configureworkspaces;;
-            "rate") xset r rate 200 25;;
             "background") setbg;;
-            "dimensions") fixdimensions;;
             "polybar") startpolybar;;
+            "rate") xset r rate 200 25;;
+            "dimensions") fixdimensions;;
             "sxhkd") startsxhkd;;
         esac;;
+    "audio")
+        audio;;
 esac

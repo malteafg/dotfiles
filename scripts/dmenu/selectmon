@@ -1,10 +1,9 @@
 #! /bin/bash
 
-files="$(ls $HOME/dotfiles/monitorlayouts/$PCNAME)"
+files="$(ls $HOME/files/os/monitorlayouts/$PCNAME)"
 chosen="$(echo "$files" | dmenu -i -c -fn 'pixelsize=20' -l 10)" || exit 1
 
 rm $MON_SCRIPT
-ln -s $HOME/dotfiles/monitorlayouts/$PCNAME/$chosen $MON_SCRIPT
-$MON_SCRIPT
+ln -s $HOME/files/os/monitorlayouts/$PCNAME/$chosen $MON_SCRIPT
 
-configureworkspaces
+reloadmonitors

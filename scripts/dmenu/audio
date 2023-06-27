@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# local audio devices
+devices=$(cat $HOME/files/os/audio/$PCNAME/audio_sinks.txt)
+declare -A audiomap
+while IFS= read -r line; do
+    read id name <<< "$line"
+    opts+="$name\n"
+    audiomap["$name"]="$id"
+done <<< "$devices"
+
+# bluetooth devices
+devices=$(cat $HOME/files/os/audio/bluetooth_devices.txt)
+declare -A bluetoothmap
+while IFS= read -r line; do
+    read mac name <<< "$line"
+    opts+="$name\n"
+    bluetoothmap["$name"]="$mac"
+done <<< "$devices"
+
+opts+="stop bluetooth\nbegin bluetooth"
+chosen="$(echo -e "$opts" | dmenu -i -c -fn 'pixelsize=20' -l 10)" || exit 1
+case "$chosen" in
+    "stop bluetooth")
+        bluetoothctl power off
+        exit 0;;
+    "begin bluetooth")
+        bluetoothctl power on
+        exit 1;;
+esac
+
+if [[ ${bluetoothmap[$chosen]+value} ]]; then
+    mac="${bluetoothmap["$chosen"]}"
+    bluetoothctl power on
+    bluetoothctl connect "$mac"
+    umac="${mac//:/_}"
+    sink="bluez_output.$umac.1"
+    pactl set-default-sink "$sink"
+else
+    sink="${audiomap["$chosen"]}"
+    pactl set-default-sink "$sink"
+fi
