@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# bluetooth devices
-devices=$(cat $HOME/files/os/audio/bluetooth_devices.txt)
-declare -A bluetoothmap
-while IFS= read -r line; do
-    read mac name <<< "$line"
-    opts+="$name\n"
-    bluetoothmap["$name"]="$mac"
-done <<< "$devices"
-
 # local audio devices
 devices=$(cat $HOME/files/os/audio/$PCNAME/audio_sinks.txt)
 declare -A audiomap
@@ -16,6 +7,15 @@ while IFS= read -r line; do
     read id name <<< "$line"
     opts+="$name\n"
     audiomap["$name"]="$id"
+done <<< "$devices"
+
+# bluetooth devices
+devices=$(cat $HOME/files/os/audio/bluetooth_devices.txt)
+declare -A bluetoothmap
+while IFS= read -r line; do
+    read mac name <<< "$line"
+    opts+="$name\n"
+    bluetoothmap["$name"]="$mac"
 done <<< "$devices"
 
 opts+="stop bluetooth\nbegin bluetooth"

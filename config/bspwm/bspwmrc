@@ -9,6 +9,7 @@ then
     setlayout -w
     startsxhkd
     picom -b &
+    bluetoothctl power off
 fi
 
 # configureworkspaces "$1"
