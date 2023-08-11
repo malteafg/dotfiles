@@ -18,7 +18,7 @@ case ${#MONITORS[@]} in
         MONLIST=($MONCOMB)
         for d in "${MONLIST[@]}"
         do
-            bspc desktop -f $d
+            bspc desktop -f "$d"
             bspc desktop -m ${MONITORS[0]}
         done
         bspc desktop -f $currdesk;;
@@ -41,19 +41,19 @@ case ${#MONITORS[@]} in
         MONLIST=($MON1)
         for d in "${MONLIST[@]}"
         do
-            bspc desktop -f $d
+            bspc desktop -f "$d"
             bspc desktop -m ${MONITORS[0]}
         done
         MONLIST=($MON2)
         for d in "${MONLIST[@]}"
         do
-            bspc desktop -f $d
+            bspc desktop -f "$d"
             bspc desktop -m ${MONITORS[1]}
         done
         MONLIST=($MON3)
         for d in "${MONLIST[@]}"
         do
-            bspc desktop -f $d
+            bspc desktop -f "$d"
             bspc desktop -m ${MONITORS[2]}
         done
         bspc desktop -f $currdesk;;
