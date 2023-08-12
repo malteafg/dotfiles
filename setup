@@ -1,0 +1,29 @@
+#!/bin/bash
+
+if [[ $EUID -eq 0 ]]; then
+    echo "This script should not be run with sudo."
+    exit 1
+fi
+
+sudo pacman -Syu openssh base-devel man-db man-pages inotify-tools git-lfs xorg-xinit xorg-xset\
+  xorg-xrandr xorg-xev xwallpaper xclip xautolock i3lock xcape picom redshift bspwm sxhkd polybar\
+  neovim alacritty zathura zathura-pdf-mupdf htop discord arandr ranger myrepos texlive-bin\
+  texlive-core texlive-latexextra zsh exa fzf fd bat pass maim imagemagick wget ripgrep exfatprogs\
+|| exit 1
+
+mkdir $HOME/.config/sxhkd/
+mkdir $HOME/repos/
+mkdir $HOME/.local/share/malteos/
+rm -r $HOME/{Desktop,Documents,Music,Pictures,Public,Templates,Videos}
+
+git clone https://github.com/malteafg/gfkl.git $HOME/repos/gfkl/ &&
+bash $HOME/repos/gfkl/linux/install|| echo -e "ERROR unable install gfkl\n\n\n\n\n"
+
+git clone https://github.com/malteafg/dmenu.git $HOME/repos/dmenu/ &&
+{ cd $HOME/repos/dmenu; sudo make install; cd $HOME; } ||
+echo -e "unable to install dmenu\n\n\n\n\n"
+
+chsh -s /usr/bin/zsh $USER
+
+echo "Remember to setup keyboard layout and monitorlayout and malteos/localsetup file"
+echo "Then logout and back in and run startx"
