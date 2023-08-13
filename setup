@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $EUID -eq 0 ]]; then
-    echo "This script should not be run with sudo."
+    echo "This script should not be run with sudo. It is relative to your user"
     exit 1
 fi
 
@@ -9,21 +9,66 @@ sudo pacman -Syu openssh base-devel man-db man-pages inotify-tools git-lfs xorg-
   xorg-xrandr xorg-xev xwallpaper xclip xautolock i3lock xcape picom redshift bspwm sxhkd polybar\
   neovim alacritty zathura zathura-pdf-mupdf htop discord arandr ranger myrepos texlive-bin\
   texlive-core texlive-latexextra zsh exa fzf fd bat pass maim imagemagick wget ripgrep exfatprogs\
-|| exit 1
+  firefox || echo -e "ERROR unable to install packages using pacman\n\n\n\n\n" && exit 1
 
-mkdir $HOME/.config/sxhkd/
-mkdir $HOME/repos/
-mkdir $HOME/.local/share/malteos/
+git clone https://aur.archlinux.org/yay-bin.git $HOME/repos/yay-bin/ &&
+cd $HOME/repos/yay-bin/ && makepkg -si || echo -e "ERROR unable to setup yay\n\n\n\n\n" && exit 1
+rm -rf $HOME/repos/yay-bin/
+
+yay -S vscode brave-bin spotify || 
+  echo -e "ERROR unable to install packages using yay\n\n\n\n\n" && exit 1
+
 rm -r $HOME/{Desktop,Documents,Music,Pictures,Public,Templates,Videos}
+mkdir $HOME/repos/
 
 git clone https://github.com/malteafg/gfkl.git $HOME/repos/gfkl/ &&
-bash $HOME/repos/gfkl/linux/install|| echo -e "ERROR unable install gfkl\n\n\n\n\n"
+    bash $HOME/repos/gfkl/linux/install || echo -e "ERROR unable install gfkl\n\n\n\n\n"
 
 git clone https://github.com/malteafg/dmenu.git $HOME/repos/dmenu/ &&
-{ cd $HOME/repos/dmenu; sudo make install; cd $HOME; } ||
-echo -e "unable to install dmenu\n\n\n\n\n"
+    { cd $HOME/repos/dmenu; sudo make install; cd $HOME; } ||
+    echo -e "ERROR unable to install dmenu\n\n\n\n\n"
 
+git clone https://github.com/malteafg/dotfiles.git $HOME/dotfiles/ &&
+    { cd $HOME/dotfiles/; bash install; cd $HOME; } ||
+    { echo -e "ERROR unable to install dotfiles\n\n\n\n\n"; exit 1; }
+
+echo -e "\n\n\n Now changing shell to zsh"
 chsh -s /usr/bin/zsh $USER
 
-echo "Remember to setup keyboard layout and monitorlayout and malteos/localsetup file"
-echo "Then logout and back in and run startx"
+mkdir $HOME/.local/share/malteos/
+while true; do
+    echo -e "Enter the tag of this pc:\n(previously used are desktop, laptop and backup)"
+    read pcname
+    if [[ "$pcname" =~ ^[[:alpha:]]+$ ]]; then
+        if [[ $(echo "$pcname" | wc -w) -eq 1 ]]; then
+            echo -e "#!/bin/bash\n\nexport PCNAME=$pcname" > $HOME/.local/share/malteos/localsetup 
+            chmod +x $HOME/.local/share/malteos/localsetup
+            break
+        else
+            echo "Input should be exactly one word."
+        fi
+    else
+        echo "Input should only contain letters."
+    fi
+done
+
+mkdir $HOME/.config/sxhkd/
+cat $HOME/dotfiles/config/sxhkd/{base,wokmok} > $HOME/.config/sxhkd/sxhkdrc
+
+monitorlayouts=$(ls $HOME/files/os/monitorlayouts/$pcname/)
+echo $monitorlayouts
+if [ -z "$monitorlayouts" ]; then
+    echo "No monitorlayouts exist for this pc name. You should create a new one manually."
+else 
+    echo "Select a monitorlayout to use:"
+    select layout in $monitorlayouts; do
+        if [ -n "$layout" ]; then
+            echo "You selected: $layout"
+            break
+        else
+            echo "Invalid selection. Please choose a number from the menu."
+        fi
+    done
+fi
+
+echo "Installation complete. Logout and back in and run startx"
