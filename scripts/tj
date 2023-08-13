@@ -1,6 +1,0 @@
-#!/bin/bash
-
-of "$@" -d
-
-dir=`cat ~/.cache/ofcmd`
-cd "$dir"

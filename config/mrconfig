@@ -4,6 +4,9 @@ checkout = git clone 'git@github.com:malteafg/gfkl.git' 'gfkl'
 [dotfiles]
 checkout = git clone 'git@github.com:malteafg/dotfiles.git' 'dotfiles'
 
+[malteos]
+checkout = git clone 'git@github.com:malteafg/malteos.git' 'malteos'
+
 [.password-store]
 checkout = git clone 'git@github.com:Malteafg/passwords.git' '.password-store'
 

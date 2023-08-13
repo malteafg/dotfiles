@@ -1,6 +1,7 @@
 #! /bin/sh
 
-export PATH="$HOME/dotfiles/scripts:$HOME/dotfiles/scripts/wm:$HOME/dotfiles/scripts/dmenu:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+# export PATH="$HOME/dotfiles/scripts:$HOME/dotfiles/scripts/wm:$HOME/dotfiles/scripts/dmenu:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/malteos/scripts:$HOME/malteos/scripts/wm:$HOME/malteos/scripts/dmenu:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 # Defaults
 export TERMI="alacritty"
@@ -8,12 +9,12 @@ export EDITOR='vi -e'
 export VISUAL='nvim'
 export BROWSER="/usr/bin/brave"
 
-source $HOME/.local/share/malteos/localsetup
-
 # Monitor setup
 export WALLPAPER_DIR="$HOME/files/os/wallpapers"
 export MON_CONF="$HOME/.local/share/malteos/monitorconf"
 export MON_SCRIPT="$HOME/.local/share/malteos/monitorscript"
+
+source $HOME/.local/share/malteos/localsetup
 
 . "$HOME/.cargo/env"
 
