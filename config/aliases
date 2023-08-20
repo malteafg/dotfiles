@@ -156,12 +156,8 @@ function mkslides() {
 
 # Convenient commands ##########################################################
 function mvr() {
-    unset -v latest
-    for file in ~/Downloads/*; do
-        # latest=$file
-        [[ $file -nt $latest ]] && latest=$file
-    done
-    mv -i "$latest" $([[ "${1##*/}" == *.* ]] \
+    latest=$(/usr/bin/ls -t $HOME/Downloads/ | head -n 1)
+    mv -i "$HOME/Downloads/$latest" $([[ "${1##*/}" == *.* ]] \
         && echo "$1" || echo "$1.${latest##*.}")
 }
 
