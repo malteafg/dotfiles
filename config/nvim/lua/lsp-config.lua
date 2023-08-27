@@ -32,7 +32,10 @@ bind('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', noremap)
 -- lsp.configure('rust-analyzer', {
 --   settings = {
 --     ["rust-analyzer"] = {
---       inlayHints_chainingHints = true,
+--       -- inlayHints_chainingHints = true,
+--       rustfmt = {
+--         overrideCommand = { "rustfmt", "--max-width", "80" },
+--       },
 --     }
 --   }
 -- })

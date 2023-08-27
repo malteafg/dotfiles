@@ -17,6 +17,7 @@
     ~/.mrconfig: config/mrconfig
     ~/.gitconfig: config/gitconfig
     ~/.xinitrc: config/initrc
+    ~/.rustfmt.toml: config/rustfmt.toml
     #~/.vimrc: config/nvim/vimrc
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
     ~/.config/mpv: config/mpv
