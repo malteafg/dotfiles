@@ -18,6 +18,7 @@
     ~/.gitconfig: config/gitconfig
     ~/.xinitrc: config/initrc
     ~/.rustfmt.toml: config/rustfmt.toml
+    ~/.config/tui_bricks/config.yml: config/tui_bricks.yml
     #~/.vimrc: config/nvim/vimrc
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
     ~/.config/mpv: config/mpv
