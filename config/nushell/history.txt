@@ -1,0 +1,39 @@
+create_right_prompt
+create_left_prompt
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+exit
+ls -a
+ls
+ls -a
+of
+exit
+$env
+cd dotfiles/config
+l
+ls
+cd nushell/
+ls
+v env.nu
+nvim env.nu
+exit

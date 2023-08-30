@@ -7,12 +7,6 @@ alias z='zathura'
 alias v='nvim'
 alias sv='sudo -E -s nvim'
 
-alias startb='startx /usr/bin/bspwm'
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
 alias rb='source ~/.zshrc'
 alias rgpg='gpg-connect-agent reloadagent /bye'
 

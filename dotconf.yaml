@@ -15,6 +15,7 @@
     ~/.zprofile: config/zprofile
     ~/.profile: config/profile
     ~/.xinitrc: config/initrc
+    ~/.config/nushell: config/nushell
 
     ~/.mrconfig: config/mrconfig
     ~/.gitconfig: config/gitconfig
