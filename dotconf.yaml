@@ -14,29 +14,26 @@
     ~/.zshrc: config/zshrc
     ~/.zprofile: config/zprofile
     ~/.profile: config/profile
+    ~/.xinitrc: config/initrc
+
     ~/.mrconfig: config/mrconfig
     ~/.gitconfig: config/gitconfig
-    ~/.xinitrc: config/initrc
+
     ~/.rustfmt.toml: config/rustfmt.toml
     ~/.config/tui_bricks/config.yml: config/tui_bricks.yml
-    #~/.vimrc: config/nvim/vimrc
-    ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
-    ~/.config/mpv: config/mpv
+
     ~/.config/nvim/init.lua: config/nvim/init.lua
     ~/.config/nvim/lua: config/nvim/lua
-    #~/.config/lvim/config.lua: config/nvim/lvim.lua
-    ~/.config/alacritty/alacritty.yml: config/alacritty.yml
+
     ~/.config/Code/User/settings.json: config/code/codesettings.json
     ~/.config/Code/User/keybindings.json: config/code/codekeybindings.json
+
+    ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
+    ~/.config/mpv: config/mpv
+    ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/fd/ignore: config/fdignore
-    ~/.config/nitrogen/nitrogen.cfg: config/nitrogen.cfg
-    ~/.config/polybar/config.ini: config/polybar.ini
     ~/.config/zathura/zathurarc: config/zathurarc
     ~/.config/mimeapps.list: config/mimeapps.list
-    ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
-    ~/.config/qutebrowser/config.py: config/qute/qute.py
-    ~/.config/qutebrowser/quickmarks: config/qute/quickmarks
-    ~/.config/qutebrowser/bookmarks/urls: config/qute/urls
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
