@@ -1,39 +1,28 @@
-create_right_prompt
-create_left_prompt
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
-exit
-ls -a
+rm history.txt
+nvim dotconf.yaml
+./install
+l
+gs
+git status
+git restore config.nu
+git restore env.nu
+git status
 ls
-ls -a
-of
+v config.nu
+mkdir ~/.config/nushell
+./install
+ls
+v dotconf.yaml
 exit
-$env
-cd dotfiles/config
+cd dotfiles/
+l
+git restore env.nu
+git restore config.nu
+cd .config/nushell
 l
 ls
-cd nushell/
+..
+...
+cd .config
+l
 ls
-v env.nu
-nvim env.nu
-exit

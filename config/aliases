@@ -65,7 +65,7 @@ alias gp='git push'
 alias gpu='git push -u'
 
 alias gl='git pull'
-alias glr'git pull --rebase'
+alias glr='git pull --rebase'
 
 alias ga='git add'
 alias gaa='git add --all'
