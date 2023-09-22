@@ -1,3 +1,7 @@
 #! /bin/sh
 [[ -f ~/.profile ]] && . ~/.profile
 [[ -f ~/.zshrc ]] && . ~/.zshrc
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/malte/.local/share/coursier/bin"
+# <<< coursier install directory <<<

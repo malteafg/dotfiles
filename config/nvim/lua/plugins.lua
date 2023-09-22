@@ -42,8 +42,8 @@ packer.init {
 return packer.startup(function(use)
   -- Basic plugins
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
-  use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
-  use { "LionC/nest.nvim" } -- For defining key mappings
+  use { "nvim-lua/plenary.nvim" }  -- Useful lua functions used by lots of plugins
+  use { "LionC/nest.nvim" }        -- For defining key mappings
   use { "lewis6991/impatient.nvim" }
 
   -- Auto pairs
@@ -72,7 +72,8 @@ return packer.startup(function(use)
   use {
     "s1n7ax/nvim-window-picker",
     tag = 'v1.*',
-    config = function() require "window-picker".setup({
+    config = function()
+      require "window-picker".setup({
         selection_chars = 'ASRTNEIOCLUY'
       })
     end,
@@ -99,6 +100,9 @@ return packer.startup(function(use)
     "p00f/nvim-ts-rainbow",
     after = "nvim-treesitter"
   }
+
+  -- Scala
+  use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
 
   -- Fuzzy finder
   use {
@@ -136,7 +140,8 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim" }
   use {
     "Darazaki/indent-o-matic",
-    config = function() require('indent-o-matic').setup({
+    config = function()
+      require('indent-o-matic').setup({
         standard_widths = { 2, 4 },
         filetype_lua = {
           standard_widths = { 2 },
@@ -165,7 +170,8 @@ return packer.startup(function(use)
     -- cmd = "SessionManager",
     -- event = "BufWritePost",
     -- config = function() require('session_manager').setup() end,
-    config = function() require('session_manager').setup({
+    config = function()
+      require('session_manager').setup({
         -- Possible values: Disabled, CurrentDir, LastSession
         autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
       })
