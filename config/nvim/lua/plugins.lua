@@ -101,9 +101,6 @@ return packer.startup(function(use)
     after = "nvim-treesitter"
   }
 
-  -- Scala
-  use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } }
-
   -- Fuzzy finder
   use {
     "nvim-telescope/telescope.nvim",
@@ -137,17 +134,9 @@ return packer.startup(function(use)
   }
 
   -- Indentation
-  use { "lukas-reineke/indent-blankline.nvim" }
   use {
-    "Darazaki/indent-o-matic",
-    config = function()
-      require('indent-o-matic').setup({
-        standard_widths = { 2, 4 },
-        filetype_lua = {
-          standard_widths = { 2 },
-        },
-      })
-    end
+    "lukas-reineke/indent-blankline.nvim",
+    config = function() require "ibl-config" end,
   }
 
   -- Latex

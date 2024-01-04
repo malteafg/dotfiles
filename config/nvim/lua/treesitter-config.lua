@@ -1,6 +1,8 @@
 local status_ok, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status_ok then return end
 
+vim.g.skip_ts_context_commentstring_module = true
+
 treesitter.setup({
   ensure_installed = {},
   sync_install = false,
@@ -8,10 +10,6 @@ treesitter.setup({
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = { 'org' },
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
   },
   rainbow = {
     enable = true,
