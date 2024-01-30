@@ -183,6 +183,7 @@ nest.applyKeymaps {
   {
     mode = 'n',
     {
+      { '<tab>', 'za' },
       { 'Y',     'y$' },
 
       { 'n',     'nzzzv' },
