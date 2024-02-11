@@ -1,0 +1,343 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#5b6268"
+blue = "#3071db"
+cyan = "#46d9ff"
+green = "#4db5bd"
+magenta = "#a9a1e1"
+red = "#da8548"
+white = "#dfdfdf"
+yellow = "#ecbe7b"
+
+[colors.cursor]
+cursor = "#528bff"
+text = "CellBackground"
+
+[colors.normal]
+black = "#1c1f24"
+blue = "#51afef"
+cyan = "#5699af"
+green = "#98be65"
+magenta = "#c678dd"
+red = "#ff6c6b"
+white = "#abb2bf"
+yellow = "#da8548"
+
+[colors.primary]
+background = "#1c1f24"
+foreground = "#bbc2cf"
+
+[colors.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.normal]
+family = "DroidSansMono Nerd Font"
+
+[font.offset]
+x = 0
+y = 1
+
+[schemes.doom-one.bright]
+black = "#5b6268"
+blue = "#3071db"
+cyan = "#46d9ff"
+green = "#4db5bd"
+magenta = "#a9a1e1"
+red = "#da8548"
+white = "#dfdfdf"
+yellow = "#ecbe7b"
+
+[schemes.doom-one.cursor]
+cursor = "#528bff"
+text = "CellBackground"
+
+[schemes.doom-one.normal]
+black = "#1c1f24"
+blue = "#51afef"
+cyan = "#5699af"
+green = "#98be65"
+magenta = "#c678dd"
+red = "#ff6c6b"
+white = "#abb2bf"
+yellow = "#da8548"
+
+[schemes.doom-one.primary]
+background = "#1c1f24"
+foreground = "#bbc2cf"
+
+[schemes.doom-one.selection]
+background = "#3e4451"
+text = "CellForeground"
+
+[schemes.dracula.bright]
+black = "#4d4d4d"
+blue = "#caa9fa"
+cyan = "#9aedfe"
+green = "#5af78e"
+magenta = "#ff92d0"
+red = "#ff6e67"
+white = "#e6e6e6"
+yellow = "#f4f99d"
+
+[schemes.dracula.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[schemes.dracula.dim]
+black = "#14151b"
+blue = "#4d5b86"
+cyan = "#59dffc"
+green = "#1ef956"
+magenta = "#ff46b0"
+red = "#ff2222"
+white = "#e6e6d1"
+yellow = "#ebf85b"
+
+[schemes.dracula.line_indicator]
+background = "None"
+foreground = "None"
+
+[schemes.dracula.normal]
+black = "#000000"
+blue = "#bd93f9"
+cyan = "#8be9fd"
+green = "#50fa7b"
+magenta = "#ff79c6"
+red = "#ff5555"
+white = "#bfbfbf"
+yellow = "#f1fa8c"
+
+[schemes.dracula.primary]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[schemes.dracula.search.bar]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[schemes.dracula.search.focused_match]
+background = "#ffb86c"
+foreground = "#44475a"
+
+[schemes.dracula.search.matches]
+background = "#50fa7b"
+foreground = "#44475a"
+
+[schemes.dracula.selection]
+background = "#44475a"
+text = "CellForeground"
+
+[schemes.dracula.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[schemes.gruvbox-dark.bright]
+black = "#928374"
+blue = "#83a598"
+cyan = "#8ec07c"
+green = "#b8bb26"
+magenta = "#d3869b"
+red = "#fb4934"
+white = "#ebdbb2"
+yellow = "#fabd2f"
+
+[schemes.gruvbox-dark.normal]
+black = "#282828"
+blue = "#458588"
+cyan = "#689d6a"
+green = "#98971a"
+magenta = "#b16286"
+red = "#cc241d"
+white = "#a89984"
+yellow = "#d79921"
+
+[schemes.gruvbox-dark.primary]
+background = "#282828"
+foreground = "#ebdbb2"
+
+[schemes.monokai-pro.bright]
+black = "#727072"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[schemes.monokai-pro.normal]
+black = "#403E41"
+blue = "#FC9867"
+cyan = "#78DCE8"
+green = "#A9DC76"
+magenta = "#AB9DF2"
+red = "#FF6188"
+white = "#FCFCFA"
+yellow = "#FFD866"
+
+[schemes.monokai-pro.primary]
+background = "#2D2A2E"
+foreground = "#FCFCFA"
+
+[schemes.nord.bright]
+black = "#4C566A"
+blue = "#81A1C1"
+cyan = "#8FBCBB"
+green = "#A3BE8C"
+magenta = "#B48EAD"
+red = "#BF616A"
+white = "#ECEFF4"
+yellow = "#EBCB8B"
+
+[schemes.nord.normal]
+black = "#3B4252"
+blue = "#81A1C1"
+cyan = "#88C0D0"
+green = "#A3BE8C"
+magenta = "#B48EAD"
+red = "#BF616A"
+white = "#E5E9F0"
+yellow = "#EBCB8B"
+
+[schemes.nord.primary]
+background = "#2E3440"
+foreground = "#D8DEE9"
+
+[schemes.oceanic-next.bright]
+black = "#343d46"
+blue = "#6699cc"
+cyan = "#5fb3b3"
+green = "#99C794"
+magenta = "#c594c5"
+red = "#EC5f67"
+white = "#d8dee9"
+yellow = "#FAC863"
+
+[schemes.oceanic-next.cursor]
+cursor = "#ffffff"
+text = "#1b2b34"
+
+[schemes.oceanic-next.normal]
+black = "#343d46"
+blue = "#6699cc"
+cyan = "#5fb3b3"
+green = "#99C794"
+magenta = "#c594c5"
+red = "#EC5f67"
+white = "#d8dee9"
+yellow = "#FAC863"
+
+[schemes.oceanic-next.primary]
+background = "#1b2b34"
+foreground = "#d8dee9"
+
+[schemes.solarized-dark.bright]
+black = "#002b36"
+blue = "#839496"
+cyan = "#93a1a1"
+green = "#586e75"
+magenta = "#6c71c4"
+red = "#cb4b16"
+white = "#fdf6e3"
+yellow = "#657b83"
+
+[schemes.solarized-dark.cursor]
+cursor = "#839496"
+text = "#002b36"
+
+[schemes.solarized-dark.normal]
+black = "#073642"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#d33682"
+red = "#dc322f"
+white = "#eee8d5"
+yellow = "#b58900"
+
+[schemes.solarized-dark.primary]
+background = "#002b36"
+foreground = "#839496"
+
+[schemes.solarized-light.bright]
+black = "#002b36"
+blue = "#839496"
+cyan = "#93a1a1"
+green = "#586e75"
+magenta = "#6c71c4"
+red = "#cb4b16"
+white = "#fdf6e3"
+yellow = "#657b83"
+
+[schemes.solarized-light.cursor]
+cursor = "#657b83"
+text = "#fdf6e3"
+
+[schemes.solarized-light.normal]
+black = "#073642"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#d33682"
+red = "#dc322f"
+white = "#eee8d5"
+yellow = "#b58900"
+
+[schemes.solarized-light.primary]
+background = "#fdf6e3"
+foreground = "#657b83"
+
+[schemes.tomorrow-night.bright]
+black = "#666666"
+blue = "#81a2be"
+cyan = "#54ced6"
+green = "#9ec400"
+magenta = "#b77ee0"
+red = "#ff3334"
+white = "#282a2e"
+yellow = "#f0c674"
+
+[schemes.tomorrow-night.cursor]
+cursor = "#ffffff"
+text = "#1d1f21"
+
+[schemes.tomorrow-night.normal]
+black = "#1d1f21"
+blue = "#81a2be"
+cyan = "#70c0ba"
+green = "#b5bd68"
+magenta = "#b294bb"
+red = "#cc6666"
+white = "#373b41"
+yellow = "#e6c547"
+
+[schemes.tomorrow-night.primary]
+background = "#111111"
+foreground = "#c5c8c6"
+
+[scrolling]
+history = 10000
+
+[window]
+decorations = "full"
+dynamic_title = true
+opacity = 0.9
+startup_mode = "Windowed"
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 0
+lines = 0
