@@ -18,7 +18,7 @@ map('v', '<c-i>', '<nop>')
 
 nest.applyKeymaps {
   { '<leader>', {
-    { 'h', '<cmd>set hlsearch!<cr>' },
+    { 'b', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
     { 't', '<cmd>Neotree focus<cr>' },
     { 'c', '<cmd>lua vim.lsp.buf.format()<cr><cmd>w<cr>' },
@@ -63,7 +63,7 @@ nest.applyKeymaps {
 
     -- Buffer controls
     {
-      'b',
+      'h',
       mode = 'nv',
       {
         { 'e', '<cmd>BufferLinePick<cr>' },
@@ -71,14 +71,15 @@ nest.applyKeymaps {
         { 'q', '<cmd>BufferLineCloseLeft<cr>' },
         { 'l', '<cmd>BufferLineCloseRight<cr>' },
         { 's', function() require("telescope.builtin").buffers() end },
-        { '>', '<cmd>BufferLineMoveNext<cr>' },
-        { '<', '<cmd>BufferLineMovePrev<cr>' },
+        { 'u', '<cmd>BufferLineMoveNext<cr>' },
+        { 'y', '<cmd>BufferLineMovePrev<cr>' },
+        { 'r', '<cmd>bd<cr>' },
       }
     },
 
     -- Session manager
     {
-      'S',
+      's',
       mode = 'nv',
       {
         { 'l', '<cmd>SessionManager! load_last_session<cr>' },
