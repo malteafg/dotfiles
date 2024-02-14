@@ -132,6 +132,9 @@ return packer.startup(function(use)
     after = "nvim-web-devicons",
     config = function() require "feline-config" end,
   }
+  use {
+    "moll/vim-bbye",
+  }
 
   -- Indentation
   use {
