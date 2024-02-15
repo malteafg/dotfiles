@@ -53,6 +53,10 @@ return packer.startup(function(use)
   }
 
   use {
+    "PeterRincker/vim-argumentative"
+  }
+
+  use {
     "vimwiki/vimwiki",
   }
 

@@ -18,9 +18,9 @@ bind('n', '<F3>', '<cmd>lua vim.lsp.buf.hover()<cr>', noremap)
 bind('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', noremap)
 bind('n', '<F7>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', noremap)
 
-bind('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', noremap)
-bind('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>', noremap)
-bind('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>', noremap)
+-- bind('n', '<leader>do', '<cmd>lua vim.diagnostic.open_float()<cr>', noremap)
+bind('n', '<c-u>', '<cmd>lua vim.diagnostic.goto_prev()<cr>', noremap)
+bind('n', '<c-y>', '<cmd>lua vim.diagnostic.goto_next()<cr>', noremap)
 
 lsp.setup()
 
