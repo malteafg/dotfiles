@@ -140,9 +140,6 @@ nest.applyKeymaps {
       -- Move text
       { '<c-k>', '<cmd>m .-2<cr>==' },
       { '<c-j>', '<cmd>m .+1<cr>==' },
-
-      { '<c-e>', '],wvi,'},
-      { '<c-n>', '[,bvi,'},
     }
   },
 
@@ -153,9 +150,6 @@ nest.applyKeymaps {
       -- Move text
       { '<c-k>', ":m '<-2<cr>gv=gv" },
       { '<c-j>', ":m '>+1<cr>gv=gv" },
-
-      { '<c-e>', '<esc>],wvi,'},
-      { '<c-n>', '<esc>[,bvi,'},
     }
   },
 
