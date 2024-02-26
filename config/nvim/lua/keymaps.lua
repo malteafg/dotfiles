@@ -22,7 +22,9 @@ nest.applyKeymaps {
     { 'e', '<cmd>Neotree toggle<cr>' },
     { 't', '<cmd>Neotree focus<cr>' },
     { 'c', '<cmd>lua vim.lsp.buf.format()<cr><cmd>w<cr>' },
-    { 'q', 'gwip' },
+    -- { 'q', 'gwip' },
+    { 'q', '<cmd>q<cr>' },
+    { 'g', '<cmd>Git<cr>' },
     { '/', function() require("Comment.api").toggle.linewise.current() end },
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
 
@@ -61,16 +63,9 @@ nest.applyKeymaps {
       'h',
       mode = 'nv',
       {
-        { 'e', '<cmd>BufferLinePick<cr>' },
-        { 'c', '<cmd>BufferLinePickClose<cr>' },
-        { 'q', '<cmd>BufferLineCloseLeft<cr>' },
-        { 'l', '<cmd>BufferLineCloseRight<cr>' },
         { 's', function() require("telescope.builtin").buffers() end },
-        { 'U', '<cmd>BufferLineMovePrev<cr>' },
-        { 'Y', '<cmd>BufferLineMoveNext<cr>' },
-        { 'u', '<cmd>BufferLineCyclePrev<cr>' },
-        { 'y', '<cmd>BufferLineCycleNext<cr>' },
         { 'r', '<cmd>Bdelete<cr>' },
+        { 'o', '<cmd>b#<cr>'},
       }
     },
 
@@ -101,15 +96,15 @@ nest.applyKeymaps {
     },
 
     -- Git
-    {
-      'g',
-      mode = 'nv',
-      {
-        { 's', function() require("telescope.builtin").git_status() end },
-        { 'b', function() require("telescope.builtin").git_branches() end },
-        { 'c', function() require("telescope.builtin").git_commits() end },
-      }
-    },
+    -- {
+    --   'g',
+    --   mode = 'nv',
+    --   {
+    --     { 's', function() require("telescope.builtin").git_status() end },
+    --     { 'b', function() require("telescope.builtin").git_branches() end },
+    --     { 'c', function() require("telescope.builtin").git_commits() end },
+    --   }
+    -- },
 
     -- Open lines
     { 'o', '<cmd>call append(line("."), repeat([""], v:count1))<cr>' },

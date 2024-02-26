@@ -46,29 +46,30 @@ return packer.startup(function(use)
   use { "LionC/nest.nvim" }        -- For defining key mappings
   use { "lewis6991/impatient.nvim" }
 
+  use { "PeterRincker/vim-argumentative" }
+  use { "tpope/vim-fugitive" }
+  use { "vimwiki/vimwiki" }
+  use { "kyazdani42/nvim-web-devicons" }
+  use { "moll/vim-bbye" }
+
+  use { "lervag/vimtex" }
+  use { "bluz71/vim-nightfly-guicolors" }
+
   -- Auto pairs
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end,
   }
 
-  use {
-    "PeterRincker/vim-argumentative"
-  }
-
-  use {
-    "vimwiki/vimwiki",
-  }
-
   -- Tree file manager
-  use { "kyazdani42/nvim-web-devicons" }
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v2.x",
-    module = "neo-tree",
-    cmd = "Neotree",
-    requires = { { "MunifTanjim/nui.nvim", module = "nui" } },
-    setup = function() vim.g.neo_tree_remove_legacy_commands = true end,
+    branch = "v3.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    },
     config = function() require "neo-tree-config" end,
   }
 
@@ -125,19 +126,10 @@ return packer.startup(function(use)
     after = "nvim-treesitter"
   }
 
-  -- Bufferline
   use {
-    "akinsho/bufferline.nvim",
-    after = "nvim-web-devicons",
-    config = function() require "bufferline-config" end,
-  }
-  use {
-    "feline-nvim/feline.nvim",
+    "freddiehaddad/feline.nvim",
     after = "nvim-web-devicons",
     config = function() require "feline-config" end,
-  }
-  use {
-    "moll/vim-bbye",
   }
 
   -- Indentation
@@ -146,13 +138,6 @@ return packer.startup(function(use)
     config = function() require "ibl-config" end,
   }
 
-  -- Latex
-  use { "lervag/vimtex" }
-
-  -- Colorschemes
-  use 'bluz71/vim-nightfly-guicolors'
-  --  use { "folke/tokyonight.nvim", commit = "8223c970677e4d88c9b6b6d81bda23daf11062bb" }
-  --  use { "lunarvim/darkplus.nvim", commit = "2584cdeefc078351a79073322eb7f14d7fbb1835" }
   use {
     "stevearc/dressing.nvim",
     event = "VimEnter",
