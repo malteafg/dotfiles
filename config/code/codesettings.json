@@ -5,21 +5,8 @@
     "vim.useSystemClipboard": true,
     "editor.minimap.enabled": false,
     "editor.rulers": [
-        80
+        100
     ],
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-    "tlaplus.tlc.modelChecker.options": "-dump dot:colorize ${modelName}.dot -deadlock",
-    "[tlaplus]": {
-        "editor.codeActionsOnSave": {
-            "source": true
-        }
-    },
-    "[python]": {
-        "editor.formatOnType": true
-    },
-    "git.ignoreMissingGitWarning": true,
-    "files.associations": {
-        "*.trp": "sml"
-    }
+    "terminal.integrated.enableMultiLinePasteWarning": false
 }
