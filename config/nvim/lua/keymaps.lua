@@ -28,6 +28,7 @@ nest.applyKeymaps {
     { '/', function() require("Comment.api").toggle.linewise.current() end },
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
 
+
     -- Window controls
     {
       'w',
@@ -87,15 +88,18 @@ nest.applyKeymaps {
       }
     },
 
-    -- Files
+    -- Telescope
     {
       'f',
       mode = 'nv',
       {
         { 'f', function() require("telescope.builtin").find_files() end },
-        { 'p', function() require("telescope.builtin").registers() end },
-        { 'c', function() require("telescope.builtin").grep_string() end },
-        { 'w', function() require("telescope.builtin").live_grep() end },
+        { 'F', function() require("telescope.builtin").find_files({hidden=true, no_ignore=true}) end },
+        { 'g', function() require("telescope.builtin").git_files() end },
+        { 'r', function() require("telescope.builtin").registers() end },
+        { 'c', function() require("telescope.builtin").commands() end },
+        { 's', function() require("telescope.builtin").grep_string() end },
+        { 'S', function() require("telescope.builtin").live_grep() end },
       }
     },
 
