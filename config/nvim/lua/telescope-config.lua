@@ -86,6 +86,18 @@ telescope.setup({
       },
     },
   },
-  pickers = {},
+  pickers = {
+    buffers = {
+      show_all_buffers = true,
+      sort_lastused = true,
+      -- theme = "dropdown",
+      previewer = true,
+      mappings = {
+        i = {
+          ["<C-w>"] = "delete_buffer",
+        }
+      }
+    }
+  },
   extensions = {},
 })

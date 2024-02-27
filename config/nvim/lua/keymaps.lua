@@ -20,7 +20,7 @@ nest.applyKeymaps {
   { '<leader>', {
     { 'b', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
-    { 't', '<cmd>Neotree focus<cr>' },
+    -- { 't', '<cmd>Neotree focus<cr>' },
     { 'c', '<cmd>lua vim.lsp.buf.format()<cr><cmd>w<cr>' },
     -- { 'q', 'gwip' },
     { 'q', '<cmd>q<cr>' },
@@ -42,7 +42,10 @@ nest.applyKeymaps {
         { 'i', '<c-w><c-l>' },
         { 'n', '<c-w><c-j>' },
         { 'e', '<c-w><c-k>' },
+        { 'w', '<c-w>w' },
         { 'o', '<c-w>o' },
+        { 's', '<c-w>s' },
+        { 'v', '<c-w>v' },
         -- Window movement
         { 'r', '<c-w>r' },
         { 'R', '<c-w>R' },
@@ -50,11 +53,11 @@ nest.applyKeymaps {
         -- Resizing
         { '=', '<c-w>=' },
         { '-', '<c-w>-' },
-        { '+', '<c-w>+' },
-        { '>', '<c-w>>' },
-        { '<', '<c-w><' },
-        { '_', '<c-w>_' },
-        { '|', '<c-w>|' },
+        { '_', '<c-w>+' },
+        { 'u', '<c-w><' },
+        { 'y', '<c-w>>' },
+        -- { '_', '<c-w>_' },
+        -- { '|', '<c-w>|' },
       }
     },
 
@@ -64,6 +67,7 @@ nest.applyKeymaps {
       mode = 'nv',
       {
         { 's', function() require("telescope.builtin").buffers() end },
+        { 'x', function() require("telescope.actions").delete_buffer() end },
         { 'r', '<cmd>Bdelete<cr>' },
         { 'o', '<cmd>b#<cr>'},
       }
@@ -92,6 +96,19 @@ nest.applyKeymaps {
         { 'p', function() require("telescope.builtin").registers() end },
         { 'c', function() require("telescope.builtin").grep_string() end },
         { 'w', function() require("telescope.builtin").live_grep() end },
+      }
+    },
+
+    -- Tabs
+    {
+      't',
+      mode = 'nv',
+      {
+        { 'u', 'gT' },
+        { 'y', 'gt' },
+        { 'n', '<cmd>tabnew<cr>' },
+        { 'c', '<cmd>tabclose<cr>' },
+        { 'w', '<C-w>T' },
       }
     },
 
