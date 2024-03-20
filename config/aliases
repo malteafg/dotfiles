@@ -163,8 +163,12 @@ function pac() {
 }
 
 function pacr() {
-    PACS=$(pacman -Ssq | fzf -m --preview="pacman -Qi {}")
+    PACS=$(pacman -Q | fzf -m --preview="pacman -Qi {}")
     (($?)) || xargs -a <(echo $PACS) sudo pacman -R
+}
+
+function pacl() {
+    pacman -Q | fzf -m --preview="pacman -Qi {1}"
 }
  
 function ex () {

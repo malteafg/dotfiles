@@ -1,5 +1,6 @@
 vim.cmd("let g:vimtex_view_method = 'zathura'")
 vim.cmd('let g:vimtex_syntax_conceal_disable = 1')
+vim.cmd("let g:vimtex_compiler_latexmk = { 'build_dir' : 'build', }")
 
 vim.cmd('autocmd FileType tex inoremap ,sl \\begin{frame}<Enter>\\frametitle{}<Enter><Enter>(<>)<Enter><Enter>\\end{frame}<Enter><Enter>(<>)<Esc>6kf}i')
 

@@ -8,5 +8,6 @@
         100
     ],
     "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-    "terminal.integrated.enableMultiLinePasteWarning": false
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "cmake.showOptionsMovedNotification": false
 }

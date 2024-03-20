@@ -22,7 +22,7 @@ nest.applyKeymaps {
     { 'e', '<cmd>Neotree toggle<cr>' },
     -- { 't', '<cmd>Neotree focus<cr>' },
     { 'c', '<cmd>lua vim.lsp.buf.format()<cr><cmd>w<cr>' },
-    -- { 'q', 'gwip' },
+    { 'l', 'gwip' },
     { 'q', '<cmd>q<cr>' },
     { 'g', '<cmd>Git<cr>' },
     { '/', function() require("Comment.api").toggle.linewise.current() end },
