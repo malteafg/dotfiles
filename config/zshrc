@@ -60,9 +60,9 @@ PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 . $HOME/dotfiles/config/aliases
 
 # BINDINGS #####################################################################
-bindkey -s '^t' 'of -he\n'
+bindkey -s '^t' '^uof -he\n'
 alias tj='source tj'
-bindkey -s '^w' 'source tj -he\n'
+bindkey -s '^w' '^usource tj -he\n'
 
 # MISC #########################################################################
 # . "$HOME/.cargo/env"
@@ -110,19 +110,3 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
 	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
 	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/malte/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/malte/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/malte/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/malte/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
