@@ -1,6 +1,6 @@
 #! /bin/sh
 
-export PATH="$HOME/malteos/scripts:$HOME/malteos/scripts/wm:$HOME/malteos/scripts/dmenu:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/malteos/scripts:$HOME/malteos/scripts/wm:$HOME/malteos/scripts/dmenu:$HOME/malteos/scripts/standalone:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 # Defaults
 export TERMI="alacritty"
@@ -16,10 +16,3 @@ export MON_SCRIPT="$HOME/.local/share/malteos/monitorscript"
 source $HOME/.local/share/malteos/localsetup
 
 . "$HOME/.cargo/env"
-
-# opam configuration
-test -r /home/malte/.opam/opam-init/init.sh && . /home/malte/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-# >>> coursier install directory >>>
-export PATH="$PATH:/home/malte/.local/share/coursier/bin"
-# <<< coursier install directory <<<
