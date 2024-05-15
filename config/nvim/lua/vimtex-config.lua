@@ -4,8 +4,8 @@ vim.cmd("let g:vimtex_compiler_latexmk = { 'build_dir' : 'build', }")
 
 -- vim.cmd(
 --   'autocmd FileType tex inoremap ,sl \\begin{frame}<Enter>\\frametitle{}<Enter><Enter>(<>)<Enter><Enter>\\end{frame}<Enter><Enter>(<>)<Esc>6kf}i')
--- vim.cmd(
---   'autocmd FileType tex inoremap ,im \\begin{figure}[h]<Enter>\\includegraphics[]{}<Enter>\\centering<Enter>\\end{figure}<Esc>2kf{a')
+vim.cmd(
+  'autocmd FileType tex inoremap ,im \\begin{figure}[h]<Enter>\\includegraphics[]{}<Enter>\\centering<Enter>\\end{figure}<Esc>2kf{a')
 
 vim.cmd('autocmd FileType tex inoremap ,mt \\begin{matrix}  \\end{matrix}<Esc>Bhi')
 vim.cmd('autocmd FileType tex inoremap ,mp \\begin{pmatrix}  \\end{pmatrix}<Esc>Bhi')
