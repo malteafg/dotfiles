@@ -86,24 +86,29 @@ return packer.startup(function(use)
 
   -- Treesitter
   use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-    event = { "BufRead", "BufNewFile" },
-    cmd = {
-      "TSInstall",
-      "TSInstallInfo",
-      "TSInstallSync",
-      "TSUninstall",
-      "TSUpdate",
-      "TSUpdateSync",
-      "TSDisableAll",
-      "TSEnableAll",
-    },
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
     config = function() require "treesitter-config" end,
   }
   use {
     "p00f/nvim-ts-rainbow",
     after = "nvim-treesitter"
+  }
+
+  -- Movement
+  use {
+    "folke/flash.nvim",
+    opts = {},
+    -- keys = {
+    --   { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    --   { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    --   { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+    --   { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    --   { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    -- },
   }
 
   -- Fuzzy finder
@@ -118,7 +123,6 @@ return packer.startup(function(use)
   use {
     "numToStr/Comment.nvim",
     module = { "Comment", "Comment.api" },
-    keys = { "gc", "gb", "g<", "g>" },
     config = function() require "comment-config" end,
   }
   use {

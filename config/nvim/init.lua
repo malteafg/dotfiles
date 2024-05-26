@@ -6,7 +6,7 @@ require('vimtex-config')
 require('vimwiki-config')
 
 -- These bindings dont work with nest plugin for some reason
-vim.cmd('nmap <c-e> ],wvi,')
-vim.cmd('nmap <c-n> [,bvi,')
-vim.cmd('xmap <c-e> <esc>],wvi,')
-vim.cmd('xmap <c-n> <esc>[,bvi,')
+vim.cmd('nmap g. [,bvi,')
+vim.cmd('nmap g/ ],wvi,')
+vim.cmd('xmap g. <esc>[,bvi,')
+vim.cmd('xmap g/ <esc>],wvi,')

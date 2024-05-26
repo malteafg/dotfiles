@@ -9,6 +9,7 @@ vim.cmd('set expandtab')
 vim.cmd('set autoindent')
 
 vim.cmd('set noshowmode')
+vim.cmd('set nohlsearch')
 vim.cmd('set colorcolumn=101')
 vim.cmd('set textwidth=100')
 vim.cmd('set splitbelow')

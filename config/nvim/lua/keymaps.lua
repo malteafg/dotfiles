@@ -9,14 +9,25 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
+function InsertLocalLeaderFallback()
+  local char = ','
+  if vim.fn.mapcheck('<LocalLeader>', 'i') == '' then
+    return char
+  else
+    return vim.api.nvim_replace_termcodes('<LocalLeader>', true, true, true)
+  end
+end
+
+vim.api.nvim_set_keymap('i', ',', 'v:lua.InsertLocalLeaderFallback()', {expr = true, noremap = true})
+
 map('n', '<space>', '<nop>')
 vim.g.mapleader = ' '
-map('n', ',', '<nop>')
-vim.g.maplocalleader = ','
-map('n', '<c-i>', '<nop>')
-map('v', '<c-i>', '<nop>')
+map('n', '<enter>', '<nop>')
 
 nest.applyKeymaps {
+  {
+    { 'r', function() require("flash").remote() end, mode = 'o' },
+  },
   { '<leader>', {
     { 'b', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
@@ -27,7 +38,7 @@ nest.applyKeymaps {
     { 'g', '<cmd>Git<cr>' },
     { '/', function() require("Comment.api").toggle.linewise.current() end },
     { '/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", mode = 'v' },
-
+    { 'x', function() require("flash").treesitter() end, mode = 'nxo' },
 
     -- Window controls
     {
@@ -100,6 +111,7 @@ nest.applyKeymaps {
         { 'c', function() require("telescope.builtin").commands() end },
         { 's', function() require("telescope.builtin").grep_string() end },
         { 'S', function() require("telescope.builtin").live_grep() end },
+        { 't', function() require("flash").toggle() end },
       }
     },
 
@@ -115,17 +127,6 @@ nest.applyKeymaps {
         { 'w', '<C-w>T' },
       }
     },
-
-    -- Git
-    -- {
-    --   'g',
-    --   mode = 'nv',
-    --   {
-    --     { 's', function() require("telescope.builtin").git_status() end },
-    --     { 'b', function() require("telescope.builtin").git_branches() end },
-    --     { 'c', function() require("telescope.builtin").git_commits() end },
-    --   }
-    -- },
 
     -- Open lines
     { 'o', '<cmd>call append(line("."), repeat([""], v:count1))<cr>' },
@@ -171,12 +172,21 @@ nest.applyKeymaps {
 
   -- Disable arrow keys
   {
-    mode = 'ni',
+    mode = 'nvi',
     {
       { '<up>',    '<nop>' },
       { '<down>',  '<nop>' },
       { '<left>',  '<nop>' },
       { '<right>', '<nop>' },
+    }
+  },
+  {
+    mode = 'nv',
+    {
+      { 'h', '<nop>' },
+      -- { 'j', '<nop>' },
+      -- { 'k', '<nop>' },
+      { 'l', '<nop>' },
     }
   },
 }
