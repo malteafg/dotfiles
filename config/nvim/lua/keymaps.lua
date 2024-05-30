@@ -9,20 +9,10 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function InsertLocalLeaderFallback()
-  local char = ','
-  if vim.fn.mapcheck('<LocalLeader>', 'i') == '' then
-    return char
-  else
-    return vim.api.nvim_replace_termcodes('<LocalLeader>', true, true, true)
-  end
-end
-
-vim.api.nvim_set_keymap('i', ',', 'v:lua.InsertLocalLeaderFallback()', {expr = true, noremap = true})
-
 map('n', '<space>', '<nop>')
 vim.g.mapleader = ' '
 map('n', '<enter>', '<nop>')
+vim.g.maplocalleader = '_'
 
 nest.applyKeymaps {
   {
