@@ -18,13 +18,6 @@ alias mv='mv -i'
 function copy() { xclip -sel c < "$1"; }
 function paste() { xclip -o > "$1"; }
 
-# AU vpn
-CISCO='/opt/cisco/anyconnect/bin/vpn'
-alias auconnect='$CISCO -s connect remote.au.dk/AU-ACCESS'
-alias audisconnect='$CISCO -s disconnect remote.au.dk/AU-ACCESS'
-alias ciscostate='$CISCO state'
-function ciscovpn() { $CISCO "$@"; }
-
 # List files and stuff #########################################################
 alias ls='exa --color=always --group-directories-first'
 alias la='exa -a --color=always --group-directories-first'
@@ -107,46 +100,42 @@ alias goa='git remote add'
 alias gor='git remote rm'
 
 # Git stuff for mr #############################################################
-function ci() { mr -d $HOME -n 2 record }
-function st() { mr -d $HOME -i -n 2 -j6 status }
-function add() { mr -d $HOME -n 2 -j6 run command git add --all }
+MR_DEFAULT_PATH="$HOME/dotfiles/config/myrepos/default.mrconfig"
+function ci() { mr -d $HOME -c $MR_DEFAULT_PATH -n 2 record }
+function st() { mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 status }
+function addall() { mr -d $HOME -c $MR_DEFAULT_PATH -n 2 -j9 run command git add --all }
 
 function fetch() {
     eval `ssh-agent` && ssh-add
-    mr -d $HOME -i -n 2 -j6 fetch
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 fetch
     kill $SSH_AGENT_PID
 }
 
 function pull() {
     eval `ssh-agent` && ssh-add
-    mr -d $HOME -i -n 2 -j6 update
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 update
     kill $SSH_AGENT_PID
 }
 
 function push() {
     eval `ssh-agent` && ssh-add
-    mr -d $HOME -i -n 2 -j6 push
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 push
     kill $SSH_AGENT_PID
 }
 
-# Templates ####################################################################
-function mktex() {
-    if [[ $# = 0 ]]; then
-        echo "Enter name of project"
-    else
-        mkdir $1
-        cp "$HOME/dotfiles/templates/latex.tex" "$1/main.tex"
-    fi
-}
+MR_LARGE_PATH="$HOME/dotfiles/config/myrepos/large.mrconfig"
+function lci() { mr -d $HOME -c $MR_LARGE_PATH -n 2 record }
+function lst() { mr -d $HOME -c $MR_LARGE_PATH -i -n 2 -j9 status }
+function laddall() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 run command git add --all }
+function lfetch() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 fetch }
+function lpull() { mr -d $HOME -c $MR_LARGE_PATH -i -n 2 -j9 update }
+function lpush() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 push }
 
-function mkslides() {
-    if [[ $# = 0 ]]; then
-        echo "Enter name of project"
-    else
-        mkdir $1
-        cp "$HOME/dotfiles/templates/slides.tex" "$1/main.tex"
-    fi
-}
+# Mounting #####################################################################
+
+MOUNT_LOC="$HOME/mnt/"
+alias mt="sudo mount -o uid=$(id -u),gid=$(id -g) $1 $2"
+alias umt="sudo umount $MOUNT_LOC"
 
 # Convenient commands ##########################################################
 function mvr() {

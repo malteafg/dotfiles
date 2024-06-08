@@ -1,0 +1,14 @@
+[$HOME/repos/gfkl]
+checkout = git clone git@github.com:malteafg/gfkl.git
+
+[$HOME/dotfiles]
+checkout = git clone git@github.com:malteafg/dotfiles.git
+
+[$HOME/malteos]
+checkout = git clone git@github.com:malteafg/malteos.git
+
+[$HOME/.password-store]
+checkout = git clone git@github.com:malteafg/passwords.git
+
+[$HOME/files]
+checkout = git clone git@github.com:malteafg/files.git

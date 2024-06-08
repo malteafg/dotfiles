@@ -1,0 +1,2 @@
+[$HOME/largefiles/music]
+checkout = git clone $HOME/mnt/repos/music

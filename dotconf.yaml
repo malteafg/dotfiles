@@ -19,7 +19,8 @@
     ~/.config/nushell/env.nu: config/nushell/env.nu
     ~/.config/nushell/config.nu: config/nushell/config.nu
 
-    ~/.mrconfig: config/mrconfig
+    # ~/.default.mrconfig: config/myrepos/default.mrconfig
+    ~/.mrtrust: config/myrepos/mrtrust
     ~/.gitconfig: config/gitconfig
 
     ~/.rustfmt.toml: config/rustfmt.toml
@@ -33,7 +34,7 @@
 
     ~/.gnupg/gpg-agent.conf: config/gpg-agent.conf
     ~/.config/mpv: config/mpv
-    ~/.config/alacritty/alacritty.yml: config/alacritty.yml
+    # ~/.config/alacritty/alacritty.yml: config/alacritty.yml
     ~/.config/alacritty/alacritty.toml: config/alacritty.toml
     ~/.config/fd/ignore: config/fdignore
     ~/.config/zathura/zathurarc: config/zathurarc
