@@ -1,5 +1,0 @@
-[$HOME/largefiles/music]
-checkout = git clone $HOME/mnt/repos/music
-
-[$HOME/largefiles/videos]
-checkout = git clone $HOME/mnt/repos/videos

@@ -19,8 +19,6 @@
     ~/.config/nushell/env.nu: config/nushell/env.nu
     ~/.config/nushell/config.nu: config/nushell/config.nu
 
-    # ~/.default.mrconfig: config/myrepos/default.mrconfig
-    ~/.mrtrust: config/myrepos/mrtrust
     ~/.gitconfig: config/gitconfig
 
     ~/.rustfmt.toml: config/rustfmt.toml

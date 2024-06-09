@@ -58,6 +58,9 @@ PROMPT='$(directory_name)${vcs_info_msg_0_} %# '
 . /usr/share/fzf/completion.zsh
 . /usr/share/fzf/key-bindings.zsh
 . $HOME/dotfiles/config/aliases
+if [[ -f "$HOME/malteos/config/aliases" ]]; then
+    . $HOME/malteos/config/aliases
+fi
 
 # BINDINGS #####################################################################
 bindkey -s '^t' '^uof -he\n'
