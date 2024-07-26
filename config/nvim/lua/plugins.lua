@@ -202,13 +202,6 @@ return packer.startup(function(use)
     }
   }
 
-  use {
-    'simrat39/rust-tools.nvim',
-    config = function()
-      require('rust-tools').setup()
-    end,
-  }
-
   use { "jose-elias-alvarez/null-ls.nvim", lazy = true }
 
   -- Git stuff
