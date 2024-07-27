@@ -41,11 +41,11 @@ nest.applyKeymaps {
         end },
         -- Movement
         { 'h', '<c-w><c-h>' },
-        { 'i', '<c-w><c-l>' },
+        { 'o', '<c-w><c-l>' },
         { 'n', '<c-w><c-j>' },
         { 'e', '<c-w><c-k>' },
         { 'w', '<c-w>w' },
-        { 'o', '<c-w>o' },
+        { 'i', '<c-w>o' },
         { 's', '<c-w>s' },
         { 'v', '<c-w>v' },
         -- Window movement
@@ -71,7 +71,7 @@ nest.applyKeymaps {
         { 's', function() require("telescope.builtin").buffers() end },
         { 'x', function() require("telescope.actions").delete_buffer() end },
         { 'r', '<cmd>Bdelete<cr>' },
-        { 'o', '<cmd>b#<cr>'},
+        { 'i', '<cmd>b#<cr>'},
       }
     },
 
