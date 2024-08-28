@@ -19,6 +19,7 @@ nest.applyKeymaps {
     { 'r', function() require("flash").remote() end, mode = 'o' },
   },
   { '<leader>', {
+    { 'r', function() require("flash").jump() end, mode = 'nv' },
     { 'b', '<cmd>set hlsearch!<cr>' },
     { 'e', '<cmd>Neotree toggle<cr>' },
     -- { 't', '<cmd>Neotree focus<cr>' },
