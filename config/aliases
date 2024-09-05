@@ -95,10 +95,6 @@ alias grbc='git rebase --continue'
 
 alias grm='git rm'
 
-alias go='git remote'
-alias goa='git remote add'
-alias gor='git remote rm'
-
 # Mounting #####################################################################
 
 MOUNT_LOC="$HOME/mnt/"
