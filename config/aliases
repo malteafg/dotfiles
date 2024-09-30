@@ -19,15 +19,15 @@ function copy() { xclip -sel c < "$1"; }
 function paste() { xclip -o > "$1"; }
 
 # List files and stuff #########################################################
-alias ls='exa --color=always --group-directories-first'
-alias la='exa -a --color=always --group-directories-first'
-alias l='exa -alF --color=always --group-directories-first'
-alias l.='exa -a | grep -e "^\."'
+alias ls='eza --color=always --group-directories-first'
+alias la='eza -a --color=always --group-directories-first'
+alias l='eza -alF --color=always --group-directories-first'
+alias l.='eza -a | grep -e "^\."'
 function lt() {
     if [[ $1 =~ ^[0-9]+$ ]]; then
-        exa -aT --level="$1" --color=always --group-directories-first $2
+        eza -aT --level="$1" --color=always --group-directories-first $2
     else
-        exa -aT --color=always --group-directories-first $1
+        eza -aT --color=always --group-directories-first $1
     fi
 }
 function lds() { du -h --max-depth=1 $@ }
