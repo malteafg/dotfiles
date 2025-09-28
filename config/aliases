@@ -6,6 +6,7 @@ alias sudo='sudo '
 alias z='zathura'
 alias v='nvim'
 alias sv='sudo -E -s nvim'
+alias btop='btop --force-utf'
 
 alias rb='source ~/.zshrc'
 alias rgpg='gpg-connect-agent reloadagent /bye'

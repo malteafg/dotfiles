@@ -93,10 +93,10 @@ return packer.startup(function(use)
     end,
     config = function() require "treesitter-config" end,
   }
-  use {
-    "p00f/nvim-ts-rainbow",
-    after = "nvim-treesitter"
-  }
+  -- use {
+  --   "p00f/nvim-ts-rainbow",
+  --   after = "nvim-treesitter"
+  -- }
 
   -- Movement
   use {
@@ -128,12 +128,6 @@ return packer.startup(function(use)
   use {
     "JoosepAlviste/nvim-ts-context-commentstring",
     after = "nvim-treesitter"
-  }
-
-  use {
-    "freddiehaddad/feline.nvim",
-    after = "nvim-web-devicons",
-    config = function() require "feline-config" end,
   }
 
   -- Indentation
