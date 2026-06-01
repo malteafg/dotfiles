@@ -2,4 +2,7 @@
 
 xset r rate 200 25
 
+systemctl --user import-environment DISPLAY XAUTHORITY
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
 exec bspwm
